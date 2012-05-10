@@ -15,6 +15,7 @@
  *	2008-Sep-10		GT - Fixed problem with block gaps placed at the end of curves
  *	2009-Oct-8		GT - Added support for curved tracks (introduced since JMRI 2.7.7)
  *	2010-Apr-6		GT - Fixed problem with curved turnouts (undefined end points)
+ *  2012-May-10     MST- Preserve turnoutname for curved turnouts, handle missing title 
  */
 import java.util.*;
 import java.io.*;
@@ -47,8 +48,7 @@ public class XtrkCadReader {
 	static Scanner line = null;
 	static String keyword;
 
-	// Set up a default name, just in case no title is found in the XtrkCad file
-	static String layoutName = " Converted XtrkCad layout";
+	static String layoutName = "";
 	
 	// Coordinates conversion
 	static double originalHeight = 600.0;
@@ -244,8 +244,9 @@ public class XtrkCadReader {
 					keyword = line.next();
 					// Analyze the first level keyword
 					if(keyword.equals("TITLE1")) {
-						layoutName = line.next();
-						while (line.hasNext()) layoutName += " " + line.next();
+						//get layoutname from title element, set default if nothing found
+						while (line.hasNext()) layoutName += line.next() + " ";
+						if (layoutName.equals("")) layoutName = "Converted XTrackCad layout";
 						System.out.println("\t\tLayout title: " + layoutName);
 						layoutName = layoutName.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;").replace("'", "&apos;").replace("\"", "&quot;");
 					} else if(keyword.equals("ROOMSIZE")) {
@@ -408,6 +409,7 @@ public class XtrkCadReader {
 							maxNumber++;
 							newTrack = new XtrkCadElement();
 							newTrack.trackType = TURNOUT;
+							newTrack.description = track.description;  //set description to keep turnoutname
 							newTrack.visible = track.visible;
 							newTrack.layer = track.layer;
 							newTrack.turnoutType = track.turnoutType - 3; // Left or right hand
