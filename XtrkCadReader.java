@@ -16,6 +16,7 @@
  *	2009-Oct-8		GT - Added support for curved tracks (introduced since JMRI 2.7.7)
  *	2010-Apr-6		GT - Fixed problem with curved turnouts (undefined end points)
  *  2012-May-10     MST- Preserve turnoutname for curved turnouts, handle missing title 
+ *  2013-Jan-14     MST- Change defaults regarding turnout appearance 
  */
 import java.util.*;
 import java.io.*;
@@ -27,12 +28,13 @@ public class XtrkCadReader {
 		"<?xml-stylesheet href=\"http://jmri.sourceforge.net/xml/XSLT/panelfile.xsl\" type=\"text/xsl\"?>\n" +
 		"<!DOCTYPE layout-config SYSTEM \"layout-config.dtd\">\n" +
 		"<layout-config>\n<!--\n\nXtrkCadReader - XtrkCad to JMRI Layout Editor format conversion utility\n" +
-		"Revision 2.0\n";
+		"Revision 2.1\n";
 	static final String xml1 = "	<LayoutEditor class=\"jmri.jmrit.display.configurexml.LayoutEditorXml\" name=\"";
 	static final String xml2 = "\" x=\"0\" y=\"0\" height=\"";
 	static final String xml3 = "\" width=\"";
 	static final String xml4 =	"\" editable=\"yes\" positionable=\"yes\" controlling=\"yes\" animating=\"yes\" " +
-		"showhelpbar=\"yes\" mainlinetrackwidth=\"4\" xscale=\"1.00\" yscale=\"1.00\" sidetrackwidth=\"2\" defaulttrackcolor=\"black\">";
+		"showhelpbar=\"yes\" mainlinetrackwidth=\"4\" xscale=\"1.00\" yscale=\"1.00\" sidetrackwidth=\"2\" defaulttrackcolor=\"black\" " +
+		"turnoutcircles=\"yes\" turnoutcirclecolor=\"lightGray\" turnoutdrawunselectedleg=\"no\">";
 	static final String xmlFooter1 = "	</LayoutEditor>\n" +
 		"	<!-- Written by XtrkCadReader on ";
 	static final String xmlFooter2 = " -->\n" +
@@ -135,7 +137,7 @@ public class XtrkCadReader {
 	static int maxNumber = 0;
 	
 	// Supported options
-	static final String helpDescription = "\nXtrCadRead\rConverts XtrCAD files (.xtc) to JMRI Layout Edit format.\n\tRevision 2.0";
+	static final String helpDescription = "\nXtrCadRead\rConverts XtrCAD files (.xtc) to JMRI Layout Edit format.\n\tRevision 2.1";
 	static Parser optionBlocks = new Parser("-sb", Parser.NUMBER, "Starting ID number for blocks (default " + startBlock + ")");
 	static Parser optionSBlocks = new Parser("-bs", Parser.OPTION, "Add sensor names to blocks."); // Version 1.3
 	static Parser optionNBlocks = new Parser("-bn", Parser.OPTION, "Obtain block names from track descriptions.");
@@ -164,7 +166,7 @@ public class XtrkCadReader {
 	public XtrkCadReader (){
 		try {
 			int i;
-			System.out.println("\nXtrkCadReader 2.0\n\n\t" + (new java.util.Date()).toString() + 
+			System.out.println("\nXtrkCadReader 2.1\n\n\t" + (new java.util.Date()).toString() + 
 			"\n\tConverting XtrcCAD file " + xtcFile + " to JMRI Layout Editor format\n");
 			
 	// 1. Files opening
@@ -935,17 +937,21 @@ public class XtrkCadReader {
 			// Write closure lines
 			out.println(xmlFooter1 + (new java.util.Date()).toString() + xmlFooter2);
 		}
-		catch(java.io.FileNotFoundException e){System.out.println("File " + xtcFile + " not found!");}
-		catch(java.io.IOException e){System.out.println("I/O error: " + e);}
+		catch(java.io.FileNotFoundException e){
+			System.out.println("File " + xtcFile + " not found!");
+			}
+		catch(java.io.IOException e){
+			System.out.println("I/O error: " + e);
+			}
 		finally {
 			if (in != null) {
 				in.close();
 			}
 			if (out != null) {
 					out.close();
+					System.out.println("\n" + (new java.util.Date()).toString() + "\nConversion complete! Have fun!\n");
 			}
         }
-		System.out.println("\n\t" + (new java.util.Date()).toString() + "\n\tConversion completed! Have fun!\n");
     }
 		
 	public void AdjustAnchors(int ref0, int oldRef1, int newRef1){
@@ -968,6 +974,10 @@ public class XtrkCadReader {
 		} else {
 			System.out.println("Error: missing input file name.\nRe-enter command as follows:\n\tjava -jar XtrkCad.jar [options] inputFileName" +
 				"\nor\n\tjava -jar XtrkCad.jar -h\nfor help.");
+			System.out.println("\nPress [Enter] to continue...........");
+			try {
+				System.in.read();
+			} catch (IOException e) {}
 			System.exit(3);
 		}
 		// Retrieve possible options from command line
@@ -996,6 +1006,11 @@ public class XtrkCadReader {
 		if(optionSBlocks.present) setBlockSensors = true;	// Version 1.3
 		// And now do the job!
 		new XtrkCadReader();
+		
+		System.out.println("\nPress [Enter] to continue...........");
+		try {
+			System.in.read();
+		} catch (IOException e) {}
 	}
 
 		
