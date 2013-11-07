@@ -838,10 +838,10 @@ public class XtrkCadReader {
 							//		2 - that has the same orientation of this one; and
 							//		3 - is placed within the range computed above
 							if (anchor2 == null) {
-							    System.err.println("Error: anchor2 is null when i="+i+" ind="+ind+"for '"+track.description+"'");
+							    System.err.println("Error: no anchor point for '"+track.description+"'");
 							}
 							if (anchor2.getConnectedTrack(1) == null) {
-							    System.err.println("Error: anchor2.getConnectedTrack(1) is null when i="+i+" ind="+ind+"for '"+track.description+"'");
+							    System.err.println("Error: '"+track.description+"' isn't properly connected to other track.");
 							}
 							if(!  ( anchor2.getConnectedTrack(1) != null
 							       &&
