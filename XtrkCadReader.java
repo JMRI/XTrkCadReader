@@ -837,7 +837,17 @@ public class XtrkCadReader {
 							//		1 - there is another turnout;
 							//		2 - that has the same orientation of this one; and
 							//		3 - is placed within the range computed above
-							if(!anchor2.getConnectedTrack(1).checkPath(track.originalNumber, maxDistance, anchor2.x, anchor2.y)) {
+							if (anchor2 == null) {
+							    System.err.println("Error: anchor2 is null when i="+i+" ind="+ind+"for '"+track.description+"'");
+							}
+							if (anchor2.getConnectedTrack(1) == null) {
+							    System.err.println("Error: anchor2.getConnectedTrack(1) is null when i="+i+" ind="+ind+"for '"+track.description+"'");
+							}
+							if(!  ( anchor2.getConnectedTrack(1) != null
+							       &&
+							       anchor2.getConnectedTrack(1).checkPath(track.originalNumber, maxDistance, anchor2.x, anchor2.y)
+							      )
+							   ) {
 								// Other turnout not found - place block boundaries on this branch
 								anchor2.blockGap |= 4;
 								// and on the duplicate anchor (if any)
