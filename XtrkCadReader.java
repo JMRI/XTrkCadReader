@@ -839,9 +839,11 @@ public class XtrkCadReader {
 							//		3 - is placed within the range computed above
 							if (anchor2 == null) {
 							    System.err.println("Error: no anchor point for '"+track.description+"'");
+							    track.dump(System.err);
 							}
 							if (anchor2.getConnectedTrack(1) == null) {
 							    System.err.println("Error: '"+track.description+"' isn't properly connected to other track.");
+							    track.dump(System.err);
 							}
 							if(!  ( anchor2.getConnectedTrack(1) != null
 							       &&
@@ -1238,6 +1240,151 @@ public class XtrkCadReader {
 		
 		// Methods of the XtrkCadElement class
 		
+		/**
+		 * Diagnostic printout.
+		 * 
+		 * Mostly copied (as needed) from print() method
+		 */
+		public void dump(java.io.PrintStream out) {
+			double xcen, ycen, xa, ya, xb, yb, xc, yc;
+			String nameA, nameB, nameC, nameD;
+			XtrkCadAnchor anchor1, anchor2;
+
+			if(!description.equals("")) out.println(" Description: " + description);
+
+			// Write Anchor Points
+			for (int ind1 = firstAnchor; ind1 < lastAnchor; ind1++) {
+				((XtrkCadAnchor)anchors.get(ind1)).print();
+			}
+			String blockString = "";
+			if(block != 0) blockString = " blockname=\"" + ((BlockName)blockNames.get(block - startBlock)).user + "\"";
+
+			// Now write the track
+			switch(trackType) {
+				case TURNOUT:
+					// Although not explicitely stated, the first anchor
+					// seems to be the point of the turnout
+					anchor1 = (XtrkCadAnchor)anchors.get(firstAnchor);
+					xcen = anchor1.x;
+					ycen = anchor1.y;
+					// Second anchor seems to be the end of the straight segment
+					anchor1 = (XtrkCadAnchor)anchors.get(firstAnchor+1);
+					xb = anchor1.x;
+					yb = anchor1.y;
+					// Third anchor seems to be the end of the curved segment
+					anchor2 = (XtrkCadAnchor)anchors.get(firstAnchor+2);
+					xc = anchor2.x;
+					yc = anchor2.y;
+					// Compute the center of the turnout, as required by JMRI Layout Editor
+					if(turnoutType == 3) {
+						// WYE turnout
+						xcen = (xcen + (xb + xc)/2.0)/2.0;
+						ycen = (ycen + (yb + yc)/2.0)/2.0;
+					} else {
+						// Normal turnout
+						xcen = (xcen + xb)/2.0;
+						ycen = (ycen + yb)/2.0;
+					}
+					// Get references to neighbor tracks
+					nameA = ((XtrkCadAnchor)anchors.get(firstAnchor)).getConnectedName(1);
+					if(!nameA.equals("")) nameA = " connectaname=\"" + nameA +"\"";
+					nameB = ((XtrkCadAnchor)anchors.get(firstAnchor+1)).getConnectedName(1);
+					if(!nameB.equals("")) nameB = " connectbname=\"" + nameB +"\"";
+					nameC = ((XtrkCadAnchor)anchors.get(firstAnchor+2)).getConnectedName(1);
+					if(!nameC.equals("")) nameC = " connectcname=\"" + nameC +"\"";
+					// Version 1.3 -- start
+					// Get turnout name, if any
+						String turnoutName = "";
+						line = new Scanner(description);
+						while(line.hasNext()) {
+							keyword = line.next();
+							if(keyword.equals("turnoutname") && line.hasNext()) {
+								turnoutName = " turnoutname=\"" + line.next() + "\"";
+							}
+						}
+					out.println("		Turnout ident=\"TO" + jmriNumber + "\"" + turnoutName + blockString + " type=\"" + turnoutType + "\"" + nameA + nameB + nameC + 
+						" continuing=\"2\" disabled=\"no\" xcen=\"" + xcen + "\" ycen=\"" + ycen + "\" xb=\"" + xb + "\" yb=\"" + yb + 
+						"\" xc=\"" + xc + "\" yc=\"" + yc);
+					// Version 1.3 -- end
+					break;
+				case CROSSING:
+					blockString = "";
+					if(blockX != 0) blockString = " blocknameac=\"" + ((BlockName)blockNames.get(blockX - startBlock)).user + "\"";
+					if(block != 0) blockString += " blocknamebd=\"" + ((BlockName)blockNames.get(block - startBlock)).user + "\"";
+					// First anchor seems to be the start of the second segment - b
+					anchor1 = (XtrkCadAnchor)anchors.get(firstAnchor);
+					xb = anchor1.x;
+					yb = anchor1.y;
+					// Second anchor seems to be the end of the second segment - d
+					anchor1 = (XtrkCadAnchor)anchors.get(firstAnchor+1);
+					xcen = anchor1.x;
+					ycen = anchor1.y;
+					// Third anchor seems to be the start of the first segment - a
+					anchor1 = (XtrkCadAnchor)anchors.get(firstAnchor+2);
+					xa = anchor1.x;
+					ya = anchor1.y;
+					// Compute the center of the crossing, as required by JMRI Layout Editor
+					xcen = (xcen + xb)/2.0;
+					ycen = (ycen + yb)/2.0;
+					// Get references to neighbor tracks in the order expected by JMRI Layout Editor
+					nameA = ((XtrkCadAnchor)anchors.get(firstAnchor+2)).getConnectedName(1);
+					if(!nameA.equals("")) nameA = " connectaname=\"" + nameA +"\"";
+					nameB = ((XtrkCadAnchor)anchors.get(firstAnchor)).getConnectedName(1);
+					if(!nameB.equals("")) nameB = " connectbname=\"" + nameB +"\"";
+					nameC = ((XtrkCadAnchor)anchors.get(firstAnchor+3)).getConnectedName(1);
+					if(!nameC.equals("")) nameC = " connectcname=\"" + nameC +"\"";
+					nameD = ((XtrkCadAnchor)anchors.get(firstAnchor+1)).getConnectedName(1);
+					if(!nameD.equals("")) nameD = " connectdname=\"" + nameD +"\"";
+					out.println("		CROSSING ident=\"X" + jmriNumber + "\"" + blockString + nameA + nameB + nameC + nameD + " xcen=\"" +
+						xcen + "\" ycen=\"" + ycen + "\" xa=\"" + xa + "\" ya=\"" + ya + "\" xb=\"" +
+						xb + "\" yb=\"" + yb);
+					break;
+				case STRAIGHT:
+				case BUMPER:
+				case CURVE:
+					String hidden = "hidden=\"no\" dashed=\"no\"";
+					if(visible == 0 && !hiddenIgnore) {
+						if(hiddenDash) {
+							hidden = "hidden=\"no\" dashed=\"yes\"";
+						} else {
+							hidden = "hidden=\"yes\" dashed=\"no\"";
+						}
+					}
+					// Version 1.4 - Start
+					String arc = "";
+					if (!enableArcRendering) {
+						// Output for JMRI versions supporting arcs
+						if (isCurved) {
+							arc = " arc=\"yes\" circle=\"yes\" ";
+							if (arcAngle < 0.0D) {
+								arc += "flip=\"yes\" angle=\"" + (-(java.lang.Math.round(arcAngle*100.)/100.)) + "\" ";
+							} else {
+								arc += "flip=\"no\" angle=\"" + (java.lang.Math.round(arcAngle*100.)/100.) + "\" ";
+							}
+						} else {
+							arc = " arc=\"no\" ";
+						}
+					}
+					// Simply connect start and end anchors
+					anchor1 = (XtrkCadAnchor)anchors.get(firstAnchor);
+					anchor2 = (XtrkCadAnchor)anchors.get(firstAnchor+1);
+					String mainLine = "no";
+					if(layer == mainLineLayer) mainLine = "yes";
+					out.println("		<tracksegment ident=\"T" + jmriNumber + "\"" + blockString + " connect1name=\"" + anchor1.getIdent() + 
+						"\" type1=\"" + anchor1.getTurnoutBranch() + "\" connect2name=\"" + anchor2.getIdent() + 
+						"\" type2=\"" + anchor2.getTurnoutBranch() + 
+						"\" mainline=\"" + mainLine + "\" " + hidden + arc + " class=\"jmri.jmrit.display.configurexml.TrackSegmentXml\" />");
+					// Version 1.4 - End
+					break;
+				default:
+					out.println("		<!-- UNKNOWN item: ignored -->");
+			}
+			out.println();
+		}
+		
+		/**
+		 * Print to XML element in 'out'
+		 */
 		public void print() {
 			// Output track to XML file
 			double xcen, ycen, xa, ya, xb, yb, xc, yc;
