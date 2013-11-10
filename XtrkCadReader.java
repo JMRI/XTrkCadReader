@@ -842,7 +842,7 @@ public class XtrkCadReader {
 							    track.dump(System.err);
 							}
 							if (anchor2.getConnectedTrack(1) == null) {
-							    System.err.println("Error: '"+track.description+"' isn't properly connected to other track.");
+							    System.err.println("Error: Turnout '"+track.description+"' isn't properly connected to other track.");
 							    track.dump(System.err);
 							}
 							if(!  ( anchor2.getConnectedTrack(1) != null
@@ -1583,7 +1583,19 @@ public class XtrkCadReader {
 			if(trackType == CROSSING) {
 				if(enableBlockXing) {
 					XtrkCadAnchor anchor = crossingThru(caller, newBlock);
-					if(anchor != null && ((anchor.blockGap & gapMask) == 0)) anchor.getConnectedTrack(1).setBlock(originalNumber, newBlock);
+					if(anchor != null && ((anchor.blockGap & gapMask) == 0)) {
+					    if (anchor.getConnectedTrack(1) != null) {
+					        anchor.getConnectedTrack(1).setBlock(originalNumber, newBlock);
+					    } else {
+							System.err.println("Error: Anchor isn't properly connected, cannot set block.");
+				            String name1 = anchor.getConnectedName(0);
+				            if(!name1.equals("")) name1 = " Connection1=\"" + name1 +"\"";
+				            String name2 = anchor.getConnectedName(1);
+				            if(!name2.equals("")) name2 = " Connection2=\"" + name2 +"\"";
+				            System.err.println("Ident=\"" + anchor.getIdent() + "\" type=" + anchor.type + 
+					            " x=\"" + anchor.x + "\" y=\"" + anchor.y + "\"" + name1 + name2+"\n");
+					    }
+					}
 				}
 				return;
 			}
