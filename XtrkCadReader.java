@@ -29,7 +29,7 @@ public class XtrkCadReader {
 		"<!DOCTYPE layout-config SYSTEM \"layout-config.dtd\">\n" +
 		"<layout-config>\n<!--\n\nXtrkCadReader - XtrkCad to JMRI Layout Editor format conversion utility\n" +
 		"Revision 2.1\n";
-	static final String xml1 = "	<LayoutEditor class=\"jmri.jmrit.display.configurexml.LayoutEditorXml\" name=\"";
+	static final String xml1 = "	<LayoutEditor class=\"jmri.jmrit.display.layoutEditor.configurexml.LayoutEditorXml\" name=\"";
 	static final String xml2 = "\" x=\"0\" y=\"0\" height=\"";
 	static final String xml3 = "\" width=\"";
 	static final String xml4 =	"\" editable=\"yes\" positionable=\"yes\" controlling=\"yes\" animating=\"yes\" " +
