@@ -1,12 +1,15 @@
 //  XtrkCadReader.java
+import java.util.*;
+import java.io.*;
+
 /**
  * Utility program
  * Converts  layout schemes produced by the Open Source 
- * program XtrkCAD (freely available from  http://www.xtrkcad.org )
+ * program XtrkCAD (freely available from <a href="http://www.xtrkcad.org">http://www.xtrkcad.org</a> )
  * to JMRI Layout Editor format.
  * @author			Giorgio Terdina Copyright (C) 2008, 2009, 2010
  *	2008-May-21		GT - Added support for negative radius (found in some track libraries)
- *	2008-Jul-03		GT - Stripped XML chracters (&, <...) from title and description fields
+ *	2008-Jul-03		GT - Stripped XML characters {@literal (&, <...)} from title and description fields
  *	2008-Jul-16		GT - Added possibility of inserting turnout name in turnout's description
  *	2008-Jul-31		GT - Corrected problem with detection of short blocks
  *	2008-Aug-1		GT - Added sensors
@@ -17,9 +20,6 @@
  *  2012-May-10     MST- Preserve turnoutname for curved turnouts, handle missing title 
  *  2013-Jan-14     MST- Change defaults regarding turnout appearance 
  */
-import java.util.*;
-import java.io.*;
-
 public class XtrkCadReader {
 
 	// Some output costants
