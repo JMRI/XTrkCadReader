@@ -5,7 +5,6 @@
  * program XtrkCAD (freely available from  http://www.xtrkcad.org )
  * to JMRI Layout Editor format.
  * @author			Giorgio Terdina Copyright (C) 2008, 2009, 2010
- * @version			$Revision: 1.3 $
  *	2008-May-21		GT - Added support for negative radius (found in some track libraries)
  *	2008-Jul-03		GT - Stripped XML chracters (&, <...) from title and description fields
  *	2008-Jul-16		GT - Added possibility of inserting turnout name in turnout's description

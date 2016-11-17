@@ -2,7 +2,6 @@
 /**
  * Simple command line parsing class, used by XtrkCadReader utility
  * @author			Giorgio Terdina Copyright (C) 2008
- * @version			$Revision: 1.1.1.1 $
  */
 
 public class Parser {
