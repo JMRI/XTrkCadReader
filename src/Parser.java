@@ -79,7 +79,7 @@ public class Parser {
 					break;
 				case HELP:
 					System.out.println(found.description);
-					System.out.println("\r\nOptions:");
+					System.out.println(System.getProperty("line.separator") + "Options:");
 					found = lastParser;
 					while (found != null) {
 						if(found.type != HELP) System.out.println(found.mnemonic + " " + found.type() + found.description);

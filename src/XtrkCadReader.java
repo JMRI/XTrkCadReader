@@ -22,22 +22,24 @@ import java.io.*;
  */
 public class XtrkCadReader {
 
-	// Some output costants
-	static final String xmlHeader = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n" +
-		"<?xml-stylesheet href=\"http://jmri.sourceforge.net/xml/XSLT/panelfile.xsl\" type=\"text/xsl\"?>\n" +
-		"<!DOCTYPE layout-config SYSTEM \"layout-config.dtd\">\n" +
-		"<layout-config>\n<!--\n\nXtrkCadReader - XtrkCad to JMRI Layout Editor format conversion utility\n" +
-		"Revision 2.1\n";
+	// Some output constants
+    static final String REVISION = "2.2";
+    static final String EOL = System.getProperty("line.separator");
+	static final String xmlHeader = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>" + EOL +
+		"<?xml-stylesheet href=\"http://jmri.sourceforge.net/xml/XSLT/panelfile.xsl\" type=\"text/xsl\"?>" + EOL +
+		"<!DOCTYPE layout-config SYSTEM \"layout-config.dtd\">" + EOL +
+		"<layout-config>" + EOL + "<!--" + EOL + EOL + "XtrkCadReader - XtrkCad to JMRI Layout Editor format conversion utility" + EOL +
+		"Revision " + REVISION + EOL;
 	static final String xml1 = "	<LayoutEditor class=\"jmri.jmrit.display.layoutEditor.configurexml.LayoutEditorXml\" name=\"";
 	static final String xml2 = "\" x=\"0\" y=\"0\" height=\"";
 	static final String xml3 = "\" width=\"";
-	static final String xml4 =	"\" editable=\"yes\" positionable=\"yes\" controlling=\"yes\" animating=\"yes\" " +
+	static final String xml4 = "\" editable=\"yes\" positionable=\"yes\" controlling=\"yes\" animating=\"yes\" " +
 		"showhelpbar=\"yes\" mainlinetrackwidth=\"4\" xscale=\"1.00\" yscale=\"1.00\" sidetrackwidth=\"2\" defaulttrackcolor=\"black\" " +
 		"turnoutcircles=\"yes\" turnoutcirclecolor=\"lightGray\" turnoutdrawunselectedleg=\"no\">";
-	static final String xmlFooter1 = "	</LayoutEditor>\n" +
-		"	<!-- Written by XtrkCadReader on ";
-	static final String xmlFooter2 = " -->\n" +
-		"</layout-config>\n";
+	static final String xmlFooter1 = "\t</LayoutEditor>" + EOL +
+		"\t<!-- Written by XtrkCadReader on ";
+	static final String xmlFooter2 = " -->" + EOL +
+		"</layout-config>" + EOL;
 
 	// Files
 	static String xtcFile;
@@ -136,7 +138,7 @@ public class XtrkCadReader {
 	static int maxNumber = 0;
 	
 	// Supported options
-	static final String helpDescription = "\nXtrCadRead\rConverts XtrCAD files (.xtc) to JMRI Layout Edit format.\n\tRevision 2.1";
+	static final String helpDescription = EOL + "XtrCadReader" + EOL + "Converts XtrCAD files (.xtc) to JMRI Layout Edit format." + EOL + "\tRevision " + REVISION;
 	static Parser optionBlocks = new Parser("-sb", Parser.NUMBER, "Starting ID number for blocks (default " + startBlock + ")");
 	static Parser optionSBlocks = new Parser("-bs", Parser.OPTION, "Add sensor names to blocks."); // Version 1.3
 	static Parser optionNBlocks = new Parser("-bn", Parser.OPTION, "Obtain block names from track descriptions.");
@@ -165,8 +167,8 @@ public class XtrkCadReader {
 	public XtrkCadReader (){
 		try {
 			int i;
-			System.out.println("\nXtrkCadReader 2.1\n\n\t" + (new java.util.Date()).toString() + 
-			"\n\tConverting XtrcCAD file " + xtcFile + " to JMRI Layout Editor format\n");
+			System.out.println(EOL + "XtrkCadReader " + REVISION + EOL + EOL + "\t" + (new java.util.Date()).toString() + 
+			EOL + "\tConverting XtrkCAD file " + xtcFile + " to JMRI Layout Editor format" + EOL);
 			
 	// 1. Files opening
 			System.out.println("\t1 - Opening input and output files");
@@ -183,7 +185,7 @@ public class XtrkCadReader {
 			
 			// Write xml file header
 			out.println(xmlHeader);
-			out.println("\tInput file: " + xtcFile + "\n");
+			out.println("\tInput file: " + xtcFile + EOL);
 			out.println("\tOptions:");
 			out.println("\t\tWidth of output frame:\t" + (int)jmriMaxWidth);
 			out.println("\t\tHeight of output frame:\t" + (int)jmriMaxHeight);
@@ -960,7 +962,7 @@ public class XtrkCadReader {
 			}
 			if (out != null) {
 					out.close();
-					System.out.println("\n" + (new java.util.Date()).toString() + "\nConversion complete! Have fun!\n");
+					System.out.println(EOL + (new java.util.Date()).toString() + EOL + "Conversion complete! Have fun!" + EOL);
 			}
         }
     }
@@ -983,9 +985,13 @@ public class XtrkCadReader {
 		if(optionFile.present) {
 			xtcFile = optionFile.stringValue;
 		} else {
-			System.out.println("Error: missing input file name.\nRe-enter command as follows:\n\tjava -jar XtrkCad.jar [options] inputFileName" +
-				"\nor\n\tjava -jar XtrkCad.jar -h\nfor help.");
-			System.out.println("\nPress [Enter] to continue...........");
+			System.out.println("Error: missing input file name." + EOL
+                                + "Re-enter command as follows:" + EOL
+                                + "\tjava -jar XtrkCadReader.jar [options] inputFileName" + EOL
+                                + "or" + EOL
+                                + "\tjava -jar XtrkCad.jar -h" + EOL
+                                + "for help.");
+			System.out.println(EOL + "Press [Enter] to continue...........");
 			try {
 				System.in.read();
 			} catch (IOException e) {}
@@ -1018,7 +1024,7 @@ public class XtrkCadReader {
 		// And now do the job!
 		new XtrkCadReader();
 		
-		System.out.println("\nPress [Enter] to continue...........");
+		System.out.println(EOL + "Press [Enter] to continue...........");
 		try {
 			System.in.read();
 		} catch (IOException e) {}
@@ -1592,7 +1598,7 @@ public class XtrkCadReader {
 				            String name2 = anchor.getConnectedName(1);
 				            if(!name2.equals("")) name2 = " Connection2=\"" + name2 +"\"";
 				            System.err.println("Ident=\"" + anchor.getIdent() + "\" type=" + anchor.type + 
-					            " x=\"" + anchor.x + "\" y=\"" + anchor.y + "\"" + name1 + name2+"\n");
+					            " x=\"" + anchor.x + "\" y=\"" + anchor.y + "\"" + name1 + name2 + EOL);
 					    }
 					}
 				}
