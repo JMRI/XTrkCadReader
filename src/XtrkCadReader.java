@@ -103,14 +103,14 @@ public class XtrkCadReader {
     static int mainLineLayer = -1;              // Layer number associated with mainline tracks (-1 = undefined)
 
     // Hidden tracks related fields
-    static boolean hiddenIgnore = false;        // Ignore XtrcCad hidden tracks settings
+    static boolean hiddenIgnore = false;        // Ignore XtrkCAD hidden tracks settings
     static boolean hiddenDash = false;          // Render hidden tracks with dashed lines
 
     // Block related fields
     static int blockIdent;                      // Blocks counter
     static double maxRange = 2.0;               // Maximum distance between turnouts in the same group
     static boolean enableBlockTurnouts = false; // Enable automatic definition of blocks based on turnouts
-    static boolean enableBlockGaps = false;     // Enable automatic definition of blocks based on XtrCAD block gaps
+    static boolean enableBlockGaps = false;     // Enable automatic definition of blocks based on XtrkCAD block gaps
     static boolean enableBlockXing = false;     // Assign block numbers also to level crossings
     static boolean getBlockNames = false;       // Get block names from track descriptions
     static boolean setBlockSensors = false;     // Add sensor names to blocks   Version 1.3
@@ -135,18 +135,18 @@ public class XtrkCadReader {
     static int bumperIDs = 0;
     static int turntableIDs = 0;
 
-    // Highest ID number contained in the XtrkCad file
+    // Highest ID number contained in the XtrkCAD file
     static int maxNumber = 0;
 
     // Supported options
-    static final String helpDescription = EOL + "XtrCadReader" + EOL + "Converts XtrCAD files (.xtc) to JMRI Layout Edit format." + EOL + "\tRevision " + REVISION;
+    static final String helpDescription = EOL + "XtrkCadReader" + EOL + "Converts XtrkCAD files (.xtc) to JMRI Layout Edit format." + EOL + "\tRevision " + REVISION;
     static Parser optionBlocks = new Parser("-sb", Parser.NUMBER, "Starting ID number for blocks (default " + startBlock + ")");
     static Parser optionSBlocks = new Parser("-bs", Parser.OPTION, "Add sensor names to blocks."); // Version 1.3
     static Parser optionNBlocks = new Parser("-bn", Parser.OPTION, "Obtain block names from track descriptions.");
     static Parser optionXBlocks = new Parser("-bx", Parser.OPTION, "Assign block numbers also to level crossings.");
     static Parser optionRBlocks = new Parser("-br", Parser.NUMBER, "Maximum range for inclusion of turnouts in the same block - see documentation (default " + maxRange + ")");
     static Parser optionTBlocks = new Parser("-bt", Parser.OPTION, "Enable automatic definition of blocks based on turnouts.");
-    static Parser optionGBlocks = new Parser("-bg", Parser.OPTION, "Enable automatic definition of blocks based on XtrCAD block gaps.");
+    static Parser optionGBlocks = new Parser("-bg", Parser.OPTION, "Enable automatic definition of blocks based on XtrkCAD block gaps.");
     static Parser optionTurntables = new Parser("-stt", Parser.NUMBER, "Starting ID number for turntables (default " + turntableIdent + ")");
     static Parser optionBumpers = new Parser("-se", Parser.NUMBER, "Starting ID number for bumper end points (default " + bumperIdent + ")");
     static Parser optionXings = new Parser("-sx", Parser.NUMBER, "Starting ID number for crossings (default " + xingIdent + ")");
@@ -154,7 +154,7 @@ public class XtrkCadReader {
     static Parser optionTracks = new Parser("-ss", Parser.NUMBER, "Starting ID number for track segments (default " + trackIdent + ")");
     static Parser optionAnchors = new Parser("-sa", Parser.NUMBER, "Starting ID number for anchor points (default " + anchorIdent + ")");
     static Parser optionHiddenDash = new Parser("-hd", Parser.OPTION, "Render hidden tracks with dashed lines");
-    static Parser optionHiddenIgnore = new Parser("-hi", Parser.OPTION, "Ignore XtrcCad hidden tracks settings");
+    static Parser optionHiddenIgnore = new Parser("-hi", Parser.OPTION, "Ignore XtrkCAD hidden tracks settings");
     static Parser optionTolerance = new Parser("-t", Parser.NUMBER, "Tolerance for automatic merging of end points (default " + tolerance + " pixels)");
     static Parser optionArc = new Parser("-a", Parser.OPTION, "Render arcs as polylines (required for JMRI versions prior to 2.8)");
     static Parser optionChord = new Parser("-c", Parser.NUMBER, "Maximum chord length for arcs rendering (default " + arcChord + " pixels, minimum " + minChord + ")");
@@ -199,7 +199,7 @@ public class XtrkCadReader {
             // Version 1.4 - End
             out.println("\t\tTolerance for end points merging:\t" + tolerance);
             if (hiddenIgnore) {
-                out.println("\t\tIgnore XtrcCad hidden tracks settings");
+                out.println("\t\tIgnore XtrkCAD hidden tracks settings");
             } else if (hiddenDash) {
                 out.println("\t\tRender hidden tracks with dashed lines");
             }
@@ -210,9 +210,9 @@ public class XtrkCadReader {
             out.println("\t\tStarting ID number for bumpers:\t" + bumperIdent);
             out.println("\t\tStarting ID number for turntables:\t" + turntableIdent);
             if (enableBlockGaps) {
-                out.println("\t\tAutomatic definition of blocks based on XtrCAD block gaps:\tenabled");
+                out.println("\t\tAutomatic definition of blocks based on XtrkCAD block gaps:\tenabled");
             } else {
-                out.println("\t\tAutomatic definition of blocks based on XtrCAD block gaps:\tdisabled");
+                out.println("\t\tAutomatic definition of blocks based on XtrkCAD block gaps:\tdisabled");
             }
             if (enableBlockTurnouts) {
                 out.println("\t\tAutomatic definition of blocks based on turnouts:\tenabled");
@@ -340,7 +340,7 @@ public class XtrkCadReader {
 
             // 3.2 Converting turnout types not supported by Layout Editor (curved and three-way)
             System.out.println("\t\t3.2 - Converting turnout types not supported by Layout Editor (curved and three-way)");
-            // Limit the analysis to track elements read from XtrkCad file.
+            // Limit the analysis to track elements read from XtrkCAD file.
             int nTracks1 = nTracks; // nTracks can be incremented during the loop.
             for (i = 0; i < nTracks1 - 1; i++) {
                 XtrkCadElement track = (XtrkCadElement) tracks.get(i);
@@ -1018,7 +1018,7 @@ public class XtrkCadReader {
                     + "Re-enter command as follows:" + EOL
                     + "\tjava -jar XtrkCadReader.jar [options] inputFileName" + EOL
                     + "or" + EOL
-                    + "\tjava -jar XtrkCad.jar -h" + EOL
+                    + "\tjava -jar XtrkCadReader.jar -h" + EOL
                     + "for help.");
             System.out.println(EOL + "Press [Enter] to continue...........");
             try {
@@ -1800,17 +1800,17 @@ public class XtrkCadReader {
         // Internal class
         // Anchor point
 
-        // Original XtrkCad ID of the two track items connected by this anchor
+        // Original XtrkCAD ID of the two track items connected by this anchor
         int[] ref = new int[2];
 
-        // In XtrkCad, the same node is normally recorded twice (once per track)
+        // In XtrkCAD, the same node is normally recorded twice (once per track)
         // We will thus reduce their number, by marking duplicates
         int duplicate = -1;
 
         // Angle and coordinates
         public double a, x, y;
 
-        // XtrcCAD block gap indicator
+        // XtrkCAD block gap indicator
         int blockGap = 0;
 
         // End point type:
@@ -1842,9 +1842,9 @@ public class XtrkCadReader {
             ref[0] = callingItem;
             // Extract information from input file
             if (otherRef) {
-                ref[1] = line.nextInt();    // XtrkCad keyword = "T"
+                ref[1] = line.nextInt();    // XtrkCAD keyword = "T"
             } else {
-                ref[1] = 0;                 // XtrkCad keyword = "E"
+                ref[1] = 0;                 // XtrkCAD keyword = "E"
             }
             x = line.nextDouble() * scale;
             y = (originalHeight - line.nextDouble()) * scale;
