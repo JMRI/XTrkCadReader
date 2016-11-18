@@ -342,7 +342,7 @@ public class XtrkCadReader {
             // 3.2 Converting turnout types not supported by Layout Editor (curved and three-way)
             System.out.println("\t\t3.2 - Converting turnout types not supported by Layout Editor (curved and three-way)");
             // Limit the analysis to track elements read from XtrkCAD file.
-            int nTracks1 = nTracks; // nTracks can be incremented during the loop.
+            nTracks1 = nTracks; // nTracks can be incremented during the loop.
             for (i = 0; i < nTracks1 - 1; i++) {
                 XtrkCadElement track = tracks.get(i);
                 // Is this a turnout?
@@ -869,12 +869,10 @@ public class XtrkCadReader {
                             if (anchor2 == null) {
                                 System.err.println("Error: no anchor point for '" + track.description + "'");
                                 track.dump(System.err);
-                            }
-                            if (anchor2.getConnectedTrack(1) == null) {
+                            } else if (anchor2.getConnectedTrack(1) == null) {
                                 System.err.println("Error: Turnout '" + track.description + "' isn't properly connected to other track.");
                                 track.dump(System.err);
-                            }
-                            if (!(anchor2.getConnectedTrack(1) != null
+                            } else if (!(anchor2.getConnectedTrack(1) != null
                                     && anchor2.getConnectedTrack(1).checkPath(track.originalNumber, maxDistance, anchor2.x, anchor2.y))) {
                                 // Other turnout not found - place block boundaries on this branch
                                 anchor2.blockGap |= 4;
@@ -997,7 +995,7 @@ public class XtrkCadReader {
         }
     }
 
-    public void AdjustAnchors(int ref0, int oldRef1, int newRef1) {
+    public final void AdjustAnchors(int ref0, int oldRef1, int newRef1) {
         // Adjust link in duplicate anchor of original track
         for (int ind2 = 0; ind2 < nAnchors; ind2++) {
             XtrkCadAnchor anchor2 = anchors.get(ind2);
@@ -1324,6 +1322,7 @@ public class XtrkCadReader {
          * Diagnostic printout.
          *
          * Mostly copied (as needed) from print() method
+         * @param out output stream to use
          */
         public void dump(java.io.PrintStream out) {
             double xcen, ycen, xa, ya, xb, yb, xc, yc;
