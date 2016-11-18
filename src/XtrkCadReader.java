@@ -26,20 +26,20 @@ public class XtrkCadReader {
     // Some output constants
     static final String REVISION = "2.2";
     static final String EOL = System.getProperty("line.separator");
-    static final String xmlHeader = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>" + EOL
+    static final String XMLHEADER = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>" + EOL
             + "<?xml-stylesheet href=\"http://jmri.sourceforge.net/xml/XSLT/panelfile.xsl\" type=\"text/xsl\"?>" + EOL
             + "<!DOCTYPE layout-config SYSTEM \"layout-config.dtd\">" + EOL
             + "<layout-config>" + EOL + "<!--" + EOL + EOL + "XtrkCadReader - XtrkCad to JMRI Layout Editor format conversion utility" + EOL
             + "Revision " + REVISION + EOL;
-    static final String xml1 = "\t<LayoutEditor class=\"jmri.jmrit.display.layoutEditor.configurexml.LayoutEditorXml\" name=\"";
-    static final String xml2 = "\" x=\"0\" y=\"0\" height=\"";
-    static final String xml3 = "\" width=\"";
-    static final String xml4 = "\" editable=\"yes\" positionable=\"yes\" controlling=\"yes\" animating=\"yes\" "
+    static final String XML1 = "\t<LayoutEditor class=\"jmri.jmrit.display.layoutEditor.configurexml.LayoutEditorXml\" name=\"";
+    static final String XML2 = "\" x=\"0\" y=\"0\" height=\"";
+    static final String XML3 = "\" width=\"";
+    static final String XML4 = "\" editable=\"yes\" positionable=\"yes\" controlling=\"yes\" animating=\"yes\" "
             + "showhelpbar=\"yes\" mainlinetrackwidth=\"4\" xscale=\"1.00\" yscale=\"1.00\" sidetrackwidth=\"2\" defaulttrackcolor=\"black\" "
             + "turnoutcircles=\"yes\" turnoutcirclecolor=\"lightGray\" turnoutdrawunselectedleg=\"no\">";
-    static final String xmlFooter1 = "\t</LayoutEditor>" + EOL
+    static final String XMLFOOTER1 = "\t</LayoutEditor>" + EOL
             + "\t<!-- Written by XtrkCadReader on ";
-    static final String xmlFooter2 = " -->" + EOL
+    static final String XMLFOOTER2 = " -->" + EOL
             + "</layout-config>" + EOL;
 
     // Files
@@ -65,7 +65,7 @@ public class XtrkCadReader {
     static boolean enableArcRendering = false;
 
     // Minimum and maximum chord length used for arcs rendering
-    static final double minChord = 3.0;
+    static final double MINCHORD = 3.0;
     static double arcChord = 20.0;
 
     // Tolerance for automatic merging of unconnected end points.
@@ -139,7 +139,7 @@ public class XtrkCadReader {
     static int maxNumber = 0;
 
     // Supported options
-    static final String helpDescription = EOL + "XtrkCadReader" + EOL + "Converts XtrkCAD files (.xtc) to JMRI Layout Edit format." + EOL + "\tRevision " + REVISION;
+    static final String HELPDESCRIPTION = EOL + "XtrkCadReader" + EOL + "Converts XtrkCAD files (.xtc) to JMRI Layout Edit format." + EOL + "\tRevision " + REVISION;
     static Parser optionBlocks = new Parser("-sb", Parser.NUMBER, "Starting ID number for blocks (default " + startBlock + ")");
     static Parser optionSBlocks = new Parser("-bs", Parser.OPTION, "Add sensor names to blocks."); // Version 1.3
     static Parser optionNBlocks = new Parser("-bn", Parser.OPTION, "Obtain block names from track descriptions.");
@@ -157,12 +157,12 @@ public class XtrkCadReader {
     static Parser optionHiddenIgnore = new Parser("-hi", Parser.OPTION, "Ignore XtrkCAD hidden tracks settings");
     static Parser optionTolerance = new Parser("-t", Parser.NUMBER, "Tolerance for automatic merging of end points (default " + tolerance + " pixels)");
     static Parser optionArc = new Parser("-a", Parser.OPTION, "Render arcs as polylines (required for JMRI versions prior to 2.8)");
-    static Parser optionChord = new Parser("-c", Parser.NUMBER, "Maximum chord length for arcs rendering (default " + arcChord + " pixels, minimum " + minChord + ")");
+    static Parser optionChord = new Parser("-c", Parser.NUMBER, "Maximum chord length for arcs rendering (default " + arcChord + " pixels, minimum " + MINCHORD + ")");
     static Parser optionHeight = new Parser("-y", Parser.NUMBER, "Height of output frame (default " + (int) jmriMaxHeight + " pixels)");
     static Parser optionWidth = new Parser("-x", Parser.NUMBER, "Width of output frame (default " + (int) jmriMaxWidth + " pixels)");
     static Parser optionFile = new Parser("", Parser.STRING, "Input file name (mandatory).");
-    static Parser optionH = new Parser("-h", Parser.HELP, helpDescription);
-    static Parser optionHelp = new Parser("help", Parser.HELP, helpDescription);
+    static Parser optionH = new Parser("-h", Parser.HELP, HELPDESCRIPTION);
+    static Parser optionHelp = new Parser("help", Parser.HELP, HELPDESCRIPTION);
 
     // Contructor
     public XtrkCadReader() {
@@ -185,7 +185,7 @@ public class XtrkCadReader {
             out = new PrintWriter(new OutputStreamWriter(new FileOutputStream(xmlFile), "UTF-8"));
 
             // Write xml file header
-            out.println(xmlHeader);
+            out.println(XMLHEADER);
             out.println("\tInput file: " + xtcFile + EOL);
             out.println("\tOptions:");
             out.println("\t\tWidth of output frame:\t" + (int) jmriMaxWidth);
@@ -972,7 +972,7 @@ public class XtrkCadReader {
             // Write LayoutEditor statement
             // NOTE: The height increase of 65 pixels has been experimentaly determined
             // and compensates for some apparent quirk in Layout Editor
-            out.println(xml1 + layoutName + xml2 + (int) (originalHeight * scale + 65.5) + xml3 + (int) (originalWidth * scale + 0.5) + xml4);
+            out.println(XML1 + layoutName + XML2 + (int) (originalHeight * scale + 65.5) + XML3 + (int) (originalWidth * scale + 0.5) + XML4);
 
             // Write Tracks and relevant Anchor Points
             for (i = 0; i < nTracks; i++) {
@@ -980,7 +980,7 @@ public class XtrkCadReader {
             }
 
             // Write closure lines
-            out.println(xmlFooter1 + (new java.util.Date()).toString() + xmlFooter2);
+            out.println(XMLFOOTER1 + (new java.util.Date()).toString() + XMLFOOTER2);
         } catch (java.io.FileNotFoundException e) {
             System.out.println("File " + xtcFile + " not found!");
         } catch (java.io.IOException e) {
@@ -1037,7 +1037,7 @@ public class XtrkCadReader {
         if (optionArc.present) {
             enableArcRendering = true;  // Version 1.4
         }
-        if (optionChord.present && optionChord.doubleValue >= minChord) {
+        if (optionChord.present && optionChord.doubleValue >= MINCHORD) {
             arcChord = optionChord.doubleValue;
         }
         if (optionTolerance.present) {
