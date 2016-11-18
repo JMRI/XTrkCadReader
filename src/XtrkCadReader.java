@@ -955,7 +955,7 @@ public class XtrkCadReader {
 
             // Write Blocks
             if (blockIdent > 1) {
-                out.println("\t<layoutblocks class=\"jmri.jmrit.display.configurexml.LayoutBlockManagerXml\">");
+                out.println("\t<layoutblocks class=\"jmri.jmrit.display.layoutEditor.configurexml.LayoutBlockManagerXml\">");
                 for (i = startBlock; i < blockIdent; i++) {
                     BlockName blockName = (BlockName) blockNames.get(i - startBlock);
                     // Version 1.3 - start
@@ -1477,7 +1477,7 @@ public class XtrkCadReader {
                     out.println("\t\t<tracksegment ident=\"T" + jmriNumber + "\"" + blockString + " connect1name=\"" + anchor1.getIdent()
                             + "\" type1=\"" + anchor1.getTurnoutBranch() + "\" connect2name=\"" + anchor2.getIdent()
                             + "\" type2=\"" + anchor2.getTurnoutBranch()
-                            + "\" mainline=\"" + mainLine + "\" " + hidden + arc + " class=\"jmri.jmrit.display.configurexml.TrackSegmentXml\" />");
+                            + "\" mainline=\"" + mainLine + "\" " + hidden + arc + " class=\"jmri.jmrit.display.layoutEditor.configurexml.TrackSegmentXml\" />");
                     // Version 1.4 - End
                     break;
                 default:
@@ -1502,7 +1502,7 @@ public class XtrkCadReader {
             // Turntables require separate handling
             if (trackType == TURNTABLE) {
                 out.println("\t\t<layoutturntable ident=\"TUR" + jmriNumber + "\" radius=\"" + radius + "\" xcen=\"" + xReference
-                        + "\" ycen=\"" + yReference + "\" class=\"jmri.jmrit.display.configurexml.LayoutTurntableXml\">");
+                        + "\" ycen=\"" + yReference + "\" class=\"jmri.jmrit.display.layoutEditor.configurexml.LayoutTurntableXml\">");
                 XtrkCadAnchor anchor;
                 for (int ind1 = firstAnchor; ind1 < lastAnchor; ind1++) {
                     anchor = (XtrkCadAnchor) anchors.get(ind1);
@@ -1572,7 +1572,7 @@ public class XtrkCadReader {
                     }
                     out.println("\t\t<layoutturnout ident=\"TO" + jmriNumber + "\"" + turnoutName + blockString + " type=\"" + turnoutType + "\"" + nameA + nameB + nameC
                             + " continuing=\"2\" disabled=\"no\" xcen=\"" + xcen + "\" ycen=\"" + ycen + "\" xb=\"" + xb + "\" yb=\"" + yb
-                            + "\" xc=\"" + xc + "\" yc=\"" + yc + "\" class=\"jmri.jmrit.display.configurexml.LayoutTurnoutXml\" />");
+                            + "\" xc=\"" + xc + "\" yc=\"" + yc + "\" class=\"jmri.jmrit.display.layoutEditor.configurexml.LayoutTurnoutXml\" />");
                     // Version 1.3 -- end
                     break;
                 case CROSSING:
@@ -1617,7 +1617,7 @@ public class XtrkCadReader {
                     }
                     out.println("\t\t<levelxing ident=\"X" + jmriNumber + "\"" + blockString + nameA + nameB + nameC + nameD + " xcen=\""
                             + xcen + "\" ycen=\"" + ycen + "\" xa=\"" + xa + "\" ya=\"" + ya + "\" xb=\""
-                            + xb + "\" yb=\"" + yb + "\" class=\"jmri.jmrit.display.configurexml.LevelXingXml\" />");
+                            + xb + "\" yb=\"" + yb + "\" class=\"jmri.jmrit.display.layoutEditor.configurexml.LevelXingXml\" />");
                     break;
                 case STRAIGHT:
                 case BUMPER:
@@ -1655,7 +1655,7 @@ public class XtrkCadReader {
                     out.println("\t\t<tracksegment ident=\"T" + jmriNumber + "\"" + blockString + " connect1name=\"" + anchor1.getIdent()
                             + "\" type1=\"" + anchor1.getTurnoutBranch() + "\" connect2name=\"" + anchor2.getIdent()
                             + "\" type2=\"" + anchor2.getTurnoutBranch()
-                            + "\" mainline=\"" + mainLine + "\" " + hidden + arc + " class=\"jmri.jmrit.display.configurexml.TrackSegmentXml\" />");
+                            + "\" mainline=\"" + mainLine + "\" " + hidden + arc + " class=\"jmri.jmrit.display.layoutEditor.configurexml.TrackSegmentXml\" />");
                     // Version 1.4 - End
                     break;
                 default:
@@ -1950,7 +1950,7 @@ public class XtrkCadReader {
                 }
                 out.println("\t\t<positionablepoint ident=\"" + getIdent() + "\" type=\"" + type
                         + "\" x=\"" + x + "\" y=\"" + y + "\"" + name1 + name2
-                        + " class=\"jmri.jmrit.display.configurexml.PositionablePointXml\" />");
+                        + " class=\"jmri.jmrit.display.layoutEditor.configurexml.PositionablePointXml\" />");
                 printed = true;
             }
         }
