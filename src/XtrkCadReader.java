@@ -250,6 +250,7 @@ public class XtrkCadReader {
                         while (line.hasNext()) {
                             layoutName += line.next() + " ";
                         }
+                        layoutName = layoutName.trim();
                         if (layoutName.equals("")) {
                             layoutName = "Converted XTrackCad layout";
                         }
