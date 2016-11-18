@@ -275,7 +275,7 @@ public class XtrkCadReader {
                     } else if (keyword.equals("LAYERS")) {
                         String layerNumber = line.next();
                         if (!layerNumber.equals("CURRENT")) {
-                            int newLayer = new Integer(layerNumber).intValue();
+                            int newLayer = Integer.parseInt(layerNumber);
                             line.next();
                             line.next();
                             line.next();
