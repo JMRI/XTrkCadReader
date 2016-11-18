@@ -83,11 +83,11 @@ public class XtrkCadReader {
     static final int TURNTABLE = 6;
 
     // Storage vectors
-    static Vector anchors = new Vector(100, 100);
+    static ArrayList<XtrkCadAnchor> anchors = new ArrayList<XtrkCadAnchor>();
     static int nAnchors = 0;    // Anchors counter
-    static Vector tracks = new Vector(100, 100);
+    static ArrayList<XtrkCadElement> tracks = new ArrayList<XtrkCadElement>();
     static int nTracks = 0;     // Tracks counter
-    static Vector blockNames = new Vector(100, 10);
+    static ArrayList<BlockName> blockNames = new ArrayList<BlockName>();
 
     // Items numbering start values
     // can be changed by input options
@@ -290,13 +290,13 @@ public class XtrkCadReader {
                             }
                         }
                     } else if (keyword.equals("TURNOUT")) {
-                        tracks.addElement(new XtrkCadElement(TURNOUT));
+                        tracks.add(new XtrkCadElement(TURNOUT));
                     } else if (keyword.equals("STRAIGHT") || keyword.equals("JOINT")) {
-                        tracks.addElement(new XtrkCadElement(STRAIGHT));
+                        tracks.add(new XtrkCadElement(STRAIGHT));
                     } else if (keyword.equals("CURVE")) {
-                        tracks.addElement(new XtrkCadElement(CURVE));
+                        tracks.add(new XtrkCadElement(CURVE));
                     } else if (keyword.equals("TURNTABLE")) {
-                        tracks.addElement(new XtrkCadElement(TURNTABLE));
+                        tracks.add(new XtrkCadElement(TURNTABLE));
                     } // Ignore other elements
                 }
             }
@@ -313,11 +313,11 @@ public class XtrkCadReader {
             double tolerance2 = tolerance * tolerance;
             // Retrieve unconnected end points, if any
             for (int ind1 = 0; ind1 < nAnchors - 1; ind1++) {
-                XtrkCadAnchor anchor1 = (XtrkCadAnchor) anchors.get(ind1);
+                XtrkCadAnchor anchor1 = anchors.get(ind1);
                 if (anchor1.ref[1] == 0) {
                     // Stray end point found - Compare it with other unconnected end points
                     for (int ind2 = ind1 + 1; ind2 < nAnchors; ind2++) {
-                        XtrkCadAnchor anchor2 = (XtrkCadAnchor) anchors.get(ind2);
+                        XtrkCadAnchor anchor2 = anchors.get(ind2);
                         if (anchor2.ref[1] == 0) {
                             // Another unconnected end point found
                             // compute distance
@@ -344,7 +344,7 @@ public class XtrkCadReader {
             // Limit the analysis to track elements read from XtrkCAD file.
             int nTracks1 = nTracks; // nTracks can be incremented during the loop.
             for (i = 0; i < nTracks1 - 1; i++) {
-                XtrkCadElement track = (XtrkCadElement) tracks.get(i);
+                XtrkCadElement track = tracks.get(i);
                 // Is this a turnout?
                 if (track.trackType == TURNOUT) {
                     // Yes - what type?
@@ -353,22 +353,22 @@ public class XtrkCadReader {
                         case 5: {
                             // Curved turnout
                             // Get starting point
-                            XtrkCadAnchor anchor1 = (XtrkCadAnchor) anchors.get(track.firstAnchor);
+                            XtrkCadAnchor anchor1 = anchors.get(track.firstAnchor);
                             // Identify end point of external arc
                             // (it's normally the farer one from the starting point)
-                            XtrkCadAnchor anchor2 = (XtrkCadAnchor) anchors.get(track.firstAnchor + 1);
+                            XtrkCadAnchor anchor2 = anchors.get(track.firstAnchor + 1);
                             double distance = Math.pow(anchor2.x - anchor1.x, 2) + Math.pow(anchor2.y - anchor1.y, 2);
-                            anchor2 = (XtrkCadAnchor) anchors.get(track.firstAnchor + 2);
+                            anchor2 = anchors.get(track.firstAnchor + 2);
                             int extPoint = 1;
                             if (Math.pow(anchor2.x - anchor1.x, 2) + Math.pow(anchor2.y - anchor1.y, 2) > distance) {
                                 extPoint = 2;
                             } else {
                                 // read again first point
-                                anchor2 = (XtrkCadAnchor) anchors.get(track.firstAnchor + 1);
+                                anchor2 = anchors.get(track.firstAnchor + 1);
                             }
                             // Now anchor2 contains the external point
                             // Let's get again the third point 
-                            XtrkCadAnchor anchor3 = (XtrkCadAnchor) anchors.get(track.firstAnchor + 2);
+                            XtrkCadAnchor anchor3 = anchors.get(track.firstAnchor + 2);
                             // Compute the angle between start and end points
                             double angle = anchor1.a - 180.0;
                             if (angle < 0.0) {
@@ -416,9 +416,9 @@ public class XtrkCadReader {
                             newTrack.description = "Rendering of curved turnout " + track.description;
                             newTrack.visible = track.visible;
                             newTrack.layer = track.layer;
-                            tracks.addElement(newTrack);
-                            anchors.addElement(new XtrkCadAnchor(maxNumber, anchor1.ref[1], anchor1.x, anchor1.y));
-                            anchors.addElement(new XtrkCadAnchor(maxNumber, maxNumber + 1, x1, y1));
+                            tracks.add(newTrack);
+                            anchors.add(new XtrkCadAnchor(maxNumber, anchor1.ref[1], anchor1.x, anchor1.y));
+                            anchors.add(new XtrkCadAnchor(maxNumber, maxNumber + 1, x1, y1));
                             // Adjust anchor of connected track element
                             AdjustAnchors(anchor1.ref[1], anchor1.ref[0], maxNumber);
                             // Then the new turnout
@@ -430,18 +430,18 @@ public class XtrkCadReader {
                             newTrack.layer = track.layer;
                             newTrack.turnoutType = track.turnoutType - 3; // Left or right hand
                             newTrack.lastAnchor++; // Increase anchor's number
-                            tracks.addElement(newTrack);
-                            anchors.addElement(new XtrkCadAnchor(maxNumber, maxNumber - 1, x1, y1));
-                            anchors.addElement(new XtrkCadAnchor(maxNumber, track.originalNumber, x2, y2));
-                            anchors.addElement(new XtrkCadAnchor(maxNumber, maxNumber + 1, x3, y3));
+                            tracks.add(newTrack);
+                            anchors.add(new XtrkCadAnchor(maxNumber, maxNumber - 1, x1, y1));
+                            anchors.add(new XtrkCadAnchor(maxNumber, track.originalNumber, x2, y2));
+                            anchors.add(new XtrkCadAnchor(maxNumber, maxNumber + 1, x3, y3));
                             // Connect the thrown branch using a straight track
                             maxNumber++;
                             newTrack = new XtrkCadElement();
                             newTrack.visible = track.visible;
                             newTrack.layer = track.layer;
-                            tracks.addElement(newTrack);
-                            anchors.addElement(new XtrkCadAnchor(maxNumber, maxNumber - 1, x3, y3));
-                            anchors.addElement(new XtrkCadAnchor(maxNumber, anchor3.ref[1], anchor3.x, anchor3.y));
+                            tracks.add(newTrack);
+                            anchors.add(new XtrkCadAnchor(maxNumber, maxNumber - 1, x3, y3));
+                            anchors.add(new XtrkCadAnchor(maxNumber, anchor3.ref[1], anchor3.x, anchor3.y));
                             // Adjust anchor of connected track element
                             AdjustAnchors(anchor3.ref[1], anchor3.ref[0], maxNumber);
                             // Now transform the original curved turnout into a straight vector
@@ -464,10 +464,10 @@ public class XtrkCadReader {
                         case 6: {
                             // Three-way turnout
                             // Get anchor points
-                            XtrkCadAnchor anchor1 = (XtrkCadAnchor) anchors.get(track.firstAnchor);
-                            XtrkCadAnchor anchor2 = (XtrkCadAnchor) anchors.get(track.firstAnchor + 1);
-                            XtrkCadAnchor anchor3 = (XtrkCadAnchor) anchors.get(track.firstAnchor + 2);
-                            XtrkCadAnchor anchor4 = (XtrkCadAnchor) anchors.get(track.firstAnchor + 3);
+                            XtrkCadAnchor anchor1 = anchors.get(track.firstAnchor);
+                            XtrkCadAnchor anchor2 = anchors.get(track.firstAnchor + 1);
+                            XtrkCadAnchor anchor3 = anchors.get(track.firstAnchor + 2);
+                            XtrkCadAnchor anchor4 = anchors.get(track.firstAnchor + 3);
                             // Find out the central exit
                             int central = 1;
                             int first = 2;
@@ -490,8 +490,8 @@ public class XtrkCadReader {
                                 second = 2;
                             }
                             // Compute new coordinates (median point)
-                            double xM = (anchor1.x + ((XtrkCadAnchor) anchors.get(track.firstAnchor + central)).x) / 2.0;
-                            double yM = (anchor1.y + ((XtrkCadAnchor) anchors.get(track.firstAnchor + central)).y) / 2.0;
+                            double xM = (anchor1.x + (anchors.get(track.firstAnchor + central)).x) / 2.0;
+                            double yM = (anchor1.y + (anchors.get(track.firstAnchor + central)).y) / 2.0;
                             // Create a new turnout with three anchors (duplicate anchors will be removed later)
                             maxNumber++;
                             XtrkCadElement newTrack = new XtrkCadElement();
@@ -499,7 +499,7 @@ public class XtrkCadReader {
                             newTrack.visible = track.visible;
                             newTrack.layer = track.layer;
                             // Set turnout types (one will be left, the other right)
-                            if (anchor1.a > ((XtrkCadAnchor) anchors.get(track.firstAnchor + second)).a) {
+                            if (anchor1.a > (anchors.get(track.firstAnchor + second)).a) {
                                 newTrack.turnoutType = 2; // Left hand
                             } else {
                                 newTrack.turnoutType = 1; // Right hand
@@ -508,30 +508,30 @@ public class XtrkCadReader {
                             // Add a comment to newly created turnout
                             newTrack.description = "Rendering of three-way turnout #" + track.originalNumber;
                             newTrack.lastAnchor++; // Increase anchor's number
-                            tracks.addElement(newTrack);
-                            int ref1Straight = ((XtrkCadAnchor) anchors.get(track.firstAnchor + central)).ref[1];
-                            int ref1Thrown = ((XtrkCadAnchor) anchors.get(track.firstAnchor + second)).ref[1];
-                            anchors.addElement(new XtrkCadAnchor(maxNumber, anchor1.ref[0], xM, yM)); // Turnout entry
-                            anchors.addElement(new XtrkCadAnchor(maxNumber, ref1Straight,
-                                    ((XtrkCadAnchor) anchors.get(track.firstAnchor + central)).x,
-                                    ((XtrkCadAnchor) anchors.get(track.firstAnchor + central)).y)); // Straight exit
-                            anchors.addElement(new XtrkCadAnchor(maxNumber, ref1Thrown,
-                                    ((XtrkCadAnchor) anchors.get(track.firstAnchor + second)).x,
-                                    ((XtrkCadAnchor) anchors.get(track.firstAnchor + second)).y)); // Thrown exit
+                            tracks.add(newTrack);
+                            int ref1Straight = (anchors.get(track.firstAnchor + central)).ref[1];
+                            int ref1Thrown = (anchors.get(track.firstAnchor + second)).ref[1];
+                            anchors.add(new XtrkCadAnchor(maxNumber, anchor1.ref[0], xM, yM)); // Turnout entry
+                            anchors.add(new XtrkCadAnchor(maxNumber, ref1Straight,
+                                    (anchors.get(track.firstAnchor + central)).x,
+                                    (anchors.get(track.firstAnchor + central)).y)); // Straight exit
+                            anchors.add(new XtrkCadAnchor(maxNumber, ref1Thrown,
+                                    (anchors.get(track.firstAnchor + second)).x,
+                                    (anchors.get(track.firstAnchor + second)).y)); // Thrown exit
                             // Adjust anchors of connected track elements
                             AdjustAnchors(ref1Straight, anchor1.ref[0], maxNumber);
                             AdjustAnchors(ref1Thrown, anchor1.ref[0], maxNumber);
                             // Compute new coordinates to relocate the old turnout
                             // Save old coordinates of thrown exit
-                            double xTold = ((XtrkCadAnchor) anchors.get(track.firstAnchor + first)).x;
-                            double yTold = ((XtrkCadAnchor) anchors.get(track.firstAnchor + first)).y;
+                            double xTold = (anchors.get(track.firstAnchor + first)).x;
+                            double yTold = (anchors.get(track.firstAnchor + first)).y;
                             // Compute new coordinates of thrown exit
                             double xTnew = (xM + anchor1.x) / 2.0;
                             double yTnew = (yM + anchor1.y) / 2.0;
                             xTnew += (xTold - xTnew) / 3.0;
                             yTnew += (yTold - yTnew) / 3.0;
                             // Now adjust end points of the old turnout
-                            int link = ((XtrkCadAnchor) anchors.get(track.firstAnchor + first)).ref[1];
+                            int link = (anchors.get(track.firstAnchor + first)).ref[1];
                             anchor2.ref[1] = maxNumber;
                             anchor2.x = xM;
                             anchor2.y = yM;
@@ -546,9 +546,9 @@ public class XtrkCadReader {
                             newTrack = new XtrkCadElement();
                             newTrack.visible = track.visible;
                             newTrack.layer = track.layer;
-                            tracks.addElement(newTrack);
-                            anchors.addElement(new XtrkCadAnchor(maxNumber, anchor1.ref[0], xTnew, yTnew));
-                            anchors.addElement(new XtrkCadAnchor(maxNumber, link, xTold, yTold));
+                            tracks.add(newTrack);
+                            anchors.add(new XtrkCadAnchor(maxNumber, anchor1.ref[0], xTnew, yTnew));
+                            anchors.add(new XtrkCadAnchor(maxNumber, link, xTold, yTold));
                             // Adjust anchor of connected track element
                             AdjustAnchors(link, anchor1.ref[0], maxNumber);
                             t3way++;
@@ -564,7 +564,7 @@ public class XtrkCadReader {
             // Layout Editor does not support turnout to turnout connections.
             nTracks2 = nTracks; // nTracks can be incremented during the loop.
             for (i = 0; i < nTracks2 - 1; i++) {
-                XtrkCadElement track = (XtrkCadElement) tracks.get(i);
+                XtrkCadElement track = tracks.get(i);
                 // Check all turnouts and crossings
                 if (track.trackType == TURNOUT || track.trackType == CROSSING || track.trackType == TURNTABLE) {
                     // Check for direct connection with another turnout or crossing
@@ -575,7 +575,7 @@ public class XtrkCadReader {
                             if (track1.trackType == TURNOUT || track1.trackType == CROSSING || track.trackType == TURNTABLE) {
                                 //Turnout-to-turnout direct connection - Insert an intermediate zero length track
                                 // Retrieve coordinates
-                                XtrkCadAnchor anchor = (XtrkCadAnchor) anchors.get(ind);
+                                XtrkCadAnchor anchor = anchors.get(ind);
                                 // Create a new track with two anchors (duplicate anchors will be removed later)
                                 maxNumber++;
                                 XtrkCadElement newTrack = new XtrkCadElement();
@@ -585,12 +585,12 @@ public class XtrkCadReader {
                                         + track.originalNumber + " and #" + track1.originalNumber;
                                 newTrack.visible = track.visible;
                                 newTrack.layer = track.layer;
-                                tracks.addElement(newTrack);
-                                anchors.addElement(new XtrkCadAnchor(maxNumber, anchor.ref[0], anchor.x, anchor.y));
-                                anchors.addElement(new XtrkCadAnchor(maxNumber, anchor.ref[1], anchor.x, anchor.y));
+                                tracks.add(newTrack);
+                                anchors.add(new XtrkCadAnchor(maxNumber, anchor.ref[0], anchor.x, anchor.y));
+                                anchors.add(new XtrkCadAnchor(maxNumber, anchor.ref[1], anchor.x, anchor.y));
                                 //Retrieve the end point of the other turnout
                                 for (int ind2 = track1.firstAnchor; ind2 < track1.lastAnchor; ind2++) {
-                                    XtrkCadAnchor anchor1 = (XtrkCadAnchor) anchors.get(ind2);
+                                    XtrkCadAnchor anchor1 = anchors.get(ind2);
                                     if (anchor1.ref[1] == track.originalNumber) {
                                         //Link turnout found with new segment
                                         anchor1.ref[1] = maxNumber;
@@ -618,11 +618,11 @@ public class XtrkCadReader {
             // Version 1.4 - End
             nTracks2 = nTracks;
             for (i = 0; i < nTracks1; i++) {
-                XtrkCadElement track = (XtrkCadElement) tracks.get(i);
+                XtrkCadElement track = tracks.get(i);
                 if (track.trackType == CURVE) {
                     // Get end points
-                    XtrkCadAnchor anchorS = (XtrkCadAnchor) anchors.get(track.firstAnchor);
-                    XtrkCadAnchor anchorE = (XtrkCadAnchor) anchors.get(track.firstAnchor + 1);
+                    XtrkCadAnchor anchorS = anchors.get(track.firstAnchor);
+                    XtrkCadAnchor anchorE = anchors.get(track.firstAnchor + 1);
                     // Get starting angle
                     double ss = anchorS.a;
                     // Make sure angle is in 0-360 range
@@ -691,26 +691,26 @@ public class XtrkCadReader {
                         newTrack.layer = track.layer;
                         newTrack.isCurved = true;
                         newTrack.arcAngle = step;
-                        tracks.addElement(newTrack);
-                        anchors.addElement(new XtrkCadAnchor(maxNumber, maxNumber - 1, newX, newY));
+                        tracks.add(newTrack);
+                        anchors.add(new XtrkCadAnchor(maxNumber, maxNumber - 1, newX, newY));
                         newX = track.xReference + track.radius * Math.cos(ss);
                         newY = track.yReference + track.radius * Math.sin(ss);
-                        anchors.addElement(new XtrkCadAnchor(maxNumber, maxNumber + 1, newX, newY));
+                        anchors.add(new XtrkCadAnchor(maxNumber, maxNumber + 1, newX, newY));
                     }
                     // Version 1.4 - Start
                     if (arcTrack0 < nTracks) {
                         // Version 1.4 - End
                         // Add a comment to the first track created (if any)
-                        ((XtrkCadElement) tracks.get(arcTrack0)).description = "Rendering of " + track.description;
+                        (tracks.get(arcTrack0)).description = "Rendering of " + track.description;
                         // Adjust link in first anchor point of first chord created (if any)
-                        ((XtrkCadAnchor) anchors.get(arcAnchor0)).ref[1] = anchorS.ref[1];
+                        (anchors.get(arcAnchor0)).ref[1] = anchorS.ref[1];
                         // Move possible block gap to first anchor point of first chord
-                        ((XtrkCadAnchor) anchors.get(arcAnchor0)).blockGap = anchorS.blockGap;
+                        (anchors.get(arcAnchor0)).blockGap = anchorS.blockGap;
                         anchorS.blockGap = 0;
                         // Adjust link in duplicate anchor of original track
-                        AdjustAnchors(anchorS.ref[1], anchorS.ref[0], ((XtrkCadAnchor) anchors.get(arcAnchor0)).ref[0]);
+                        AdjustAnchors(anchorS.ref[1], anchorS.ref[0], (anchors.get(arcAnchor0)).ref[0]);
                         // Adjust link in last anchor point of last chord created
-                        ((XtrkCadAnchor) anchors.get(nAnchors - 1)).ref[1] = anchorE.ref[0];
+                        (anchors.get(nAnchors - 1)).ref[1] = anchorE.ref[0];
 
                         // Convert the orginal track into the last chord
                         anchorS.ref[1] = maxNumber;
@@ -726,10 +726,10 @@ public class XtrkCadReader {
             // 3.5 Removing duplicated end points.
             System.out.println("\t\t3.5 - Removing duplicated end points");
             for (int ind1 = 0; ind1 < nAnchors - 1; ind1++) {
-                XtrkCadAnchor anchor1 = (XtrkCadAnchor) anchors.get(ind1);
+                XtrkCadAnchor anchor1 = anchors.get(ind1);
                 if (anchor1.duplicate < 0) {
                     for (int ind2 = ind1 + 1; ind2 < nAnchors; ind2++) {
-                        XtrkCadAnchor anchor2 = (XtrkCadAnchor) anchors.get(ind2);
+                        XtrkCadAnchor anchor2 = anchors.get(ind2);
                         if (anchor2.duplicate < 0) {
                             if (anchor1.ref[0] == anchor2.ref[1] && anchor1.ref[1] == anchor2.ref[0]) {
                                 // Duplicated point found, link it
@@ -757,7 +757,7 @@ public class XtrkCadReader {
             // 3.6 Assigning JMRI IDs to tracks
             System.out.println("\t\t3.6 - Assigning JMRI IDs to tracks");
             for (i = 0; i < nTracks; i++) {
-                XtrkCadElement track = (XtrkCadElement) tracks.get(i);
+                XtrkCadElement track = tracks.get(i);
                 switch (track.trackType) {
                     case BUMPER:    // A bumper is compose by a straight track and a bumper end point
                     case STRAIGHT:
@@ -769,13 +769,13 @@ public class XtrkCadReader {
                         track.jmriNumber = turnoutIdent;
                         // Propagate ID and turnout type to turnout's anchor points
                         for (int ind = track.firstAnchor; ind < track.lastAnchor; ind++) {
-                            XtrkCadAnchor anchor = (XtrkCadAnchor) anchors.get(ind);
+                            XtrkCadAnchor anchor = anchors.get(ind);
                             anchor.jmriNumber = turnoutIdent;
                             anchor.type = ind - track.firstAnchor + 3;
                             // Suppress output
                             anchor.skip = true;
                             if (anchor.duplicate >= 0) {
-                                ((XtrkCadAnchor) anchors.get(anchor.duplicate)).skip = true;
+                                (anchors.get(anchor.duplicate)).skip = true;
                             }
                         }
                         turnoutIdent++;
@@ -785,7 +785,7 @@ public class XtrkCadReader {
                         track.jmriNumber = xingIdent;
                         // Set crossing anchor points in the order expected by JMRI layout editor
                         for (int ind = track.firstAnchor; ind < track.lastAnchor; ind++) {
-                            XtrkCadAnchor anchor = (XtrkCadAnchor) anchors.get(ind);
+                            XtrkCadAnchor anchor = anchors.get(ind);
                             anchor.jmriNumber = xingIdent;
                             anchor.type = ind - track.firstAnchor;
                             switch (anchor.type) {
@@ -805,7 +805,7 @@ public class XtrkCadReader {
                             anchor.type += 7;
                             anchor.skip = true;
                             if (anchor.duplicate >= 0) {
-                                ((XtrkCadAnchor) anchors.get(anchor.duplicate)).skip = true;
+                                (anchors.get(anchor.duplicate)).skip = true;
                             }
                         }
                         xingIdent++;
@@ -815,7 +815,7 @@ public class XtrkCadReader {
                         track.jmriNumber = turntableIdent;
                         // Set sequential numbering of turntable raytracks
                         for (int ind = track.firstAnchor; ind < track.lastAnchor; ind++) {
-                            XtrkCadAnchor anchor = (XtrkCadAnchor) anchors.get(ind);
+                            XtrkCadAnchor anchor = anchors.get(ind);
                             anchor.jmriNumber = turntableIdent;
                             anchor.type = ind - track.firstAnchor + 50;
                         }
@@ -829,7 +829,7 @@ public class XtrkCadReader {
             // 3.7 Assigning JMRI IDs to anchor points and bumpers.
             System.out.println("\t\t3.7 - Assigning JMRI IDs to anchor points and bumpers");
             for (int ind = 0; ind < nAnchors; ind++) {
-                XtrkCadAnchor anchor = (XtrkCadAnchor) anchors.get(ind);
+                XtrkCadAnchor anchor = anchors.get(ind);
                 if (!anchor.skip) {
                     if (anchor.type == 1) {
                         anchor.jmriNumber = anchorIdent++;
@@ -853,15 +853,15 @@ public class XtrkCadReader {
                 gapMask |= 4;
                 // Place, first of all, block gaps on turnouts (frog side)
                 for (i = 0; i < nTracks2; i++) {
-                    XtrkCadElement track = (XtrkCadElement) tracks.get(i);
+                    XtrkCadElement track = tracks.get(i);
                     if (track.trackType == TURNOUT) {
                         // Turnout, compute its length and use it to compute the maximum distance between turnouts in the same block
-                        XtrkCadAnchor anchor1 = (XtrkCadAnchor) anchors.get(track.firstAnchor);
-                        XtrkCadAnchor anchor2 = (XtrkCadAnchor) anchors.get(track.firstAnchor + 1);
+                        XtrkCadAnchor anchor1 = anchors.get(track.firstAnchor);
+                        XtrkCadAnchor anchor2 = anchors.get(track.firstAnchor + 1);
                         double maxDistance = Math.pow((anchor2.x - anchor1.x) * maxRange, 2) + Math.pow((anchor2.y - anchor1.y) * maxRange, 2);
                         // Now analyze divergent branches of the present turnout
                         for (int ind = track.firstAnchor + 1; ind < track.lastAnchor; ind++) {
-                            anchor2 = (XtrkCadAnchor) anchors.get(ind);
+                            anchor2 = anchors.get(ind);
                             // Find out if along this branch:
                             //      1 - there is another turnout;
                             //      2 - that has the same orientation of this one; and
@@ -880,7 +880,7 @@ public class XtrkCadReader {
                                 anchor2.blockGap |= 4;
                                 // and on the duplicate anchor (if any)
                                 if (anchor2.duplicate >= 0) {
-                                    ((XtrkCadAnchor) anchors.get(anchor2.duplicate)).blockGap |= 4;
+                                    (anchors.get(anchor2.duplicate)).blockGap |= 4;
                                 }
                             }
                         }
@@ -892,18 +892,18 @@ public class XtrkCadReader {
             // Corrected error in block boundaries detection
             // Remove possible null-length blocks
             for (i = 0; i < nTracks; i++) {
-                XtrkCadElement track = (XtrkCadElement) tracks.get(i);
+                XtrkCadElement track = tracks.get(i);
                 if (track.nullLength) {
-                    XtrkCadAnchor anchor1 = (XtrkCadAnchor) anchors.get(track.firstAnchor);
-                    XtrkCadAnchor anchor2 = (XtrkCadAnchor) anchors.get(track.firstAnchor + 1);
+                    XtrkCadAnchor anchor1 = anchors.get(track.firstAnchor);
+                    XtrkCadAnchor anchor2 = anchors.get(track.firstAnchor + 1);
                     if (anchor1.blockGap != 0 && anchor2.blockGap != 0) {
                         anchor1.blockGap |= anchor2.blockGap;
                         anchor2.blockGap = 0;
                         if (anchor1.duplicate >= 0) {
-                            ((XtrkCadAnchor) anchors.get(anchor1.duplicate)).blockGap = anchor1.blockGap;
+                            (anchors.get(anchor1.duplicate)).blockGap = anchor1.blockGap;
                         }
                         if (anchor2.duplicate >= 0) {
-                            ((XtrkCadAnchor) anchors.get(anchor2.duplicate)).blockGap = 0;
+                            (anchors.get(anchor2.duplicate)).blockGap = 0;
                         }
                     }
                 }
@@ -913,7 +913,7 @@ public class XtrkCadReader {
             // Now assign block numbers
             if (gapMask != 0) {
                 for (i = 0; i < nTracks; i++) {
-                    XtrkCadElement track = (XtrkCadElement) tracks.get(i);
+                    XtrkCadElement track = tracks.get(i);
                     if (track.trackType != CROSSING && track.trackType != TURNTABLE && track.block == 0) {
                         track.setBlock(-1, blockIdent);
                         blockIdent++;
@@ -925,14 +925,14 @@ public class XtrkCadReader {
                     BlockName blockName = new BlockName();
                     blockName.system = "ILB" + (i - startBlock + 1);
                     blockName.user = "B" + (i - startBlock + 1);
-                    blockNames.addElement(blockName);
+                    blockNames.add(blockName);
                 }
                 // Now retrieve names from track descriptions (if required)
                 if (getBlockNames) {
                     for (i = 0; i < nTracks1; i++) {
-                        XtrkCadElement track = (XtrkCadElement) tracks.get(i);
+                        XtrkCadElement track = tracks.get(i);
                         if (track.block != 0) {
-                            BlockName blockName = (BlockName) blockNames.get(track.block - startBlock);
+                            BlockName blockName = blockNames.get(track.block - startBlock);
                             line = new Scanner(track.description);
                             while (line.hasNext()) {
                                 keyword = line.next();
@@ -957,7 +957,7 @@ public class XtrkCadReader {
             if (blockIdent > 1) {
                 out.println("\t<layoutblocks class=\"jmri.jmrit.display.layoutEditor.configurexml.LayoutBlockManagerXml\">");
                 for (i = startBlock; i < blockIdent; i++) {
-                    BlockName blockName = (BlockName) blockNames.get(i - startBlock);
+                    BlockName blockName = blockNames.get(i - startBlock);
                     // Version 1.3 - start
                     String sensorName = "";
                     if (setBlockSensors && blockName.user.length() > 1) {
@@ -977,7 +977,7 @@ public class XtrkCadReader {
 
             // Write Tracks and relevant Anchor Points
             for (i = 0; i < nTracks; i++) {
-                ((XtrkCadElement) tracks.get(i)).print();
+                (tracks.get(i)).print();
             }
 
             // Write closure lines
@@ -1000,7 +1000,7 @@ public class XtrkCadReader {
     public void AdjustAnchors(int ref0, int oldRef1, int newRef1) {
         // Adjust link in duplicate anchor of original track
         for (int ind2 = 0; ind2 < nAnchors; ind2++) {
-            XtrkCadAnchor anchor2 = (XtrkCadAnchor) anchors.get(ind2);
+            XtrkCadAnchor anchor2 = anchors.get(ind2);
             if (anchor2.ref[0] == ref0 && anchor2.ref[1] == oldRef1) {
                 // Duplicate found, change link
                 anchor2.ref[1] = newRef1;
@@ -1196,10 +1196,10 @@ public class XtrkCadReader {
                     keyword = line.next();
                     if (keyword.equals("T")) {
                         // End point connected with another track
-                        anchors.addElement(new XtrkCadAnchor(originalNumber, true));
+                        anchors.add(new XtrkCadAnchor(originalNumber, true));
                     } else if (keyword.equals("E")) {
                         // End point not connected
-                        anchors.addElement(new XtrkCadAnchor(originalNumber, false));
+                        anchors.add(new XtrkCadAnchor(originalNumber, false));
                     } else if (keyword.equals("S")) {
                         // Straight segment - count it
                         iS++;
@@ -1254,7 +1254,7 @@ public class XtrkCadReader {
                     case 1:
                         trackType = BUMPER;
                         // Create an additional anchor point
-                        anchors.addElement(new XtrkCadAnchor(originalNumber, xReference, yReference));
+                        anchors.add(new XtrkCadAnchor(originalNumber, xReference, yReference));
                         lastAnchor = nAnchors;
                         break;
                     case 2:
@@ -1266,9 +1266,9 @@ public class XtrkCadReader {
                         break;
                     case 3:
                         // Turnout // Determine type
-                        XtrkCadAnchor anchor1 = (XtrkCadAnchor) anchors.get(firstAnchor);
-                        XtrkCadAnchor anchor2 = (XtrkCadAnchor) anchors.get(firstAnchor + 1);
-                        XtrkCadAnchor anchor3 = (XtrkCadAnchor) anchors.get(firstAnchor + 2);
+                        XtrkCadAnchor anchor1 = anchors.get(firstAnchor);
+                        XtrkCadAnchor anchor2 = anchors.get(firstAnchor + 1);
+                        XtrkCadAnchor anchor3 = anchors.get(firstAnchor + 2);
                         double angle = anchor1.a - 180.0;
                         if (angle < 0.) {
                             angle += 360.0;
@@ -1336,11 +1336,11 @@ public class XtrkCadReader {
 
             // Write Anchor Points
             for (int ind1 = firstAnchor; ind1 < lastAnchor; ind1++) {
-                ((XtrkCadAnchor) anchors.get(ind1)).print();
+                (anchors.get(ind1)).print();
             }
             String blockString = "";
             if (block != 0) {
-                blockString = " blockname=\"" + ((BlockName) blockNames.get(block - startBlock)).user + "\"";
+                blockString = " blockname=\"" + (blockNames.get(block - startBlock)).user + "\"";
             }
 
             // Now write the track
@@ -1348,15 +1348,15 @@ public class XtrkCadReader {
                 case TURNOUT:
                     // Although not explicitely stated, the first anchor
                     // seems to be the point of the turnout
-                    anchor1 = (XtrkCadAnchor) anchors.get(firstAnchor);
+                    anchor1 = anchors.get(firstAnchor);
                     xcen = anchor1.x;
                     ycen = anchor1.y;
                     // Second anchor seems to be the end of the straight segment
-                    anchor1 = (XtrkCadAnchor) anchors.get(firstAnchor + 1);
+                    anchor1 = anchors.get(firstAnchor + 1);
                     xb = anchor1.x;
                     yb = anchor1.y;
                     // Third anchor seems to be the end of the curved segment
-                    anchor2 = (XtrkCadAnchor) anchors.get(firstAnchor + 2);
+                    anchor2 = anchors.get(firstAnchor + 2);
                     xc = anchor2.x;
                     yc = anchor2.y;
                     // Compute the center of the turnout, as required by JMRI Layout Editor
@@ -1370,15 +1370,15 @@ public class XtrkCadReader {
                         ycen = (ycen + yb) / 2.0;
                     }
                     // Get references to neighbor tracks
-                    nameA = ((XtrkCadAnchor) anchors.get(firstAnchor)).getConnectedName(1);
+                    nameA = (anchors.get(firstAnchor)).getConnectedName(1);
                     if (!nameA.equals("")) {
                         nameA = " connectaname=\"" + nameA + "\"";
                     }
-                    nameB = ((XtrkCadAnchor) anchors.get(firstAnchor + 1)).getConnectedName(1);
+                    nameB = (anchors.get(firstAnchor + 1)).getConnectedName(1);
                     if (!nameB.equals("")) {
                         nameB = " connectbname=\"" + nameB + "\"";
                     }
-                    nameC = ((XtrkCadAnchor) anchors.get(firstAnchor + 2)).getConnectedName(1);
+                    nameC = (anchors.get(firstAnchor + 2)).getConnectedName(1);
                     if (!nameC.equals("")) {
                         nameC = " connectcname=\"" + nameC + "\"";
                     }
@@ -1400,40 +1400,40 @@ public class XtrkCadReader {
                 case CROSSING:
                     blockString = "";
                     if (blockX != 0) {
-                        blockString = " blocknameac=\"" + ((BlockName) blockNames.get(blockX - startBlock)).user + "\"";
+                        blockString = " blocknameac=\"" + (blockNames.get(blockX - startBlock)).user + "\"";
                     }
                     if (block != 0) {
-                        blockString += " blocknamebd=\"" + ((BlockName) blockNames.get(block - startBlock)).user + "\"";
+                        blockString += " blocknamebd=\"" + (blockNames.get(block - startBlock)).user + "\"";
                     }
                     // First anchor seems to be the start of the second segment - b
-                    anchor1 = (XtrkCadAnchor) anchors.get(firstAnchor);
+                    anchor1 = anchors.get(firstAnchor);
                     xb = anchor1.x;
                     yb = anchor1.y;
                     // Second anchor seems to be the end of the second segment - d
-                    anchor1 = (XtrkCadAnchor) anchors.get(firstAnchor + 1);
+                    anchor1 = anchors.get(firstAnchor + 1);
                     xcen = anchor1.x;
                     ycen = anchor1.y;
                     // Third anchor seems to be the start of the first segment - a
-                    anchor1 = (XtrkCadAnchor) anchors.get(firstAnchor + 2);
+                    anchor1 = anchors.get(firstAnchor + 2);
                     xa = anchor1.x;
                     ya = anchor1.y;
                     // Compute the center of the crossing, as required by JMRI Layout Editor
                     xcen = (xcen + xb) / 2.0;
                     ycen = (ycen + yb) / 2.0;
                     // Get references to neighbor tracks in the order expected by JMRI Layout Editor
-                    nameA = ((XtrkCadAnchor) anchors.get(firstAnchor + 2)).getConnectedName(1);
+                    nameA = (anchors.get(firstAnchor + 2)).getConnectedName(1);
                     if (!nameA.equals("")) {
                         nameA = " connectaname=\"" + nameA + "\"";
                     }
-                    nameB = ((XtrkCadAnchor) anchors.get(firstAnchor)).getConnectedName(1);
+                    nameB = (anchors.get(firstAnchor)).getConnectedName(1);
                     if (!nameB.equals("")) {
                         nameB = " connectbname=\"" + nameB + "\"";
                     }
-                    nameC = ((XtrkCadAnchor) anchors.get(firstAnchor + 3)).getConnectedName(1);
+                    nameC = (anchors.get(firstAnchor + 3)).getConnectedName(1);
                     if (!nameC.equals("")) {
                         nameC = " connectcname=\"" + nameC + "\"";
                     }
-                    nameD = ((XtrkCadAnchor) anchors.get(firstAnchor + 1)).getConnectedName(1);
+                    nameD = (anchors.get(firstAnchor + 1)).getConnectedName(1);
                     if (!nameD.equals("")) {
                         nameD = " connectdname=\"" + nameD + "\"";
                     }
@@ -1468,8 +1468,8 @@ public class XtrkCadReader {
                         }
                     }
                     // Simply connect start and end anchors
-                    anchor1 = (XtrkCadAnchor) anchors.get(firstAnchor);
-                    anchor2 = (XtrkCadAnchor) anchors.get(firstAnchor + 1);
+                    anchor1 = anchors.get(firstAnchor);
+                    anchor2 = anchors.get(firstAnchor + 1);
                     String mainLine = "no";
                     if (layer == mainLineLayer) {
                         mainLine = "yes";
@@ -1505,7 +1505,7 @@ public class XtrkCadReader {
                         + "\" ycen=\"" + yReference + "\" class=\"jmri.jmrit.display.layoutEditor.configurexml.LayoutTurntableXml\">");
                 XtrkCadAnchor anchor;
                 for (int ind1 = firstAnchor; ind1 < lastAnchor; ind1++) {
-                    anchor = (XtrkCadAnchor) anchors.get(ind1);
+                    anchor = anchors.get(ind1);
                     out.println("\t\t\t<raytrack angle=\"" + anchor.a + "\" connectname=\""
                             + anchor.getConnectedName(1) + "\" index=\"" + (anchor.type - 50) + "\" />");
                 }
@@ -1514,11 +1514,11 @@ public class XtrkCadReader {
             }
             // Write Anchor Points
             for (int ind1 = firstAnchor; ind1 < lastAnchor; ind1++) {
-                ((XtrkCadAnchor) anchors.get(ind1)).print();
+                (anchors.get(ind1)).print();
             }
             String blockString = "";
             if (block != 0) {
-                blockString = " blockname=\"" + ((BlockName) blockNames.get(block - startBlock)).user + "\"";
+                blockString = " blockname=\"" + (blockNames.get(block - startBlock)).user + "\"";
             }
 
             // Now write the track
@@ -1526,15 +1526,15 @@ public class XtrkCadReader {
                 case TURNOUT:
                     // Although not explicitely stated, the first anchor
                     // seems to be the point of the turnout
-                    anchor1 = (XtrkCadAnchor) anchors.get(firstAnchor);
+                    anchor1 = anchors.get(firstAnchor);
                     xcen = anchor1.x;
                     ycen = anchor1.y;
                     // Second anchor seems to be the end of the straight segment
-                    anchor1 = (XtrkCadAnchor) anchors.get(firstAnchor + 1);
+                    anchor1 = anchors.get(firstAnchor + 1);
                     xb = anchor1.x;
                     yb = anchor1.y;
                     // Third anchor seems to be the end of the curved segment
-                    anchor2 = (XtrkCadAnchor) anchors.get(firstAnchor + 2);
+                    anchor2 = anchors.get(firstAnchor + 2);
                     xc = anchor2.x;
                     yc = anchor2.y;
                     // Compute the center of the turnout, as required by JMRI Layout Editor
@@ -1548,15 +1548,15 @@ public class XtrkCadReader {
                         ycen = (ycen + yb) / 2.0;
                     }
                     // Get references to neighbor tracks
-                    nameA = ((XtrkCadAnchor) anchors.get(firstAnchor)).getConnectedName(1);
+                    nameA = (anchors.get(firstAnchor)).getConnectedName(1);
                     if (!nameA.equals("")) {
                         nameA = " connectaname=\"" + nameA + "\"";
                     }
-                    nameB = ((XtrkCadAnchor) anchors.get(firstAnchor + 1)).getConnectedName(1);
+                    nameB = (anchors.get(firstAnchor + 1)).getConnectedName(1);
                     if (!nameB.equals("")) {
                         nameB = " connectbname=\"" + nameB + "\"";
                     }
-                    nameC = ((XtrkCadAnchor) anchors.get(firstAnchor + 2)).getConnectedName(1);
+                    nameC = (anchors.get(firstAnchor + 2)).getConnectedName(1);
                     if (!nameC.equals("")) {
                         nameC = " connectcname=\"" + nameC + "\"";
                     }
@@ -1578,40 +1578,40 @@ public class XtrkCadReader {
                 case CROSSING:
                     blockString = "";
                     if (blockX != 0) {
-                        blockString = " blocknameac=\"" + ((BlockName) blockNames.get(blockX - startBlock)).user + "\"";
+                        blockString = " blocknameac=\"" + (blockNames.get(blockX - startBlock)).user + "\"";
                     }
                     if (block != 0) {
-                        blockString += " blocknamebd=\"" + ((BlockName) blockNames.get(block - startBlock)).user + "\"";
+                        blockString += " blocknamebd=\"" + (blockNames.get(block - startBlock)).user + "\"";
                     }
                     // First anchor seems to be the start of the second segment - b
-                    anchor1 = (XtrkCadAnchor) anchors.get(firstAnchor);
+                    anchor1 = anchors.get(firstAnchor);
                     xb = anchor1.x;
                     yb = anchor1.y;
                     // Second anchor seems to be the end of the second segment - d
-                    anchor1 = (XtrkCadAnchor) anchors.get(firstAnchor + 1);
+                    anchor1 = anchors.get(firstAnchor + 1);
                     xcen = anchor1.x;
                     ycen = anchor1.y;
                     // Third anchor seems to be the start of the first segment - a
-                    anchor1 = (XtrkCadAnchor) anchors.get(firstAnchor + 2);
+                    anchor1 = anchors.get(firstAnchor + 2);
                     xa = anchor1.x;
                     ya = anchor1.y;
                     // Compute the center of the crossing, as required by JMRI Layout Editor
                     xcen = (xcen + xb) / 2.0;
                     ycen = (ycen + yb) / 2.0;
                     // Get references to neighbor tracks in the order expected by JMRI Layout Editor
-                    nameA = ((XtrkCadAnchor) anchors.get(firstAnchor + 2)).getConnectedName(1);
+                    nameA = (anchors.get(firstAnchor + 2)).getConnectedName(1);
                     if (!nameA.equals("")) {
                         nameA = " connectaname=\"" + nameA + "\"";
                     }
-                    nameB = ((XtrkCadAnchor) anchors.get(firstAnchor)).getConnectedName(1);
+                    nameB = (anchors.get(firstAnchor)).getConnectedName(1);
                     if (!nameB.equals("")) {
                         nameB = " connectbname=\"" + nameB + "\"";
                     }
-                    nameC = ((XtrkCadAnchor) anchors.get(firstAnchor + 3)).getConnectedName(1);
+                    nameC = (anchors.get(firstAnchor + 3)).getConnectedName(1);
                     if (!nameC.equals("")) {
                         nameC = " connectcname=\"" + nameC + "\"";
                     }
-                    nameD = ((XtrkCadAnchor) anchors.get(firstAnchor + 1)).getConnectedName(1);
+                    nameD = (anchors.get(firstAnchor + 1)).getConnectedName(1);
                     if (!nameD.equals("")) {
                         nameD = " connectdname=\"" + nameD + "\"";
                     }
@@ -1646,8 +1646,8 @@ public class XtrkCadReader {
                         }
                     }
                     // Simply connect start and end anchors
-                    anchor1 = (XtrkCadAnchor) anchors.get(firstAnchor);
-                    anchor2 = (XtrkCadAnchor) anchors.get(firstAnchor + 1);
+                    anchor1 = anchors.get(firstAnchor);
+                    anchor2 = anchors.get(firstAnchor + 1);
                     String mainLine = "no";
                     if (layer == mainLineLayer) {
                         mainLine = "yes";
@@ -1685,14 +1685,14 @@ public class XtrkCadReader {
             if (ind < firstAnchor || ind >= lastAnchor) {
                 return null;
             }
-            return ((XtrkCadAnchor) anchors.get(ind)).getConnectedTrack(1);
+            return (anchors.get(ind)).getConnectedTrack(1);
         }
 
         public XtrkCadAnchor crossingThru(int source, int newBlock) {
             // Find the exit point of a crossing, when entering from the "source" track
             // Optionally sets also the block number
             for (int ind = firstAnchor; ind < lastAnchor; ind++) {
-                if (((XtrkCadAnchor) anchors.get(ind)).ref[1] == source) {
+                if ((anchors.get(ind)).ref[1] == source) {
                     if (ind < firstAnchor + 2) {
                         if (blockX != 0) {
                             return null;
@@ -1710,7 +1710,7 @@ public class XtrkCadReader {
                         }
                         ind = firstAnchor * 2 + 5 - ind;
                     }
-                    return (XtrkCadAnchor) anchors.get(ind);
+                    return anchors.get(ind);
                 }
             }
             return null;
@@ -1747,7 +1747,7 @@ public class XtrkCadReader {
             if (block == 0) {
                 block = newBlock;
                 for (int ind = firstAnchor; ind < lastAnchor; ind++) {
-                    XtrkCadAnchor anchor = (XtrkCadAnchor) anchors.get(ind);
+                    XtrkCadAnchor anchor = anchors.get(ind);
                     if (anchor.ref[1] != caller && anchor.ref[1] != 0 && (anchor.blockGap & gapMask) == 0) {
                         anchor.getConnectedTrack(1).setBlock(originalNumber, newBlock);
                     }
@@ -1759,7 +1759,7 @@ public class XtrkCadReader {
             // Checks if along a path there is the point of a turnout within a given range
             switch (trackType) {
                 case TURNOUT:
-                    return ((XtrkCadAnchor) anchors.get(firstAnchor)).ref[1] == caller;
+                    return (anchors.get(firstAnchor)).ref[1] == caller;
                 case CROSSING:
                     if (!enableBlockXing) {
                         return true;
@@ -1778,7 +1778,7 @@ public class XtrkCadReader {
                 case STRAIGHT:
                 case CURVE:
                     for (int ind = firstAnchor; ind < lastAnchor; ind++) {
-                        XtrkCadAnchor anchor = (XtrkCadAnchor) anchors.get(ind);
+                        XtrkCadAnchor anchor = anchors.get(ind);
                         if (anchor.ref[1] != caller) {
                             if (Math.pow(anchor.x - x0, 2) + Math.pow(anchor.y - y0, 2) <= range2) {
                                 // Version 1.3 Start
@@ -1880,7 +1880,7 @@ public class XtrkCadReader {
             if (duplicate < 0 || !skip) {
                 return 1;   // Not a turnout
             }               // This anchor is a duplicate.  Retrieve the original
-            XtrkCadAnchor duplicateAnchor = (XtrkCadAnchor) anchors.get(duplicate);
+            XtrkCadAnchor duplicateAnchor = anchors.get(duplicate);
             if (duplicateAnchor.type < 3) {
                 return 1;   // Not a turnout
             }
@@ -1894,7 +1894,7 @@ public class XtrkCadReader {
                 XtrkCadElement track;
                 // Reference found - Retrieve the  corresponding track
                 for (int ind1 = 0; ind1 < nTracks; ind1++) {
-                    track = (XtrkCadElement) tracks.get(ind1);
+                    track = tracks.get(ind1);
                     if (track.originalNumber == ref[ind]) {
                         return track;
                     }
@@ -1922,7 +1922,7 @@ public class XtrkCadReader {
                 return "A" + jmriNumber;        // Normal anchor
             } else {
                 // This anchor is a duplicate.  Retrieve the original
-                XtrkCadAnchor duplicateAnchor = (XtrkCadAnchor) anchors.get(duplicate);
+                XtrkCadAnchor duplicateAnchor = anchors.get(duplicate);
                 if (duplicateAnchor.type == 1) {
                     return "A" + duplicateAnchor.jmriNumber;    // Normal anchor
                 }
