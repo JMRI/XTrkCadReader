@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="http://jmri.sourceforge.net/xml/XSLT/panelfile.xsl" type="text/xsl"?>
+<!DOCTYPE layout-config SYSTEM "layout-config.dtd">
+<layout-config>
+<!--
+
+XtrkCadReader - XtrkCad to JMRI Layout Editor format conversion utility
+Revision 1.5
+
+	Input file: /Users/terdina/User data local/Dev current/XtrkCadReaderDir/XtrkCadReader1v5/Examples/KatoH0.xtc
+
+	Options:
+		Width of output frame:	800
+		Height of output frame:	600
+		Arc rendering disabled
+		Tolerance for end points merging:	2.0
+		Starting ID number for anchor points:	1
+		Starting ID number for track segments:	1
+		Starting ID number for turnouts:	1
+		Starting ID number for crossings:	1
+		Starting ID number for bumpers:	1
+		Starting ID number for turntables:	1
+		Automatic definition of blocks based on XtrCAD block gaps:	disabled
+		Automatic definition of blocks based on turnouts:	disabled
+-->
+<!-- Original layout size: 104.7 x 52.4  Output scale: 7.640878701050621  Output size: 800 x 400 -->
+	<LayoutEditor class="jmri.jmrit.display.configurexml.LayoutEditorXml" name="Kato H0 example" x="0" y="0" height="465" width="800" editable="yes" positionable="yes" controlling="yes" animating="yes" showhelpbar="yes" mainlinetrackwidth="4" xscale="1.00" yscale="1.00" sidetrackwidth="2" defaulttrackcolor="black">
+	 <!-- #1 &quot;Kato Unitrack Straight 14 1/2 369mm 2-180&quot; -->
+		<tracksegment ident="T1" connect1name="A1" type1="1" connect2name="TO3" type2="2" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #2 &quot;Kato Unitrack Curved R21 5/8 550mm 22.5∞ 2-210&quot; -->
+		<positionablepoint ident="A1" type="1" x="183.12177268385867" y="16.841100286532953" connect1name="T2" connect2name="T1" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T2" connect1name="A2" type1="1" connect2name="A1" type2="1" mainline="no" hidden="no" dashed="no" arc="yes" circle="yes" flip="no" angle="22.5"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #3 &quot;Kato Unitrack Curved R21 5/8 550mm 22.5∞ 2-210&quot; -->
+		<positionablepoint ident="A2" type="1" x="119.80599044890162" y="29.43536962750715" connect1name="T3" connect2name="T2" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T3" connect1name="A3" type1="1" connect2name="A2" type2="1" mainline="no" hidden="no" dashed="no" arc="yes" circle="yes" flip="no" angle="22.5"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #4 &quot;Kato Unitrack Curved R21 5/8 550mm 22.5∞ 2-210&quot; -->
+		<positionablepoint ident="A3" type="1" x="66.1294441260745" y="65.30083667621777" connect1name="T4" connect2name="T3" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T4" connect1name="A4" type1="1" connect2name="A3" type2="1" mainline="no" hidden="no" dashed="no" arc="yes" circle="yes" flip="no" angle="22.5"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #5 &quot;Kato Unitrack Curved R21 5/8 550mm 22.5∞ 2-210&quot; -->
+		<positionablepoint ident="A4" type="1" x="30.263885386819485" y="118.97732187201528" connect1name="T5" connect2name="T4" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T5" connect1name="A5" type1="1" connect2name="A4" type2="1" mainline="no" hidden="no" dashed="no" arc="yes" circle="yes" flip="no" angle="22.5"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #6 &quot;Kato Unitrack Straight 4 1/2 114mm 2-120&quot; -->
+		<positionablepoint ident="A5" type="1" x="17.6960152817574" y="182.29465520534862" connect1name="T6" connect2name="T5" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T6" connect1name="A6" type1="1" connect2name="A5" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #7 &quot;Kato Unitrack Curved R21 5/8 550mm 22.5∞ 2-210&quot; -->
+		<positionablepoint ident="A6" type="1" x="17.72247564469914" y="216.589929321872" connect1name="T7" connect2name="T6" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T7" connect1name="A7" type1="1" connect2name="A6" type2="1" mainline="no" hidden="no" dashed="no" arc="yes" circle="yes" flip="no" angle="22.5"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #8 &quot;Kato Unitrack Curved R21 5/8 550mm 22.5∞ 2-210&quot; -->
+		<positionablepoint ident="A7" type="1" x="30.354093600764088" y="279.90117287488056" connect1name="T8" connect2name="T7" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T8" connect1name="A8" type1="1" connect2name="A7" type2="1" mainline="no" hidden="no" dashed="no" arc="yes" circle="yes" flip="no" angle="22.5"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #9 &quot;Kato Unitrack Curved R21 5/8 550mm 22.5∞ 2-210&quot; -->
+		<positionablepoint ident="A8" type="1" x="66.29282139446038" y="333.5689856733524" connect1name="T9" connect2name="T8" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T9" connect1name="A9" type1="1" connect2name="A8" type2="1" mainline="no" hidden="no" dashed="no" arc="yes" circle="yes" flip="no" angle="22.5"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #10 &quot;Kato Unitrack Curved R21 5/8 550mm 22.5∞ 2-210&quot; -->
+		<positionablepoint ident="A9" type="1" x="120.07805157593124" y="369.4364164278892" connect1name="T10" connect2name="T9" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T10" connect1name="TO1" type1="2" connect2name="A9" type2="1" mainline="no" hidden="no" dashed="no" arc="yes" circle="yes" flip="no" angle="22.5"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #11 &quot;Kato Unitrack #4-L Man Turnout 2-840&quot; -->
+		<layoutturnout ident="TO1" type="2" connectaname="T10" connectbname="T14" connectcname="T11" continuing="2" disabled="no" xcen="220.50197134670486" ycen="382.03216809933144" xb="257.5030754536772" yb="382.03216809933144" xc="239.90947086914994" yc="370.8117975167144" class="jmri.jmrit.display.configurexml.LayoutTurnoutXml" />
+	 <!-- #12 &quot;Kato Unitrack Curved R16 7/8 430mm 22.5∞ 2-260&quot; -->
+		<tracksegment ident="T11" connect1name="TO1" type1="4" connect2name="A10" type2="1" mainline="no" hidden="no" dashed="no" arc="yes" circle="yes" flip="no" angle="22.5"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #13 &quot;Kato Unitrack Straight 14 1/2 369mm 2-180&quot; -->
+		<positionablepoint ident="A10" type="1" x="289.4109035339064" y="360.96537153772687" connect1name="T12" connect2name="T11" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T12" connect1name="A10" type1="1" connect2name="A11" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #14 &quot;Kato Unitrack Straight 14 1/2 369mm 2-180&quot; -->
+		<positionablepoint ident="A11" type="1" x="400.41421967526264" y="360.96537153772687" connect1name="T13" connect2name="T12" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T13" connect1name="A11" type1="1" connect2name="A14" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #15 &quot;Kato Unitrack Straight 14 1/2 369mm 2-180&quot; -->
+		<tracksegment ident="T14" connect1name="TO1" type1="3" connect2name="A12" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #16 &quot;Kato Unitrack Straight 14 1/2 369mm 2-180&quot; -->
+		<positionablepoint ident="A12" type="1" x="368.9647373447947" y="382.0321604584527" connect1name="T15" connect2name="T14" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T15" connect1name="A12" type1="1" connect2name="A13" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #17 &quot;Kato Unitrack Straight 4 1/2 114mm 2-120&quot; -->
+		<positionablepoint ident="A13" type="1" x="480.0811996179561" y="382.0321604584527" connect1name="T16" connect2name="T15" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T16" connect1name="A13" type1="1" connect2name="A15" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #18 &quot;Kato Unitrack Curved R16 7/8 430mm 22.5∞ 2-260&quot; -->
+		<positionablepoint ident="A14" type="1" x="511.4175358166189" y="360.96537153772687" connect1name="T17" connect2name="T13" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T17" connect1name="A14" type1="1" connect2name="TO2" type2="4" mainline="no" hidden="no" dashed="no" arc="yes" circle="yes" flip="no" angle="22.5"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #19 &quot;Kato Unitrack #4-R Man Turnout 2-841&quot; -->
+		<layoutturnout ident="TO2" type="1" connectaname="T19" connectbname="T18" connectcname="T17" continuing="2" disabled="no" xcen="580.3264297994269" ycen="382.0322445081184" xb="543.3253256924546" yb="382.03214517669534" xc="560.9189608404967" yc="370.8118204393505" class="jmri.jmrit.display.configurexml.LayoutTurnoutXml" />
+	 <!-- #20 &quot;Kato Unitrack Straight 3 11/16 94mm 2-111&quot; -->
+		<positionablepoint ident="A15" type="1" x="514.6902693409743" y="382.032152817574" connect1name="T18" connect2name="T16" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T18" connect1name="A15" type1="1" connect2name="TO2" type2="3" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #21 &quot;Kato Unitrack Curved R21 5/8 550mm 22.5∞ 2-210&quot; -->
+		<tracksegment ident="T19" connect1name="A16" type1="1" connect2name="TO2" type2="2" mainline="no" hidden="no" dashed="no" arc="yes" circle="yes" flip="no" angle="22.5"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #22 &quot;Kato Unitrack Curved R21 5/8 550mm 22.5∞ 2-210&quot; -->
+		<positionablepoint ident="A16" type="1" x="680.7748080229226" y="369.4470907354346" connect1name="T20" connect2name="T19" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T20" connect1name="A17" type1="1" connect2name="A16" type2="1" mainline="no" hidden="no" dashed="no" arc="yes" circle="yes" flip="no" angle="22.5"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #23 &quot;Kato Unitrack Curved R21 5/8 550mm 22.5∞ 2-210&quot; -->
+		<positionablepoint ident="A17" type="1" x="734.4964508118434" y="333.5791786055396" connect1name="T21" connect2name="T20" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T21" connect1name="A18" type1="1" connect2name="A17" type2="1" mainline="no" hidden="no" dashed="no" arc="yes" circle="yes" flip="no" angle="22.5"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #24 &quot;Kato Unitrack Curved R21 5/8 550mm 22.5∞ 2-210&quot; -->
+		<positionablepoint ident="A18" type="1" x="770.4358051575931" y="279.90407640878703" connect1name="T22" connect2name="T21" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T22" connect1name="A19" type1="1" connect2name="A18" type2="1" mainline="no" hidden="no" dashed="no" arc="yes" circle="yes" flip="no" angle="22.5"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #25 &quot;Kato Unitrack Straight 4 1/2 114mm 2-120&quot; -->
+		<positionablepoint ident="A19" type="1" x="783.1305138490926" y="216.58764469914038" connect1name="T23" connect2name="T22" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T23" connect1name="A20" type1="1" connect2name="A19" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #26 &quot;Kato Unitrack Curved R21 5/8 550mm 22.5∞ 2-210&quot; -->
+		<positionablepoint ident="A20" type="1" x="783.2309761222541" y="182.2932874880611" connect1name="T24" connect2name="T23" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T24" connect1name="A21" type1="1" connect2name="A20" type2="1" mainline="no" hidden="no" dashed="no" arc="yes" circle="yes" flip="no" angle="22.5"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #27 &quot;Kato Unitrack Curved R21 5/8 550mm 22.5∞ 2-210&quot; -->
+		<positionablepoint ident="A21" type="1" x="770.6366227316141" y="118.97752817574018" connect1name="T25" connect2name="T24" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T25" connect1name="A22" type1="1" connect2name="A21" type2="1" mainline="no" hidden="no" dashed="no" arc="yes" circle="yes" flip="no" angle="22.5"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #28 &quot;Kato Unitrack Curved R21 5/8 550mm 22.5∞ 2-210&quot; -->
+		<positionablepoint ident="A22" type="1" x="734.7710792741166" y="65.30102769818531" connect1name="T26" connect2name="T25" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T26" connect1name="A23" type1="1" connect2name="A22" type2="1" mainline="no" hidden="no" dashed="no" arc="yes" circle="yes" flip="no" angle="22.5"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #29 &quot;Kato Unitrack Curved R21 5/8 550mm 22.5∞ 2-210&quot; -->
+		<positionablepoint ident="A23" type="1" x="681.0945482330468" y="29.435537726838582" connect1name="T27" connect2name="T26" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T27" connect1name="TO4" type1="2" connect2name="A23" type2="1" mainline="no" hidden="no" dashed="no" arc="yes" circle="yes" flip="no" angle="22.5"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #30 &quot;Kato Unitrack #4-R Turnout 2-851&quot; -->
+		<layoutturnout ident="TO3" type="1" connectaname="T1" connectbname="T28" connectcname="T34" continuing="2" disabled="no" xcen="321.95112511938873" ycen="16.841100286532953" xb="349.77716141356257" yb="16.841100286532953" xc="347.9910219675263" yc="25.85516714422158" class="jmri.jmrit.display.configurexml.LayoutTurnoutXml" />
+	 <!-- #31 &quot;Kato Unitrack #4-L Turnout 2-850&quot; -->
+		<layoutturnout ident="TO4" type="2" connectaname="T27" connectbname="T32" connectcname="T33" continuing="2" disabled="no" xcen="589.9527373447947" ycen="16.84117287488062" xb="562.1267010506208" yb="16.841100286532953" xc="563.9128175740211" yc="25.85517478510026" class="jmri.jmrit.display.configurexml.LayoutTurnoutXml" />
+	 <!-- #32 &quot;Kato Unitrack Straight 14 1/2 369mm 2-180&quot; -->
+		<tracksegment ident="T28" connect1name="TO3" type1="3" connect2name="A24" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #33 &quot;Kato Unitrack Straight 4 7/8 123mm 2-140&quot; -->
+		<positionablepoint ident="A24" type="1" x="460.78047755491883" y="16.841100286532953" connect1name="T29" connect2name="T28" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T29" connect1name="A24" type1="1" connect2name="A25" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #34 &quot;Kato Unitrack Straight 3 11/16 94mm 2-111&quot; -->
+		<positionablepoint ident="A25" type="1" x="497.78158548233046" y="16.841100286532953" connect1name="T30" connect2name="T29" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T30" connect1name="A25" type1="1" connect2name="A26" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #35 &quot;Kato Unitrack Straight 2 3/8 60mm 2-105&quot; -->
+		<positionablepoint ident="A26" type="1" x="526.0588500477555" y="16.841100286532953" connect1name="T31" connect2name="T30" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T31" connect1name="A26" type1="1" connect2name="A27" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #36 &quot;Kato Unitrack Straight 2 3/8 60mm 2-105&quot; -->
+		<positionablepoint ident="A27" type="1" x="544.1081719197707" y="16.841100286532953" connect1name="T32" connect2name="T31" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T32" connect1name="A27" type1="1" connect2name="TO4" type2="3" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #37 &quot;Kato Unitrack R550-3.5+15.5∞ (incl w/#4 TO) &quot; -->
+		<tracksegment ident="T33" connect1name="TO4" type1="4" connect2name="A30" type2="1" mainline="no" hidden="no" dashed="no" arc="yes" circle="yes" flip="no" angle="19.0"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #39 &quot;Kato Unitrack R550-3.5+15.5∞ (incl w/#4 TO) &quot; -->
+		<tracksegment ident="T34" connect1name="A28" type1="1" connect2name="TO3" type2="4" mainline="no" hidden="no" dashed="no" arc="yes" circle="yes" flip="no" angle="19.0"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #40 &quot;Kato Unitrack Straight 6 7/8 174mm 2-130&quot; -->
+		<positionablepoint ident="A28" type="1" x="402.1051461318052" y="34.90396943648516" connect1name="T35" connect2name="T34" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T35" connect1name="A29" type1="1" connect2name="A28" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #41 &quot;Kato Unitrack Straight 4 7/8 123mm 2-140&quot; -->
+		<positionablepoint ident="A29" type="1" x="454.5879197707736" y="34.90385482330467" connect1name="T36" connect2name="T35" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T36" connect1name="A31" type1="1" connect2name="A29" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #42 &quot;Kato Unitrack Straight 2 3/8 60mm 2-105&quot; -->
+		<positionablepoint ident="A30" type="1" x="509.7780859598854" y="34.903747851002855" connect1name="T37" connect2name="T33" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<positionablepoint ident="A31" type="1" x="491.7287640878701" y="34.90370200573065" connect1name="T37" connect2name="T36" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T37" connect1name="A30" type1="1" connect2name="A31" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	</LayoutEditor>
+	<!-- Written by XtrkCadReader on Tue Apr 06 15:06:32 CEST 2010 -->
+</layout-config>
+
