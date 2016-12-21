@@ -3,9 +3,6 @@
     <type>org.netbeans.modules.ant.freeform</type>
     <configuration>
         <general-data xmlns="http://www.netbeans.org/ns/freeform-project/1">
-            <name>XtrkCadReader</name>
-        </general-data>
-        <general-data xmlns="http://www.netbeans.org/ns/freeform-project/2">
             <!-- Do not use Project Properties customizer when editing this file manually. 
  To prevent the customizer from showing, create nbproject/project.properties file and enter 
 auxiliary.show.customizer=false 
@@ -42,7 +39,7 @@ auxiliary.show.customizer.message=<message>
             </ide-actions>
             <export>
                 <type>folder</type>
-                <location>dist</location>
+                <location>bin</location>
                 <build-target>compile</build-target>
             </export>
             <view>
@@ -64,11 +61,11 @@ auxiliary.show.customizer.message=<message>
             </view>
             <subprojects/>
         </general-data>
-        <java-data xmlns="http://www.netbeans.org/ns/freeform-project-java/1">
+        <java-data xmlns="http://www.netbeans.org/ns/freeform-project-java/4">
             <compilation-unit>
                 <package-root>src</package-root>
                 <built-to>bin</built-to>
-                <source-level>1.3</source-level>
+                <source-level>1.5</source-level>
             </compilation-unit>
         </java-data>
     </configuration>
