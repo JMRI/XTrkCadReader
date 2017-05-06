@@ -28,13 +28,14 @@ public class XtrkCadReader {
     static final String EOL = System.getProperty("line.separator");
     static final String XMLHEADER = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>" + EOL
             + "<?xml-stylesheet href=\"http://jmri.sourceforge.net/xml/XSLT/panelfile.xsl\" type=\"text/xsl\"?>" + EOL
-            + "<!DOCTYPE layout-config SYSTEM \"layout-config.dtd\">" + EOL
-            + "<layout-config>" + EOL + "<!--" + EOL + EOL + "XtrkCadReader - XtrkCad to JMRI Layout Editor format conversion utility" + EOL
+            + "<layout-config xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:noNamespaceSchemaLocation=\"http://jmri.org/xml/schema/layout-2-9-6.xsd\">"
+            + EOL + "<!--" + EOL + EOL + "XtrkCadReader - XtrkCad to JMRI Layout Editor format conversion utility" + EOL
             + "Revision " + REVISION + EOL;
     static final String XML1 = "\t<LayoutEditor class=\"jmri.jmrit.display.layoutEditor.configurexml.LayoutEditorXml\" name=\"";
-    static final String XML2 = "\" x=\"0\" y=\"0\" height=\"";
-    static final String XML3 = "\" width=\"";
-    static final String XML4 = "\" editable=\"yes\" positionable=\"yes\" controlling=\"yes\" animating=\"yes\" "
+    static final String XML2 = "\" x=\"0\" y=\"0\" ";
+    // height/width, windowheight/windowwidth, panelheight/panelwidth written manually below
+    static final String XML3 = "";
+    static final String XML4 = " editable=\"yes\" positionable=\"yes\" controlling=\"yes\" animating=\"yes\" "
             + "showhelpbar=\"yes\" mainlinetrackwidth=\"4\" xscale=\"1.00\" yscale=\"1.00\" sidetrackwidth=\"2\" defaulttrackcolor=\"black\" "
             + "turnoutcircles=\"yes\" turnoutcirclecolor=\"lightGray\" turnoutdrawunselectedleg=\"no\">";
     static final String XMLFOOTER1 = "\t</LayoutEditor>" + EOL
@@ -971,7 +972,12 @@ public class XtrkCadReader {
             // Write LayoutEditor statement
             // NOTE: The height increase of 65 pixels has been experimentaly determined
             // and compensates for some apparent quirk in Layout Editor
-            out.println(XML1 + layoutName + XML2 + (int) (originalHeight * scale + 65.5) + XML3 + (int) (originalWidth * scale + 0.5) + XML4);
+            out.println(XML1 + layoutName + XML2 
+                + writeSize("", (int) (originalHeight * scale + 65.5), (int) (originalWidth * scale + 0.5) ) 
+                + writeSize("panel", (int) (originalHeight * scale + 65.5), (int) (originalWidth * scale + 0.5) ) 
+                + writeSize("window", (int) (originalHeight * scale + 65.5), (int) (originalWidth * scale + 0.5) ) 
+                + XML3
+                + XML4);
 
             // Write Tracks and relevant Anchor Points
             for (i = 0; i < nTracks; i++) {
@@ -995,6 +1001,10 @@ public class XtrkCadReader {
         }
     }
 
+    String writeSize(String prefix, int width, int height) {
+        return prefix+"height=\""+height+"\" "+prefix+"width=\""+width+"\" ";
+    }
+    
     public final void AdjustAnchors(int ref0, int oldRef1, int newRef1) {
         // Adjust link in duplicate anchor of original track
         for (int ind2 = 0; ind2 < nAnchors; ind2++) {
