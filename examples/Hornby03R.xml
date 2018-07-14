@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="http://jmri.sourceforge.net/xml/XSLT/panelfile.xsl" type="text/xsl"?>
+<!DOCTYPE layout-config SYSTEM "layout-config.dtd">
+<layout-config>
+<!--
+
+XtrkCadReader - XtrkCad to JMRI Layout Editor format conversion utility
+Revision 1.5
+
+	Input file: /Users/terdina/User data local/Dev current/XtrkCadReaderDir/XtrkCadReader1v5/Examples/Hornby03R.xtc
+
+	Options:
+		Width of output frame:	800
+		Height of output frame:	600
+		Arc rendering disabled
+		Tolerance for end points merging:	2.0
+		Starting ID number for anchor points:	1
+		Starting ID number for track segments:	1
+		Starting ID number for turnouts:	1
+		Starting ID number for crossings:	1
+		Starting ID number for bumpers:	1
+		Starting ID number for turntables:	1
+		Automatic definition of blocks based on XtrCAD block gaps:	disabled
+		Automatic definition of blocks based on turnouts:	disabled
+-->
+<!-- Original layout size: 128.0 x 40.0  Output scale: 6.25  Output size: 800 x 250 -->
+	<LayoutEditor class="jmri.jmrit.display.configurexml.LayoutEditorXml" name="Hornby 0 3R example" x="0" y="0" height="315" width="800" editable="yes" positionable="yes" controlling="yes" animating="yes" showhelpbar="yes" mainlinetrackwidth="4" xscale="1.00" yscale="1.00" sidetrackwidth="2" defaulttrackcolor="black">
+	 <!-- #1 &quot;Hornby Dublo Full Straight 3701&quot; -->
+		<tracksegment ident="T1" connect1name="A40" type1="1" connect2name="TO1" type2="2" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #2 &quot;Hornby Dublo Full Curve 3710&quot; -->
+		<tracksegment ident="T2" connect1name="TO10" type1="2" connect2name="A1" type2="1" mainline="no" hidden="no" dashed="no" arc="yes" circle="yes" flip="yes" angle="45.0"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #3 &quot;Hornby Dublo Full Curve 3710&quot; -->
+		<positionablepoint ident="A1" type="1" x="64.666125" y="59.70593125000001" connect1name="T3" connect2name="T2" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T3" connect1name="A1" type1="1" connect2name="A16" type2="1" mainline="no" hidden="no" dashed="no" arc="yes" circle="yes" flip="yes" angle="45.0"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #4 &quot;Hornby Dublo Right Hand Isolating Point 3728&quot; -->
+		<layoutturnout ident="TO1" type="1" connectaname="T1" connectbname="T4" connectcname="T66" continuing="2" disabled="no" xcen="281.875" ycen="17.96875" xb="299.8125" yb="17.96875" xc="299.8125" yc="25.106250000000017" class="jmri.jmrit.display.configurexml.LayoutTurnoutXml" />
+	 <!-- #5 &quot;Hornby Dublo Right Hand Diamond Crossing 3734&quot; -->
+		<levelxing ident="X1" connectaname="T66" connectbname="T17" connectcname="T13" connectdname="T9" xcen="317.750575" ycen="32.24374999999999" xa="299.8125" ya="25.106250000000017" xb="299.813075" yb="32.24374999999999" class="jmri.jmrit.display.configurexml.LevelXingXml" />
+	 <!-- #6 &quot;Hornby Dublo Full Straight 3701&quot; -->
+		<tracksegment ident="T4" connect1name="TO1" type1="3" connect2name="A2" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #7 &quot;Hornby Dublo Full Straight 3701&quot; -->
+		<positionablepoint ident="A2" type="1" x="371.5625" y="17.96875" connect1name="T5" connect2name="T4" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T5" connect1name="A2" type1="1" connect2name="A3" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #8 &quot;Hornby Dublo Full Straight 3701&quot; -->
+		<positionablepoint ident="A3" type="1" x="443.31250000000006" y="17.96875" connect1name="T6" connect2name="T5" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T6" connect1name="A3" type1="1" connect2name="A4" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #9 &quot;Hornby Dublo Full Straight 3701&quot; -->
+		<positionablepoint ident="A4" type="1" x="515.0625" y="17.96875" connect1name="T7" connect2name="T6" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T7" connect1name="A4" type1="1" connect2name="A5" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #10 &quot;Hornby Dublo Full Straight 3701&quot; -->
+		<positionablepoint ident="A5" type="1" x="586.8125" y="17.96875" connect1name="T8" connect2name="T7" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T8" connect1name="A5" type1="1" connect2name="TO2" type2="3" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #11 &quot;Hornby Dublo Left Hand Isolating Point 3729&quot; -->
+		<layoutturnout ident="TO2" type="2" connectaname="T19" connectbname="T8" connectcname="T67" continuing="2" disabled="no" xcen="676.5" ycen="17.968796874999992" xb="658.5625" yb="17.96875" xc="658.56248125" yc="25.106250000000017" class="jmri.jmrit.display.configurexml.LayoutTurnoutXml" />
+	 <!-- #12 &quot;Hornby Dublo Right Hand Isolating Point 3728&quot; -->
+		<layoutturnout ident="TO3" type="1" connectaname="T67" connectbname="T14" connectcname="T12" continuing="2" disabled="no" xcen="641.990409375" ycen="31.970671875" xb="625.4183375" yb="38.835093749999984" xc="622.68691875" yc="32.24091250000001" class="jmri.jmrit.display.configurexml.LayoutTurnoutXml" />
+	 <!-- #13 &quot;Hornby Dublo Full Straight 3701&quot; -->
+		<tracksegment ident="T9" connect1name="X1" type1="9" connect2name="A6" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #14 &quot;Hornby Dublo Full Straight 3701&quot; -->
+		<positionablepoint ident="A6" type="1" x="407.438075" y="32.24374999999999" connect1name="T10" connect2name="T9" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T10" connect1name="A6" type1="1" connect2name="A7" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #15 &quot;Hornby Dublo Full Straight 3701&quot; -->
+		<positionablepoint ident="A7" type="1" x="479.18807499999997" y="32.24374999999999" connect1name="T11" connect2name="T10" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T11" connect1name="A7" type1="1" connect2name="A8" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #16 &quot;Hornby Dublo Full Straight 3701&quot; -->
+		<positionablepoint ident="A8" type="1" x="550.938075" y="32.24374999999999" connect1name="T12" connect2name="T11" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T12" connect1name="A8" type1="1" connect2name="TO3" type2="4" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #17 &quot;Hornby Dublo Half Curve 3711&quot; -->
+		<tracksegment ident="T13" connect1name="X1" type1="8" connect2name="A9" type2="1" mainline="no" hidden="no" dashed="no" arc="yes" circle="yes" flip="yes" angle="22.5"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #18 &quot;Hornby Dublo Half Curve 3711&quot; -->
+		<tracksegment ident="T14" connect1name="A12" type1="1" connect2name="TO3" type2="3" mainline="no" hidden="no" dashed="no" arc="yes" circle="yes" flip="yes" angle="22.5"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #19 &quot;Hornby Dublo Full Straight 3701&quot; -->
+		<positionablepoint ident="A9" type="1" x="371.56423125" y="46.515818750000015" connect1name="T15" connect2name="T13" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T15" connect1name="A10" type1="1" connect2name="A9" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #20 &quot;Hornby Dublo Full Straight 3701&quot; -->
+		<positionablepoint ident="A10" type="1" x="443.31423125000003" y="46.51600624999999" connect1name="T16" connect2name="T15" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T16" connect1name="A11" type1="1" connect2name="A10" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #21 &quot;Hornby Dublo Full Straight 3701&quot; -->
+		<tracksegment ident="T17" connect1name="A31" type1="1" connect2name="X1" type2="7" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #22 Flexi-track straight segment -->
+		<positionablepoint ident="A11" type="1" x="515.1683375" y="45.97229999999999" connect1name="T18" connect2name="T16" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<positionablepoint ident="A12" type="1" x="589.5433375" y="45.97259375" connect1name="T18" connect2name="T14" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T18" connect1name="A11" type1="1" connect2name="A12" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #23 &quot;Hornby Dublo Full Curve Terminal 3713&quot; -->
+		<tracksegment ident="T19" connect1name="A13" type1="1" connect2name="TO2" type2="2" mainline="no" hidden="no" dashed="no" arc="yes" circle="yes" flip="yes" angle="45.0"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #24 &quot;Hornby Dublo Full Curve Terminal 3713&quot; -->
+		<positionablepoint ident="A13" type="1" x="760.7287062500001" y="45.422399999999996" connect1name="T20" connect2name="T19" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T20" connect1name="A14" type1="1" connect2name="A13" type2="1" mainline="no" hidden="no" dashed="no" arc="yes" circle="yes" flip="yes" angle="45.0"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #25 &quot;Hornby Dublo Full Curve Terminal 3713&quot; -->
+		<positionablepoint ident="A14" type="1" x="788.19111875" y="111.70993125" connect1name="T21" connect2name="T20" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T21" connect1name="A15" type1="1" connect2name="A14" type2="1" mainline="no" hidden="no" dashed="no" arc="yes" circle="yes" flip="yes" angle="45.0"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #26 &quot;Hornby Dublo Full Curve Terminal 3713&quot; -->
+		<positionablepoint ident="A15" type="1" x="760.73765625" y="178.001175" connect1name="T22" connect2name="T21" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T22" connect1name="A18" type1="1" connect2name="A15" type2="1" mainline="no" hidden="no" dashed="no" arc="yes" circle="yes" flip="yes" angle="45.0"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #27 &quot;Hornby Dublo Full Curve Terminal 3713&quot; -->
+		<positionablepoint ident="A16" type="1" x="37.2128375" y="125.99724375000001" connect1name="T23" connect2name="T3" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T23" connect1name="A16" type1="1" connect2name="A17" type2="1" mainline="no" hidden="no" dashed="no" arc="yes" circle="yes" flip="yes" angle="45.0"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #28 &quot;Hornby Dublo Full Curve Terminal 3713&quot; -->
+		<positionablepoint ident="A17" type="1" x="64.675425" y="192.2847125" connect1name="T24" connect2name="T23" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T24" connect1name="A17" type1="1" connect2name="A36" type2="1" mainline="no" hidden="no" dashed="no" arc="yes" circle="yes" flip="yes" angle="45.0"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #29 &quot;Hornby Dublo Full Straight 3701&quot; -->
+		<positionablepoint ident="A18" type="1" x="694.45015625" y="205.46367500000002" connect1name="T25" connect2name="T22" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T25" connect1name="A18" type1="1" connect2name="TO4" type2="2" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #30 &quot;Hornby Dublo Right Hand Isolating Point 3728&quot; -->
+		<layoutturnout ident="TO4" type="1" connectaname="T25" connectbname="T68" connectcname="T32" continuing="2" disabled="no" xcen="604.76265625" ycen="205.46344062500003" xb="586.8251562500001" yb="205.46339375000002" xc="586.825175" yc="198.32589375" class="jmri.jmrit.display.configurexml.LayoutTurnoutXml" />
+	 <!-- #31 &quot;Hornby Dublo Right Hand Isolating Point 3728&quot; -->
+		<layoutturnout ident="TO5" type="1" connectaname="T68" connectbname="T69" connectcname="T31" continuing="2" disabled="no" xcen="568.88765625" ycen="205.46334375000004" xb="550.95015625" yb="205.46329375000002" xc="550.9501750000001" yc="198.32579375" class="jmri.jmrit.display.configurexml.LayoutTurnoutXml" />
+	 <!-- #32 &quot;Hornby Dublo Right Hand Isolating Point 3728&quot; -->
+		<layoutturnout ident="TO6" type="1" connectaname="T69" connectbname="T70" connectcname="T30" continuing="2" disabled="no" xcen="533.01265625" ycen="205.46324687499998" xb="515.07515625" yb="205.46319999999997" xc="515.0751750000001" yc="198.3257" class="jmri.jmrit.display.configurexml.LayoutTurnoutXml" />
+	 <!-- #33 &quot;Hornby Dublo Left Hand Isolating Point 3729&quot; -->
+		<layoutturnout ident="TO7" type="2" connectaname="T70" connectbname="T26" connectcname="T71" continuing="2" disabled="no" xcen="497.13765624999996" ycen="205.46315312499996" xb="479.20015625" yb="205.46310624999998" xc="479.2001375" yc="212.60060625" class="jmri.jmrit.display.configurexml.LayoutTurnoutXml" />
+	 <!-- #34 &quot;Hornby Dublo Full Straight 3701&quot; -->
+		<tracksegment ident="T26" connect1name="TO7" type1="3" connect2name="A19" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #35 &quot;Hornby Dublo Full Straight 3701&quot; -->
+		<positionablepoint ident="A19" type="1" x="407.45015625" y="205.4629125" connect1name="T27" connect2name="T26" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T27" connect1name="A19" type1="1" connect2name="A20" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #36 &quot;Hornby Dublo Full Straight 3701&quot; -->
+		<positionablepoint ident="A20" type="1" x="335.70015624999996" y="205.46272500000003" connect1name="T28" connect2name="T27" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T28" connect1name="A20" type1="1" connect2name="A21" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #37 &quot;Hornby Dublo Full Straight 3701&quot; -->
+		<positionablepoint ident="A21" type="1" x="263.95015625" y="205.4625375" connect1name="T29" connect2name="T28" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T29" connect1name="A21" type1="1" connect2name="A48" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #38 &quot;Hornby Dublo Full Straight 3701&quot; -->
+		<tracksegment ident="T30" connect1name="TO6" type1="4" connect2name="A24" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #39 &quot;Hornby Dublo Full Straight 3701&quot; -->
+		<tracksegment ident="T31" connect1name="TO5" type1="4" connect2name="A23" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #40 &quot;Hornby Dublo Full Straight 3701&quot; -->
+		<tracksegment ident="T32" connect1name="TO4" type1="4" connect2name="A22" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #41 &quot;Hornby Dublo Full Straight 3701&quot; -->
+		<positionablepoint ident="A22" type="1" x="520.53688125" y="170.8682" connect1name="T33" connect2name="T32" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T33" connect1name="A22" type1="1" connect2name="A26" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #42 &quot;Hornby Dublo Full Straight 3701&quot; -->
+		<positionablepoint ident="A23" type="1" x="484.66188125" y="170.86810624999998" connect1name="T34" connect2name="T31" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T34" connect1name="A23" type1="1" connect2name="A25" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #43 &quot;Hornby Dublo Full Straight 3701&quot; -->
+		<positionablepoint ident="A24" type="1" x="448.78688125" y="170.8680125" connect1name="T35" connect2name="T30" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T35" connect1name="A24" type1="1" connect2name="A27" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #44 &quot;Hornby Dublo Full Straight 3701&quot; -->
+		<positionablepoint ident="A25" type="1" x="418.3735875" y="143.41041875" connect1name="T36" connect2name="T34" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T36" connect1name="A25" type1="1" connect2name="A28" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #45 &quot;Hornby Dublo Full Straight 3701&quot; -->
+		<positionablepoint ident="A26" type="1" x="454.2485875" y="143.4105125" connect1name="T37" connect2name="T33" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T37" connect1name="A26" type1="1" connect2name="A51" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #46 &quot;Hornby Dublo Full Straight 3701&quot; -->
+		<positionablepoint ident="A27" type="1" x="382.4985875" y="143.41031875000002" connect1name="T38" connect2name="T35" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T38" connect1name="A27" type1="1" connect2name="A30" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #47 &quot;Hornby Dublo Full Straight 3701&quot; -->
+		<positionablepoint ident="A28" type="1" x="352.08529375" y="115.952725" connect1name="T39" connect2name="T36" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T39" connect1name="A28" type1="1" connect2name="TO8" type2="3" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #49 &quot;Hornby Dublo Half Curve 3711&quot; -->
+		<tracksegment ident="T40" connect1name="A50" type1="1" connect2name="TO8" type2="4" mainline="no" hidden="no" dashed="no" arc="yes" circle="yes" flip="yes" angle="22.5"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #50 &quot;Hornby Dublo Left Hand Isolating Point 3729&quot; -->
+		<layoutturnout ident="TO8" type="2" connectaname="T41" connectbname="T39" connectcname="T40" continuing="2" disabled="no" xcen="269.224909375" ycen="81.63065937500001" xb="285.79699999999997" yb="88.49503750000001" xc="288.5284" yc="81.90084374999999" class="jmri.jmrit.display.configurexml.LayoutTurnoutXml" />
+	 <!-- #51 &quot;Hornby Dublo Quarter Straight 3703&quot; -->
+		<tracksegment ident="T41" connect1name="A29" type1="1" connect2name="TO8" type2="2" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #52 &quot;Hornby Dublo Short Straight 3706&quot; -->
+		<positionablepoint ident="A29" type="1" x="236.080725" y="67.9019" connect1name="T42" connect2name="T41" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T42" connect1name="TO9" type1="3" connect2name="A29" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #53 &quot;Hornby Dublo Right Hand Isolating Point 3728&quot; -->
+		<layoutturnout ident="TO9" type="1" connectaname="T44" connectbname="T42" connectcname="T72" continuing="2" disabled="no" xcen="211.932821875" ycen="57.899521875000005" xb="228.5049125" yb="64.7639" xc="225.77351249999998" yc="71.35808749999998" class="jmri.jmrit.display.configurexml.LayoutTurnoutXml" />
+	 <!-- #54 Flexi-track straight segment -->
+		<positionablepoint ident="A30" type="1" x="315.9513875" y="116.43344375" connect1name="T43" connect2name="T38" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T43" connect1name="TO12" type1="2" connect2name="A30" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #55 &quot;Hornby Dublo Right Hand Isolating Point 3728&quot; -->
+		<layoutturnout ident="TO10" type="1" connectaname="T2" connectbname="T45" connectcname="T44" continuing="2" disabled="no" xcen="148.8912" ycen="32.24360625" xb="166.8287" yb="32.24360625" xc="166.8287" yc="39.381106250000016" class="jmri.jmrit.display.configurexml.LayoutTurnoutXml" />
+	 <!-- #56 Flexi-track straight segment -->
+		<tracksegment ident="T44" connect1name="TO9" type1="2" connect2name="TO10" type2="4" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #57 Flexi-track straight segment -->
+		<positionablepoint ident="A31" type="1" x="228.515625" y="32.03125" connect1name="T45" connect2name="T17" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T45" connect1name="A31" type1="1" connect2name="TO10" type2="3" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #58 &quot;Hornby Dublo Full Straight 3701&quot; -->
+		<tracksegment ident="T46" connect1name="A32" type1="1" connect2name="TO11" type2="4" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #59 &quot;Hornby Dublo Full Straight 3701&quot; -->
+		<positionablepoint ident="A32" type="1" x="371.5751375" y="219.73810625" connect1name="T47" connect2name="T46" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T47" connect1name="A33" type1="1" connect2name="A32" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #60 &quot;Hornby Dublo Full Straight 3701&quot; -->
+		<positionablepoint ident="A33" type="1" x="299.82513750000004" y="219.73810625" connect1name="T48" connect2name="T47" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T48" connect1name="A34" type1="1" connect2name="A33" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #61 &quot;Hornby Dublo Full Straight 3701&quot; -->
+		<positionablepoint ident="A34" type="1" x="228.07513749999998" y="219.73810625" connect1name="T49" connect2name="T48" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T49" connect1name="A35" type1="1" connect2name="A34" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #62 &quot;Hornby Dublo Right Hand Isolating Point 3728&quot; -->
+		<layoutturnout ident="TO11" type="1" connectaname="T71" connectbname="T60" connectcname="T46" continuing="2" disabled="no" xcen="462.6280625" ycen="219.465028125" xb="446.0559875" yb="226.32944999999998" xc="443.32456875" yc="219.73526875" class="jmri.jmrit.display.configurexml.LayoutTurnoutXml" />
+	 <!-- #63 Flexi-track straight segment -->
+		<positionablepoint ident="A35" type="1" x="156.3251375" y="219.73810625" connect1name="T50" connect2name="T49" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<positionablepoint ident="A36" type="1" x="130.7001375" y="219.73806875" connect1name="T50" connect2name="T24" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T50" connect1name="A35" type1="1" connect2name="A36" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #64 &quot;Hornby Dublo Full Straight 3701&quot; -->
+		<tracksegment ident="T51" connect1name="A37" type1="1" connect2name="A46" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #65 &quot;Hornby Dublo Full Straight 3701&quot; -->
+		<positionablepoint ident="A37" type="1" x="335.7012125" y="234.01291875" connect1name="T52" connect2name="T51" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T52" connect1name="A38" type1="1" connect2name="A37" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #66 &quot;Hornby Dublo Full Straight 3701&quot; -->
+		<positionablepoint ident="A38" type="1" x="263.9512125" y="234.01291875" connect1name="T53" connect2name="T52" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T53" connect1name="A39" type1="1" connect2name="A38" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #67 &quot;Hornby Dublo Full Straight 3701&quot; -->
+		<positionablepoint ident="A39" type="1" x="192.2012125" y="234.01291875" connect1name="T54" connect2name="T53" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T54" connect1name="A45" type1="1" connect2name="A39" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #68 &quot;Hornby Dublo Full Straight 3701&quot; -->
+		<positionablepoint ident="A40" type="1" x="192.1875" y="17.96875" connect1name="T55" connect2name="T1" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T55" connect1name="A41" type1="1" connect2name="A40" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #69 &quot;Hornby Dublo Large Radius Curve 3719&quot; -->
+		<positionablepoint ident="A41" type="1" x="120.4375" y="17.96875" connect1name="T56" connect2name="T55" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T56" connect1name="A41" type1="1" connect2name="A42" type2="1" mainline="no" hidden="no" dashed="no" arc="yes" circle="yes" flip="yes" angle="45.0"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #70 &quot;Hornby Dublo Large Radius Curve 3719&quot; -->
+		<positionablepoint ident="A42" type="1" x="44.056168750000005" y="49.61229999999999" connect1name="T57" connect2name="T56" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T57" connect1name="A42" type1="1" connect2name="A43" type2="1" mainline="no" hidden="no" dashed="no" arc="yes" circle="yes" flip="yes" angle="45.0"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #71 &quot;Hornby Dublo Large Radius Curve 3719&quot; -->
+		<positionablepoint ident="A43" type="1" x="12.42213125" y="125.99756875000001" connect1name="T58" connect2name="T57" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T58" connect1name="A43" type1="1" connect2name="A44" type2="1" mainline="no" hidden="no" dashed="no" arc="yes" circle="yes" flip="yes" angle="45.0"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #72 &quot;Hornby Dublo Large Radius Curve 3719&quot; -->
+		<positionablepoint ident="A44" type="1" x="44.06598125" y="202.37878125000003" connect1name="T59" connect2name="T58" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<positionablepoint ident="A45" type="1" x="120.4512125" y="234.01291875" connect1name="T59" connect2name="T54" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T59" connect1name="A44" type1="1" connect2name="A45" type2="1" mainline="no" hidden="no" dashed="no" arc="yes" circle="yes" flip="yes" angle="45.0"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #73 Flexi-track arc segment -->
+		<positionablepoint ident="A46" type="1" x="407.40378125" y="233.84267499999999" connect1name="T60" connect2name="T51" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T60" connect1name="TO11" type1="3" connect2name="A46" type2="1" mainline="no" hidden="no" dashed="no" arc="yes" circle="yes" flip="no" angle="23.0"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #74 &quot;Hornby Dublo Right Hand Isolating Point 3728&quot; -->
+		<layoutturnout ident="TO12" type="1" connectaname="T43" connectbname="T61" connectcname="T72" continuing="2" disabled="no" xcen="239.615884375" ycen="84.814128125" xb="223.0438125" yb="77.94970624999999" xc="225.77523125000002" yc="71.35551874999999" class="jmri.jmrit.display.configurexml.LayoutTurnoutXml" />
+	 <!-- #75 &quot;Hornby Dublo Full Straight 3701&quot; -->
+		<tracksegment ident="T61" connect1name="TO12" type1="3" connect2name="A47" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #76 &quot;Hornby Dublo Buffer Stop 3450&quot; -->
+		<positionablepoint ident="A47" type="1" x="156.75551875" y="50.492012499999994" connect1name="T62" connect2name="T61" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<positionablepoint ident="EB1" type="2" x="148.57340110414688" y="47.102870697199045" connect1name="T62" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T62" connect1name="A47" type1="1" connect2name="EB1" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #77 &quot;Hornby Dublo Half Straight 3702&quot; -->
+		<positionablepoint ident="A48" type="1" x="192.20015625" y="205.46234375" connect1name="T63" connect2name="T29" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T63" connect1name="A48" type1="1" connect2name="A49" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #78 &quot;Hornby Dublo Buffer Stop 3450&quot; -->
+		<positionablepoint ident="A49" type="1" x="156.32515625000002" y="205.46224999999998" connect1name="T64" connect2name="T63" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<positionablepoint ident="EB2" type="2" x="147.46889375" y="205.46224999999998" connect1name="T64" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T64" connect1name="A49" type1="1" connect2name="EB2" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #81 Flexi-track straight segment -->
+		<positionablepoint ident="A50" type="1" x="324.40396875" y="89.03550625000001" connect1name="T65" connect2name="T40" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<positionablepoint ident="A51" type="1" x="387.92065625" y="115.34505625" connect1name="T65" connect2name="T37" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T65" connect1name="A50" type1="1" connect2name="A51" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- Padding track between Turnouts/Crossings #4 and #5 -->
+		<tracksegment ident="T66" connect1name="TO1" type1="4" connect2name="X1" type2="6" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- Padding track between Turnouts/Crossings #11 and #12 -->
+		<tracksegment ident="T67" connect1name="TO2" type1="4" connect2name="TO3" type2="2" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- Padding track between Turnouts/Crossings #30 and #31 -->
+		<tracksegment ident="T68" connect1name="TO4" type1="3" connect2name="TO5" type2="2" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- Padding track between Turnouts/Crossings #31 and #32 -->
+		<tracksegment ident="T69" connect1name="TO5" type1="3" connect2name="TO6" type2="2" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- Padding track between Turnouts/Crossings #32 and #33 -->
+		<tracksegment ident="T70" connect1name="TO6" type1="3" connect2name="TO7" type2="2" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- Padding track between Turnouts/Crossings #33 and #62 -->
+		<tracksegment ident="T71" connect1name="TO7" type1="4" connect2name="TO11" type2="2" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- Padding track between Turnouts/Crossings #53 and #74 -->
+		<tracksegment ident="T72" connect1name="TO9" type1="4" connect2name="TO12" type2="4" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	</LayoutEditor>
+	<!-- Written by XtrkCadReader on Tue Apr 06 15:03:33 CEST 2010 -->
+</layout-config>
+

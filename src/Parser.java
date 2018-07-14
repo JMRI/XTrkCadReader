@@ -11,8 +11,9 @@ public class Parser {
 // Type constants
     public final static int OPTION = 0;
     public final static int HELP = 1;
-    public final static int STRING = 2;
-    public final static int NUMBER = 3;
+    public final static int VERSION = 2;
+    public final static int STRING = 3;
+    public final static int NUMBER = 4;
 
 // Linked chain
     static Parser lastParser = null;
@@ -62,7 +63,7 @@ public class Parser {
                 i++;
             }
             found.present = true;
-            if (found.type > HELP && i >= args.length) {
+            if (found.type > VERSION && i >= args.length) {
                 System.out.println("Missing value for option: " + args[i - 1]);
                 System.exit(2);
             }
@@ -91,6 +92,9 @@ public class Parser {
                         }
                         found = found.previousParser;
                     }
+                    System.exit(0);
+                case VERSION:
+                    System.out.println(XtrkCadReader.REVISION);
                     System.exit(0);
             }
         }

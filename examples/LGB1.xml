@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="http://jmri.sourceforge.net/xml/XSLT/panelfile.xsl" type="text/xsl"?>
+<!DOCTYPE layout-config SYSTEM "layout-config.dtd">
+<layout-config>
+<!--
+
+XtrkCadReader - XtrkCad to JMRI Layout Editor format conversion utility
+Revision 1.5
+
+	Input file: /Users/terdina/User data local/Dev current/XtrkCadReaderDir/XtrkCadReader1v5/Examples/LGB1.xtc
+
+	Options:
+		Width of output frame:	800
+		Height of output frame:	600
+		Arc rendering disabled
+		Tolerance for end points merging:	2.0
+		Starting ID number for anchor points:	1
+		Starting ID number for track segments:	1
+		Starting ID number for turnouts:	1
+		Starting ID number for crossings:	1
+		Starting ID number for bumpers:	1
+		Starting ID number for turntables:	1
+		Automatic definition of blocks based on XtrCAD block gaps:	disabled
+		Automatic definition of blocks based on turnouts:	disabled
+-->
+<!-- Original layout size: 220.5 x 74.8  Output scale: 3.6281179138321997  Output size: 800 x 271 -->
+	<LayoutEditor class="jmri.jmrit.display.configurexml.LayoutEditorXml" name="LGB 1 example" x="0" y="0" height="336" width="800" editable="yes" positionable="yes" controlling="yes" animating="yes" showhelpbar="yes" mainlinetrackwidth="4" xscale="1.00" yscale="1.00" sidetrackwidth="2" defaulttrackcolor="black">
+	 <!-- #1 &quot;LGB Straight 600mm 10600&quot; -->
+		<tracksegment ident="T1" connect1name="A1" type1="1" connect2name="A26" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #2 &quot;LGB Curved R2 30∞ 15000&quot; -->
+		<positionablepoint ident="A1" type="1" x="122.84178866213153" y="15.700894331065738" connect1name="T2" connect2name="T1" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T2" connect1name="A1" type1="1" connect2name="A2" type2="1" mainline="no" hidden="no" dashed="no" arc="yes" circle="yes" flip="yes" angle="30.0"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #3 &quot;LGB Curved R2 30∞ 15000&quot; -->
+		<positionablepoint ident="A2" type="1" x="68.20572154195013" y="30.34042993197276" connect1name="T3" connect2name="T2" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T3" connect1name="A2" type1="1" connect2name="A3" type2="1" mainline="no" hidden="no" dashed="no" arc="yes" circle="yes" flip="yes" angle="30.0"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #4 &quot;LGB Curved R2 30∞ 15000&quot; -->
+		<positionablepoint ident="A3" type="1" x="28.209462131519278" y="70.3368671201814" connect1name="T4" connect2name="T3" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T4" connect1name="A3" type1="1" connect2name="A4" type2="1" mainline="no" hidden="no" dashed="no" arc="yes" circle="yes" flip="yes" angle="30.0"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #5 &quot;LGB Curved R2 30∞ 15000&quot; -->
+		<positionablepoint ident="A4" type="1" x="13.56988299319728" y="124.97291972789114" connect1name="T5" connect2name="T4" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T5" connect1name="A4" type1="1" connect2name="A5" type2="1" mainline="no" hidden="no" dashed="no" arc="yes" circle="yes" flip="yes" angle="30.0"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #6 &quot;LGB Curved R2 30∞ 15000&quot; -->
+		<positionablepoint ident="A5" type="1" x="28.20963628117914" y="179.60892879818596" connect1name="T6" connect2name="T5" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T6" connect1name="A5" type1="1" connect2name="A6" type2="1" mainline="no" hidden="no" dashed="no" arc="yes" circle="yes" flip="yes" angle="30.0"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #7 &quot;LGB Curved R2 30∞ 15000&quot; -->
+		<positionablepoint ident="A6" type="1" x="68.20601904761905" y="219.6052426303855" connect1name="T7" connect2name="T6" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T7" connect1name="A6" type1="1" connect2name="TO1" type2="2" mainline="no" hidden="no" dashed="no" arc="yes" circle="yes" flip="yes" angle="30.0"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #8 &quot;LGB Electric Switch R1 Left 12150&quot; -->
+		<layoutturnout ident="TO1" type="2" connectaname="T7" connectbname="T31" connectcname="T8" continuing="2" disabled="no" xcen="144.26794739229027" ycen="234.24489433106578" xb="165.69384126984127" yb="234.24489433106578" xc="165.69384126984127" yc="222.76279365079367" class="jmri.jmrit.display.configurexml.LayoutTurnoutXml" />
+	 <!-- #9 &quot;LGB Straight 600mm 10600&quot; -->
+		<tracksegment ident="T8" connect1name="TO1" type1="4" connect2name="A7" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #10 &quot;Turntable&quot; -->
+		<positionablepoint ident="A7" type="1" x="239.91533061224487" y="179.91104217687075" connect2name="T8" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<positionablepoint ident="A8" type="1" x="331.4552380952381" y="127.06066575963719" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<positionablepoint ident="A9" type="1" x="338.08368979591836" y="146.5875664399093" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<positionablepoint ident="A10" type="1" x="336.7349587301587" y="167.16466938775508" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<positionablepoint ident="A11" type="1" x="327.61437823129256" y="185.65929795918368" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<positionablepoint ident="A12" type="1" x="259.2600961451247" y="107.71590022675737" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<positionablepoint ident="A13" type="1" x="312.11047256235827" y="199.25580770975057" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<positionablepoint ident="A14" type="1" x="278.78699682539684" y="101.08744852607708" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<positionablepoint ident="A15" type="1" x="292.5835718820862" y="205.88425941043084" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<positionablepoint ident="A16" type="1" x="299.36409977324263" y="102.43618321995464" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<positionablepoint ident="A17" type="1" x="272.0064689342404" y="204.53552471655328" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<positionablepoint ident="A18" type="1" x="317.85872834467125" y="111.55676371882086" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<positionablepoint ident="A19" type="1" x="253.5118403628118" y="195.414947845805" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<!-- UNKNOWN item: ignored -->
+	 <!-- #11 &quot;LGB Straight 600mm 10600&quot; -->
+		<positionablepoint ident="A20" type="1" x="233.28687891156463" y="160.38414149659863" connect1name="T9" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<positionablepoint ident="A21" type="1" x="148.31654240362812" y="171.57092063492064" connect1name="T9" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T9" connect1name="A20" type1="1" connect2name="A21" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #12 &quot;LGB Straight 600mm 10600&quot; -->
+		<positionablepoint ident="A22" type="1" x="234.6356136054422" y="139.80703854875284" connect1name="T10" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<positionablepoint ident="A23" type="1" x="151.85237188208617" y="117.62512108843536" connect1name="T10" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T10" connect1name="A22" type1="1" connect2name="A23" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #13 &quot;LGB Straight 600mm 10600&quot; -->
+		<positionablepoint ident="A24" type="1" x="243.75619410430838" y="121.31240997732425" connect1name="T11" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<positionablepoint ident="A25" type="1" x="175.7630875283447" y="69.13923990929705" connect1name="T11" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T11" connect1name="A24" type1="1" connect2name="A25" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #14 &quot;LGB Straight 600mm 10600&quot; -->
+		<positionablepoint ident="A26" type="1" x="208.5453605442177" y="15.700894331065738" connect1name="T12" connect2name="T1" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T12" connect1name="A26" type1="1" connect2name="TO4" type2="2" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #15 &quot;LGB Manual Switch R1 Right 12000&quot; -->
+		<layoutturnout ident="TO2" type="1" connectaname="T31" connectbname="T13" connectcname="T14" continuing="2" disabled="no" xcen="187.1197351473923" ycen="234.24489433106578" xb="208.54562902494334" yb="234.24489433106578" xc="208.54562902494334" yc="245.7269950113379" class="jmri.jmrit.display.configurexml.LayoutTurnoutXml" />
+	 <!-- #16 &quot;LGB Straight 1200mm 10610&quot; -->
+		<tracksegment ident="T13" connect1name="TO2" type1="3" connect2name="A30" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #17 &quot;LGB Curved R1 30∞ 11000&quot; -->
+		<tracksegment ident="T14" connect1name="TO2" type1="4" connect2name="A27" type2="1" mainline="no" hidden="no" dashed="no" arc="yes" circle="yes" flip="yes" angle="30.0"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #18 &quot;LGB Straight 1200mm 10610&quot; -->
+		<positionablepoint ident="A27" type="1" x="251.3974204081633" y="257.20908117913837" connect1name="T15" connect2name="T14" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T15" connect1name="A27" type1="1" connect2name="A28" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #19 &quot;LGB Straight 1200mm 10610&quot; -->
+		<positionablepoint ident="A28" type="1" x="422.8045641723356" y="257.20908117913837" connect1name="T16" connect2name="T15" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T16" connect1name="A28" type1="1" connect2name="A29" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #20 &quot;LGB Curved R1 30∞ 11000&quot; -->
+		<positionablepoint ident="A29" type="1" x="594.211707936508" y="257.20908117913837" connect1name="T17" connect2name="T16" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T17" connect1name="A29" type1="1" connect2name="TO3" type2="4" mainline="no" hidden="no" dashed="no" arc="yes" circle="yes" flip="yes" angle="30.0"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #21 &quot;LGB Manual Switch R1 Left 12100&quot; -->
+		<layoutturnout ident="TO3" type="2" connectaname="T20" connectbname="T19" connectcname="T17" continuing="2" disabled="no" xcen="658.4894222222222" ycen="234.24493605442177" xb="637.0635283446712" yb="234.24487981859411" xc="637.06349569161" yc="245.72698049886623" class="jmri.jmrit.display.configurexml.LayoutTurnoutXml" />
+	 <!-- #22 &quot;LGB Straight 1200mm 10610&quot; -->
+		<positionablepoint ident="A30" type="1" x="379.95277278911567" y="234.24489433106578" connect1name="T18" connect2name="T13" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T18" connect1name="A30" type1="1" connect2name="A31" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #23 &quot;LGB Straight 600mm 10600&quot; -->
+		<positionablepoint ident="A31" type="1" x="551.359916553288" y="234.24489433106578" connect1name="T19" connect2name="T18" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T19" connect1name="A31" type1="1" connect2name="TO3" type2="3" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #24 &quot;LGB Curved R2 30∞ 15000&quot; -->
+		<tracksegment ident="T20" connect1name="TO3" type1="2" connect2name="A32" type2="1" mainline="no" hidden="no" dashed="no" arc="yes" circle="yes" flip="yes" angle="30.0"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #25 &quot;LGB Curved R2 30∞ 15000&quot; -->
+		<positionablepoint ident="A32" type="1" x="734.5513433106577" y="219.60531156462585" connect1name="T21" connect2name="T20" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T21" connect1name="A32" type1="1" connect2name="A33" type2="1" mainline="no" hidden="no" dashed="no" arc="yes" circle="yes" flip="yes" angle="30.0"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #26 &quot;LGB Curved R2 30∞ 15000&quot; -->
+		<positionablepoint ident="A33" type="1" x="774.547707936508" y="179.60897959183671" connect1name="T22" connect2name="T21" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T22" connect1name="A33" type1="1" connect2name="A34" type2="1" mainline="no" hidden="no" dashed="no" arc="yes" circle="yes" flip="yes" angle="30.0"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #27 &quot;LGB Curved R2 30∞ 15000&quot; -->
+		<positionablepoint ident="A34" type="1" x="789.1874321995466" y="124.97296689342403" connect1name="T23" connect2name="T22" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T23" connect1name="A34" type1="1" connect2name="A35" type2="1" mainline="no" hidden="no" dashed="no" arc="yes" circle="yes" flip="yes" angle="30.0"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #28 &quot;LGB Curved R2 30∞ 15000&quot; -->
+		<positionablepoint ident="A35" type="1" x="774.5478240362812" y="70.3369179138322" connect1name="T24" connect2name="T23" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T24" connect1name="A35" type1="1" connect2name="A36" type2="1" mainline="no" hidden="no" dashed="no" arc="yes" circle="yes" flip="yes" angle="30.0"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #29 &quot;LGB Curved R2 30∞ 15000&quot; -->
+		<positionablepoint ident="A36" type="1" x="734.5515464852608" y="30.340498866213157" connect1name="T25" connect2name="T24" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T25" connect1name="A36" type1="1" connect2name="A38" type2="1" mainline="no" hidden="no" dashed="no" arc="yes" circle="yes" flip="yes" angle="30.0"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #30 &quot;LGB Manual Switch R1 Right 12000&quot; -->
+		<layoutturnout ident="TO4" type="1" connectaname="T12" connectbname="T26" connectcname="T28" continuing="2" disabled="no" xcen="315.6748263038549" ycen="15.700894331065738" xb="337.1007201814059" yb="15.700894331065738" xc="337.1007201814059" yc="27.182995011337855" class="jmri.jmrit.display.configurexml.LayoutTurnoutXml" />
+	 <!-- #31 &quot;LGB Straight 1200mm 10610&quot; -->
+		<tracksegment ident="T26" connect1name="TO4" type1="3" connect2name="A37" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #32 &quot;LGB Straight 1200mm 10610&quot; -->
+		<positionablepoint ident="A37" type="1" x="508.5078639455782" y="15.700894331065738" connect1name="T27" connect2name="T26" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<positionablepoint ident="A38" type="1" x="679.9150077097506" y="15.700894331065738" connect1name="T27" connect2name="T25" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T27" connect1name="A37" type1="1" connect2name="A38" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #33 &quot;LGB Curved R1 30∞ 11000&quot; -->
+		<tracksegment ident="T28" connect1name="TO4" type1="4" connect2name="A39" type2="1" mainline="no" hidden="no" dashed="no" arc="yes" circle="yes" flip="yes" angle="30.0"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #34 &quot;LGB Straight 1200mm 10610&quot; -->
+		<positionablepoint ident="A39" type="1" x="379.95251156462587" y="38.665077551020396" connect1name="T29" connect2name="T28" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T29" connect1name="A39" type1="1" connect2name="A40" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #35 &quot;LGB Straight 1200mm 10610&quot; -->
+		<positionablepoint ident="A40" type="1" x="551.3596553287982" y="38.665077551020396" connect1name="T30" connect2name="T29" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<positionablepoint ident="A41" type="1" x="722.7667990929706" y="38.665077551020396" connect1name="T30" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T30" connect1name="A40" type1="1" connect2name="A41" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- Padding track between Turnouts/Crossings #8 and #15 -->
+		<tracksegment ident="T31" connect1name="TO1" type1="3" connect2name="TO2" type2="2" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	</LayoutEditor>
+	<!-- Written by XtrkCadReader on Sat Apr 10 18:20:33 CEST 2010 -->
+</layout-config>
+

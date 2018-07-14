@@ -1,0 +1,11 @@
+Example of layout with blocks
+
+Converting the file blocks.xtc with options
+
+-bt		creates 30 blocks with random numbering
+
+-bt -bx		creates 29 blocks (look at the different dealing of the crossing and nearby tracks)
+
+-bt -bn		creates 30 blocks numbered in accordance with descriptions contained in the input file
+
+-bt -bg	-bn	creates 32 blocks (additional blocks B12 and B25 are created by splitting blocks B9 and B29)
