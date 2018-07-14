@@ -18,14 +18,16 @@ import java.io.*;
  *  2008-Sep-10     GT - Fixed problem with block gaps placed at the end of curves
  *  2009-Oct-8      GT - Added support for curved tracks (introduced since JMRI 2.7.7)
  *  2010-Apr-6      GT - Fixed problem with curved turnouts (undefined end points)
- *  2012-May-10     MST- Preserve turnoutname for curved turnouts, handle missing title 
- *  2013-Jan-14     MST- Change defaults regarding turnout appearance
- *  2018-Jul-10     EB - Fixed reading of version 5.1.1 TRACK item format, proper spelling of app names
+ *  2012-May-10     MST- 2.0 Preserve turnoutname for curved turnouts, handle missing title
+ *  2013-Jan-14     MST- 2.1.1 Change defaults regarding turnout appearance
+ *  2016-Nov-19     MH - 2.2 Code and output clean up
+ *  2017-May-6      BJ - 2.2.1 Change output XML to Schema
+ *  2018-Jul-14     EB - 2.2.2 Fixed reading of version 5.1.1 TRACK item format, spelling of app name in output as on xtrkcad.org
  */
 public class XtrkCadReader {
 
     // Some output constants
-    static final String REVISION = "2.2.1";
+    static final String REVISION = "2.2.2";
     static final String EOL = System.getProperty("line.separator");
     static final String XMLHEADER = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>" + EOL
             + "<?xml-stylesheet href=\"http://jmri.sourceforge.net/xml/XSLT/panelfile.xsl\" type=\"text/xsl\"?>" + EOL
