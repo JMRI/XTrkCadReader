@@ -1,28 +1,31 @@
-//  XtrkCadReader.java
+// XtrkCadReader.java
 import java.util.*;
 import java.io.*;
 
 /**
- * Utility program.
+ * Utility program. Part of the JMRI project.
+ * <p>
  * Converts layout schemes produced by the Open Source 
  * program XTrackCAD (freely available from
  * <a href="http://www.xtrkcad.org">http://www.xtrkcad.org</a> )
- * to JMRI Layout Editor format.
- * @author      Giorgio Terdina Copyright (C) 2008, 2009, 2010
- *  2008-May-21     GT - Added support for negative radius (found in some track libraries)
- *  2008-Jul-03     GT - Stripped XML characters {@literal (&, <...)} from title and description fields
- *  2008-Jul-16     GT - Added possibility of inserting turnout name in turnout's description
- *  2008-Jul-31     GT - Corrected problem with detection of short blocks
- *  2008-Aug-1      GT - Added sensors
- *  2008-Sep-10     GT - Fixed integer conversion error due to LAYER CURRENT tag
- *  2008-Sep-10     GT - Fixed problem with block gaps placed at the end of curves
- *  2009-Oct-8      GT - Added support for curved tracks (introduced since JMRI 2.7.7)
- *  2010-Apr-6      GT - Fixed problem with curved turnouts (undefined end points)
- *  2012-May-10     MST- 2.0 Preserve turnoutname for curved turnouts, handle missing title
- *  2013-Jan-14     MST- 2.1.1 Change defaults regarding turnout appearance
- *  2016-Nov-19     MH - 2.2 Code and output clean up
- *  2017-May-6      BJ - 2.2.1 Change output XML to Schema
- *  2018-Jul-14     EB - 2.2.2 Fixed reading of version 5.1.1 TRACK item format, spelling of app name in output as on xtrkcad.org
+ * to JMRI PanelPro Layout Editor format.
+ *
+ * @author Giorgio Terdina Copyright (C) 2008, 2009, 2010
+ * 2008-May-21     GT - Added support for negative radius (found in some track libraries)
+ * 2008-Jul-03     GT - Stripped XML characters {@literal (&, <...)} from title and description fields
+ * 2008-Jul-16     GT - Added possibility of inserting turnout name in turnout's description
+ * 2008-Jul-31     GT - Corrected problem with detection of short blocks
+ * 2008-Aug-1      GT - Added sensors
+ * 2008-Sep-10     GT - Fixed integer conversion error due to LAYER CURRENT tag
+ * 2008-Sep-10     GT - Fixed problem with block gaps placed at the end of curves
+ * 2009-Oct-8      GT - Added support for curved tracks (introduced since JMRI 2.7.7)
+ * 2010-Apr-6      GT - Fixed problem with curved turnouts (undefined end points)
+ * 2012-May-10     MST- 2.0 Preserve turnoutname for curved turnouts, handle missing title
+ * 2013-Jan-14     MST- 2.1.1 Change defaults regarding turnout appearance
+ * 2016-Nov-19     MH - 2.2 Code and output clean up
+ * 2017-May-6      BJ - 2.2.1 Change output XML to Schema
+ * 2018-Jul-14     MH - 2.2.2 Added example files to package, no code changes
+ * 2018-Jul-14     EB - 2.2.2 Fixed reading of version 5.1.1 TRACK item format, spelling of app name in output as on xtrkcad.org
  */
 public class XtrkCadReader {
 
@@ -169,7 +172,9 @@ public class XtrkCadReader {
     static Parser optionHelp = new Parser("help", Parser.HELP, HELPDESCRIPTION);
     static Parser optionVersion = new Parser("-v", Parser.VERSION, "Display version number");
 
-    // Constructor
+    /**
+     * Constructor for a new file conversion instance.
+     */
     public XtrkCadReader() {
         try {
             int i;
@@ -234,7 +239,7 @@ public class XtrkCadReader {
                     out.println("\t\tObtain block names from track descriptions:\tenabled");
                 }
                 if (setBlockSensors) {
-                    out.println("\t\tAdd sensors to blocks:\tenabled"); //Version 1.3
+                    out.println("\t\tAdd sensors to blocks:\tenabled"); // Version 1.3
                 }
                 out.println("\t\tStarting ID number for blocks:\t" + startBlock);
             }
@@ -257,7 +262,7 @@ public class XtrkCadReader {
                         }
                         layoutName = layoutName.trim();
                         if (layoutName.equals("")) {
-                            layoutName = "Converted XtrckCad layout";
+                            layoutName = "Converted XTrackCAD layout";
                         }
                         System.out.println("\t\tLayout title: " + layoutName);
                         layoutName = layoutName.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;").replace("'", "&apos;").replace("\"", "&quot;");
@@ -1008,9 +1013,15 @@ public class XtrkCadReader {
     String writeSize(String prefix, int width, int height) {
         return prefix+"height=\""+height+"\" "+prefix+"width=\""+width+"\" ";
     }
-    
+
+    /**
+     * Adjust link in duplicate anchor of original track.
+     *
+     * @param ref0 first index of anchor
+     * @param oldRef1 value of corresponding second anchor reference to compare
+     * @param newRef1 new value for second anchor reference
+     */
     public final void AdjustAnchors(int ref0, int oldRef1, int newRef1) {
-        // Adjust link in duplicate anchor of original track
         for (int ind2 = 0; ind2 < nAnchors; ind2++) {
             XtrkCadAnchor anchor2 = anchors.get(ind2);
             if (anchor2.ref[0] == ref0 && anchor2.ref[1] == oldRef1) {
@@ -1021,6 +1032,11 @@ public class XtrkCadReader {
         }
     }
 
+    /**
+     * Main method to run XtrkCadReader from the command line.
+     *
+     * @param args string of options
+     */
     public static void main(String[] args) {
         // Retrieve input file name from command line
         Parser.parse(args);
@@ -1145,8 +1161,10 @@ public class XtrkCadReader {
 
         boolean nullLength = false;     // Indicator of null length tracks (Version 1.3)
 
-        // Standard Constructor of XtrkCadElement class
-        // Populates fields reading them from the XTrackCAD file
+        /**
+         * Standard Constructor of XtrkCadElement class.
+         * Populates fields reading them from the XTrackCAD file
+         */
         public XtrkCadElement(int newType) {
             trackType = newType;
             // Increment number of tracks
@@ -1320,8 +1338,10 @@ public class XtrkCadReader {
             }
         }
 
-        // Alternate constructor of XtrkCadElement class
-        // (used only for arcs rendering and padding tracks)
+        /**
+         * Alternate constructor of XtrkCadElement class.
+         * Used only for arcs rendering and padding tracks.
+         */
         public XtrkCadElement() {
             // Increment number of tracks
             nTracks++;
@@ -1332,10 +1352,11 @@ public class XtrkCadReader {
         }
 
         // Methods of the XtrkCadElement class
+
         /**
          * Diagnostic printout.
+         * Mostly copied (as needed) from the {@link #print()} method.
          *
-         * Mostly copied (as needed) from print() method
          * @param out output stream to use
          */
         public void dump(java.io.PrintStream out) {
@@ -1500,7 +1521,7 @@ public class XtrkCadReader {
         }
 
         /**
-         * Print to XML element in 'out'
+         * Print to XML element in 'out'.
          */
         public void print() {
             // Output track to XML file
@@ -1676,8 +1697,12 @@ public class XtrkCadReader {
             }
         }
 
+        /**
+         * Get the JMRI ID of the track element.
+         *
+         * @return ID of the track as String
+         */
         public String getName() {
-            // Return the JMRI ID of the track as String 
             if (jmriNumber == 0) {
                 return "";
             }
@@ -1693,17 +1718,28 @@ public class XtrkCadReader {
             }
         }
 
+        /**
+         * Get the track connected to a given anchor point.
+         *
+         * @param ind index of the anchor point
+         * @return XtrkCadElement connected to ind
+         */
         public XtrkCadElement getNextTrack(int ind) {
-            // Return the track connected to anchor point "ind" 
             if (ind < firstAnchor || ind >= lastAnchor) {
                 return null;
             }
             return (anchors.get(ind)).getConnectedTrack(1);
         }
 
+        /**
+         * Find the exit point of a crossing, when entering from the "source" track.
+         * Optionally also sets the block number.
+         *
+         * @param source crossing entry point index
+         * @param newBlock block index to set, or 0 to skip
+         * @return crossing anchor point
+         */
         public XtrkCadAnchor crossingThru(int source, int newBlock) {
-            // Find the exit point of a crossing, when entering from the "source" track
-            // Optionally sets also the block number
             for (int ind = firstAnchor; ind < lastAnchor; ind++) {
                 if ((anchors.get(ind)).ref[1] == source) {
                     if (ind < firstAnchor + 2) {
@@ -1729,8 +1765,14 @@ public class XtrkCadReader {
             return null;
         }
 
+        /**
+         * Set the block number and extend it to all neighboring track elements
+         * (unless separated by block-gaps).
+         *
+         * @param caller
+         * @param newBlock
+         */
         public void setBlock(int caller, int newBlock) {
-            // Sets the block number and extends it to all neighbor track elements (unless separated by block-gaps)
             if (trackType == TURNTABLE) {
                 return;
             }
@@ -1768,8 +1810,16 @@ public class XtrkCadReader {
             }
         }
 
+        /**
+         * Check if along a path there is the point of a turnout within a given range.
+         *
+         * @param caller starting anchor point
+         * @param range2 distance range for the search
+         * @param x0 x coordinate to measure from
+         * @param y0 y coordinate to measure from
+         * @return true if found inside range2, false otherwise
+         */
         public boolean checkPath(int caller, double range2, double x0, double y0) {
-            // Checks if along a path there is the point of a turnout within a given range
             switch (trackType) {
                 case TURNOUT:
                     return (anchors.get(firstAnchor)).ref[1] == caller;
@@ -1810,10 +1860,10 @@ public class XtrkCadReader {
 
     }
 
+    /**
+     * Internal class describing an anchor point.
+     */
     public class XtrkCadAnchor {
-        // Internal class
-        // Anchor point
-
         // Original XTrackCAD ID of the two track items connected by this anchor
         int[] ref = new int[2];
 
@@ -1847,8 +1897,10 @@ public class XtrkCadReader {
         //  true    The anchor has already been printed
         boolean printed = false;
 
-        // Standard constructor of the XtrkCadAnchor class
-        // Populates fields reading them from the XTrackCAD file
+        /**
+         * Standard constructor of the XtrkCadAnchor class.
+         * Populates fields reading them from the XTrackCAD file.
+         */
         public XtrkCadAnchor(int callingItem, boolean otherRef) {
             // Count anchors
             nAnchors++;
@@ -1868,7 +1920,9 @@ public class XtrkCadReader {
             }
         }
 
-        // Alternate constructor of the XtrkCadAnchor class (used for bumpers)
+        /**
+         * Alternate constructor of the XtrkCadAnchor class. Used for bumpers.
+         */
         public XtrkCadAnchor(int callingItem, double xEnd, double yEnd) {
             nAnchors++;
             ref[0] = callingItem;
@@ -1878,7 +1932,9 @@ public class XtrkCadReader {
             type = 2;
         }
 
-        // Alternate constructor of the XtrkCadAnchor class (used for arcs rendering)
+        /**
+         * Alternate constructor of the XtrkCadAnchor class. Used for arcs rendering.
+         */
         public XtrkCadAnchor(int callingItem, int nextItem, double xEnd, double yEnd) {
             nAnchors++;
             ref[0] = callingItem;
@@ -1888,8 +1944,13 @@ public class XtrkCadReader {
         }
 
         // Methods of the XtrkCadAnchor class
+
+        /**
+         * Get the turnout branch corresponding to the anchor.
+         *
+         * @return index of the turnout branch
+         */
         public int getTurnoutBranch() {
-            // Return the turnout branch corresponding to the anchor
             if (duplicate < 0 || !skip) {
                 return 1;   // Not a turnout
             }               // This anchor is a duplicate.  Retrieve the original
@@ -1897,12 +1958,17 @@ public class XtrkCadReader {
             if (duplicateAnchor.type < 3) {
                 return 1;   // Not a turnout
             }
-            return duplicateAnchor.type - 1;        // Turnout or Crossing
+            return duplicateAnchor.type - 1; // Turnout or Crossing
         }
 
+        /**
+         * Get the element connected to the node.
+         * Attention: ind is not checked.
+         *
+         * @param ind index of the node. Must be in the range 0-1
+         * @return the connected element
+         */
         public XtrkCadElement getConnectedTrack(int ind) {
-            // Return the element connected to the node
-            // Attention: ind is not checked. It must be in the range 0-1
             if (ref[ind] > 0) {
                 XtrkCadElement track;
                 // Reference found - Retrieve the  corresponding track
@@ -1916,9 +1982,14 @@ public class XtrkCadReader {
             return null;    // No reference found!
         }
 
+        /**
+         * Get the name of the element connected to the node.
+         * Attention: ind is not checked.
+         *
+         * @param ind index of the node. Must be in the range 0-1
+         * @return name of the element
+         */
         public String getConnectedName(int ind) {
-            // Return the name of the element connected to the node
-            // Attention: ind is not checked. It must be in the range 0-1
             XtrkCadElement track;
             if ((track = getConnectedTrack(ind)) != null) {
                 return track.getName();
@@ -1926,8 +1997,12 @@ public class XtrkCadReader {
             return "";  // No reference found!
         }
 
+        /**
+         * Get the identification of the anchor.
+         *
+         * @return anchor identification as String
+         */
         public String getIdent() {
-            // Return the identification string of the anchor
             if (duplicate < 0 || !skip) {
                 if (type == 2) {
                     return "EB" + jmriNumber;   // Bumper
@@ -1949,8 +2024,10 @@ public class XtrkCadReader {
             }
         }
 
+        /**
+         * Output an anchor to XML file.
+         */
         public void print() {
-            // Output anchor to XML file
             if (!skip && !printed && type < 50) {
                 // Get names of track items connected to the anchor
                 String name1 = getConnectedName(0);
@@ -1969,10 +2046,10 @@ public class XtrkCadReader {
         }
     }
 
+    /**
+     * Internal class to keeps track of names assigned to a block.
+     */
     public class BlockName {
-        // Internal class
-        // Keeps track of names assigned to a block
-
         String system = "";
         String user = "";
     }

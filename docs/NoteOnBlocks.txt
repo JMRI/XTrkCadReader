@@ -2,7 +2,7 @@ Example of layout with blocks
 
 Converting the file blocks.xtc with options
 
--bt		creates 30 blocks with random numbering
+-bt		    creates 30 blocks with random numbering
 
 -bt -bx		creates 29 blocks (look at the different dealing of the crossing and nearby tracks)
 
