@@ -2047,7 +2047,7 @@ public class XtrkCadReader {
     }
 
     /**
-     * Internal class to keeps track of names assigned to a block.
+     * Internal class to keep track of names assigned to a block.
      */
     public class BlockName {
         String system = "";
