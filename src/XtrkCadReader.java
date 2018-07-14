@@ -164,6 +164,7 @@ public class XtrkCadReader {
     static Parser optionFile = new Parser("", Parser.STRING, "Input file name (mandatory).");
     static Parser optionH = new Parser("-h", Parser.HELP, HELPDESCRIPTION);
     static Parser optionHelp = new Parser("help", Parser.HELP, HELPDESCRIPTION);
+    static Parser optionVersion = new Parser("-v", Parser.VERSION, "Display version number");
 
     // Contructor
     public XtrkCadReader() {

@@ -39,11 +39,48 @@
     </target>
 
     <target name="run" depends="jar" description="Run jar file">
-        <java jar="${jarfile}" fork="yes" failonerror="true"/>
+        <java jar="${jarfile}" fork="yes" failonerror="true">
+            <!-- pass the '-h' option to display help -->
+            <arg value="-h"/>
+        </java>
     </target>
 
     <target name="clean" description="Remove build and dist directories">
         <delete dir="${bin}"/>
         <delete dir="${dist}"/>
     </target>
+
+    <target name="dist"
+            description="Create a release package as a Zip file"
+            depends="clean, get-version-string, jar">
+        <zip destfile="${dist}/XtrkCadReader${release.version-string}.zip">
+            <fileset dir="${dist}"
+                     includes="*.jar"/>
+            <fileset dir="."
+                     includes="LICENSE.txt,docs/,examples/"/>
+        </zip>
+    </target>
+
+    <target name="get-version-string" depends="compile"><!-- compute the version string, not for user use -->
+        <java classname="XtrkCadReader"
+              dir="${basedir}"
+              fork="yes"
+              resultproperty="version-string.returncode"
+              outputproperty="release.version-string"
+              errorproperty="release.version-string-error">
+            <classpath>
+              <pathelement path="${bin}"/>
+            </classpath>
+            <arg value="-v"/>
+        </java>
+        <echo message="release version string is ${release.version-string}"/>
+        <fail message="error getting version string: ${version-string.returncode}">
+          <condition>
+            <not>
+              <equals arg1="${version-string.returncode}" arg2="0"/>
+            </not>
+          </condition>
+        </fail>
+    </target>
+
 </project>

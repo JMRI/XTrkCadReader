@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="http://jmri.sourceforge.net/xml/XSLT/panelfile.xsl" type="text/xsl"?>
+<!DOCTYPE layout-config SYSTEM "layout-config.dtd">
+<layout-config>
+<!--
+
+XtrkCadReader - XtrkCad to JMRI Layout Editor format conversion utility
+Revision 1.5
+
+	Input file: /Users/terdina/User data local/Dev current/XtrkCadReaderDir/XtrkCadReader1v5/Examples/PecoH0.xtc
+
+	Options:
+		Width of output frame:	800
+		Height of output frame:	600
+		Arc rendering disabled
+		Tolerance for end points merging:	2.0
+		Starting ID number for anchor points:	1
+		Starting ID number for track segments:	1
+		Starting ID number for turnouts:	1
+		Starting ID number for crossings:	1
+		Starting ID number for bumpers:	1
+		Starting ID number for turntables:	1
+		Automatic definition of blocks based on XtrCAD block gaps:	disabled
+		Automatic definition of blocks based on turnouts:	disabled
+-->
+<!-- Original layout size: 84.0 x 50.0  Output scale: 9.523809523809524  Output size: 800 x 476 -->
+	<LayoutEditor class="jmri.jmrit.display.configurexml.LayoutEditorXml" name="Peco H0 example" x="0" y="0" height="541" width="800" editable="yes" positionable="yes" controlling="yes" animating="yes" showhelpbar="yes" mainlinetrackwidth="4" xscale="1.00" yscale="1.00" sidetrackwidth="2" defaulttrackcolor="black">
+	 <!-- #1 &quot;Peco LH Medium turnout SL-96/196&quot; -->
+		<layoutturnout ident="TO1" type="2" connectaname="T13" connectbname="T1" connectcname="T10" continuing="2" disabled="no" xcen="198.2752142857143" ycen="456.84289523809525" xb="239.33258095238094" yb="456.84289523809525" xc="239.33258095238094" yc="447.31908571428573" class="jmri.jmrit.display.configurexml.LayoutTurnoutXml" />
+	 <!-- #2 &quot;Peco setrack ST-201&quot; -->
+		<tracksegment ident="T1" connect1name="A1" type1="1" connect2name="TO1" type2="3" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #3 &quot;Peco setrack ST-201&quot; -->
+		<positionablepoint ident="A1" type="1" x="364.9418761904762" y="456.84322857142854" connect1name="T2" connect2name="T1" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T2" connect1name="A2" type1="1" connect2name="A1" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #4 &quot;Peco setrack ST-201&quot; -->
+		<positionablepoint ident="A2" type="1" x="490.55117142857137" y="456.8435619047619" connect1name="T3" connect2name="T2" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T3" connect1name="A3" type1="1" connect2name="A2" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #5 &quot;Peco setrack No.2 radius ST-226&quot; -->
+		<positionablepoint ident="A3" type="1" x="616.1604666666667" y="456.84389523809523" connect1name="T4" connect2name="T3" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T4" connect1name="A3" type1="1" connect2name="A4" type2="1" mainline="no" hidden="no" dashed="no" arc="yes" circle="yes" flip="yes" angle="45.0"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #6 &quot;Peco setrack No.2 radius ST-226&quot; -->
+		<positionablepoint ident="A4" type="1" x="732.288161904762" y="408.74227619047616" connect1name="T5" connect2name="T4" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T5" connect1name="A4" type1="1" connect2name="A32" type2="1" mainline="no" hidden="no" dashed="no" arc="yes" circle="yes" flip="yes" angle="45.0"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #7 &quot;Peco Curved Left SL-87/187&quot; -->
+		<tracksegment ident="T6" connect1name="TO5" type1="3" connect2name="A5" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #8 &quot;Peco setrack No.2 radius ST-226&quot; -->
+		<positionablepoint ident="A5" type="1" x="771.9557047619048" y="197.66805714285715" connect1name="T7" connect2name="T6" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T7" connect1name="A5" type1="1" connect2name="A6" type2="1" mainline="no" hidden="no" dashed="no" arc="yes" circle="yes" flip="yes" angle="45.0"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #9 &quot;Peco setrack No.3 radius ST-230&quot; -->
+		<positionablepoint ident="A6" type="1" x="706.1213238095239" y="90.50383809523812" connect1name="T8" connect2name="T7" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T8" connect1name="A6" type1="1" connect2name="A23" type2="1" mainline="no" hidden="no" dashed="no" arc="yes" circle="yes" flip="yes" angle="22.5"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #10 &quot;Peco setrack No.1 radius ST-221&quot; -->
+		<tracksegment ident="T9" connect1name="A33" type1="1" connect2name="A20" type2="1" mainline="no" hidden="no" dashed="no" arc="yes" circle="yes" flip="yes" angle="45.0"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #11 &quot;Peco setrack ST-202&quot; -->
+		<tracksegment ident="T10" connect1name="TO1" type1="4" connect2name="TO2" type2="4" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #12 &quot;Peco LH Medium turnout SL-96/196&quot; -->
+		<layoutturnout ident="TO2" type="2" connectaname="T11" connectbname="T15" connectcname="T10" continuing="2" disabled="no" xcen="309.3639761904762" ycen="431.63677619047616" xb="268.3066095238095" yb="431.63666666666666" xc="268.30658095238095" yc="441.1604761904762" class="jmri.jmrit.display.configurexml.LayoutTurnoutXml" />
+	 <!-- #13 &quot;Peco setrack ST-201&quot; -->
+		<tracksegment ident="T11" connect1name="TO2" type1="2" connect2name="A7" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #14 &quot;Peco setrack ST-201&quot; -->
+		<positionablepoint ident="A7" type="1" x="476.03063809523815" y="431.63688571428565" connect1name="T12" connect2name="T11" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<positionablepoint ident="A8" type="1" x="601.6399333333334" y="431.63688571428565" connect1name="T12" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T12" connect1name="A7" type1="1" connect2name="A8" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #15 &quot;Peco setrack No.1 radius ST-221&quot; -->
+		<tracksegment ident="T13" connect1name="A9" type1="1" connect2name="TO1" type2="2" mainline="no" hidden="no" dashed="no" arc="yes" circle="yes" flip="yes" angle="45.0"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #16 &quot;Peco setrack No.1 radius ST-221&quot; -->
+		<positionablepoint ident="A9" type="1" x="58.85398095238096" y="416.0992857142857" connect1name="T14" connect2name="T13" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T14" connect1name="A12" type1="1" connect2name="A9" type2="1" mainline="no" hidden="no" dashed="no" arc="yes" circle="yes" flip="yes" angle="45.0"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #17 &quot;Peco setrack No.1 radius ST-221&quot; -->
+		<tracksegment ident="T15" connect1name="A11" type1="1" connect2name="TO2" type2="3" mainline="no" hidden="no" dashed="no" arc="yes" circle="yes" flip="yes" angle="45.0"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #18 &quot;Peco setrack ST-201&quot; -->
+		<positionablepoint ident="A10" type="1" x="81.12349523809524" y="302.07393333333334" connect1name="T16" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<positionablepoint ident="A11" type="1" x="169.94274285714286" y="390.8930571428571" connect1name="T16" connect2name="T15" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T16" connect1name="A10" type1="1" connect2name="A11" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #19 &quot;Peco setrack ST-201&quot; -->
+		<positionablepoint ident="A12" type="1" x="18.110238095238095" y="317.73547619047616" connect1name="T17" connect2name="T14" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T17" connect1name="A13" type1="1" connect2name="A12" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #20 &quot;Peco setrack No.1 radius ST-221&quot; -->
+		<positionablepoint ident="A13" type="1" x="18.110076190476192" y="192.12618095238093" connect1name="T18" connect2name="T17" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T18" connect1name="A14" type1="1" connect2name="A13" type2="1" mainline="no" hidden="no" dashed="no" arc="yes" circle="yes" flip="yes" angle="45.0"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #21 &quot;Peco setrack No.1 radius ST-221&quot; -->
+		<positionablepoint ident="A14" type="1" x="58.85355238095239" y="93.76225714285712" connect1name="T19" connect2name="T18" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T19" connect1name="TO3" type1="2" connect2name="A14" type2="1" mainline="no" hidden="no" dashed="no" arc="yes" circle="yes" flip="yes" angle="45.0"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #22 &quot;Peco 3 Way Turnout SL-99&quot; -->
+		<layoutturnout ident="TO3" type="1" connectaname="T19" connectbname="T40" connectcname="T39" continuing="2" disabled="no" xcen="177.83994523809525" ycen="53.018904761904786" xb="198.46236666666667" yb="53.018904761904786" xc="198.46236666666667" yc="49.84430158730161" class="jmri.jmrit.display.configurexml.LayoutTurnoutXml" />
+	 <!-- #23 &quot;Peco Medium Y turnout SL-98/198&quot; -->
+		<layoutturnout ident="TO4" type="3" connectaname="T41" connectbname="T22" connectcname="T24" continuing="2" disabled="no" xcen="280.05075714285715" ycen="71.11799523809525" xb="321.77414285714286" yb="73.20163809523808" xc="319.01446666666664" yc="86.1849142857143" class="jmri.jmrit.display.configurexml.LayoutTurnoutXml" />
+	 <!-- #24 &quot;Peco setrack ST-201&quot; -->
+		<tracksegment ident="T20" connect1name="TO6" type1="3" connect2name="A15" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #25 &quot;Peco setrack ST-201&quot; -->
+		<positionablepoint ident="A15" type="1" x="366.04005714285717" y="53.2301333333333" connect1name="T21" connect2name="T20" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T21" connect1name="A15" type1="1" connect2name="A24" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #26 &quot;Peco setrack ST-201&quot; -->
+		<tracksegment ident="T22" connect1name="TO4" type1="3" connect2name="A16" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #27 &quot;Peco setrack ST-201&quot; -->
+		<positionablepoint ident="A16" type="1" x="446.69534285714286" y="86.33137142857142" connect1name="T23" connect2name="T22" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T23" connect1name="A16" type1="1" connect2name="A22" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #28 &quot;Peco setrack ST-201&quot; -->
+		<tracksegment ident="T24" connect1name="TO4" type1="4" connect2name="A17" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #29 &quot;Peco setrack ST-201&quot; -->
+		<positionablepoint ident="A17" type="1" x="438.4760095238095" y="125.00028571428574" connect1name="T25" connect2name="T24" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T25" connect1name="A17" type1="1" connect2name="A18" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #30 &quot;Peco setrack ST-201&quot; -->
+		<positionablepoint ident="A18" type="1" x="557.9375619047619" y="163.8156666666667" connect1name="T26" connect2name="T25" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<positionablepoint ident="A19" type="1" x="677.3991142857143" y="202.6310380952381" connect1name="T26" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T26" connect1name="A18" type1="1" connect2name="A19" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #31 Flexi-track arc segment -->
+		<positionablepoint ident="A20" type="1" x="690.5004285714285" y="121.81339047619045" connect1name="T27" connect2name="T9" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T27" connect1name="A21" type1="1" connect2name="A20" type2="1" mainline="no" hidden="no" dashed="no" arc="yes" circle="yes" flip="no" angle="18.75"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #32 &quot;Peco setrack ST-200&quot; -->
+		<positionablepoint ident="A21" type="1" x="633.9639142857143" y="106.26719047619045" connect1name="T28" connect2name="T27" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<positionablepoint ident="A22" type="1" x="571.3168761904763" y="99.68256190476194" connect1name="T28" connect2name="T23" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T28" connect1name="A21" type1="1" connect2name="A22" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #33 Flexi-track arc segment -->
+		<positionablepoint ident="A23" type="1" x="639.7833523809524" y="60.01679047619049" connect1name="T29" connect2name="T8" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T29" connect1name="A26" type1="1" connect2name="A23" type2="1" mainline="no" hidden="no" dashed="no" arc="yes" circle="yes" flip="no" angle="13.5"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #34 &quot;Peco setrack ST-200&quot; -->
+		<positionablepoint ident="A24" type="1" x="492.07169523809523" y="53.352647619047595" connect1name="T30" connect2name="T21" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T30" connect1name="A24" type1="1" connect2name="A25" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #35 &quot;Peco setrack ST-202&quot; -->
+		<positionablepoint ident="A25" type="1" x="555.486161904762" y="53.47516190476188" connect1name="T31" connect2name="T30" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<positionablepoint ident="A26" type="1" x="585.1074571428571" y="53.47516190476188" connect1name="T31" connect2name="T29" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T31" connect1name="A25" type1="1" connect2name="A26" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #36 &quot;Peco setrack ST-202&quot; -->
+		<tracksegment ident="T32" connect1name="A34" type1="1" connect2name="A27" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #37 Flexi-track arc segment -->
+		<positionablepoint ident="A27" type="1" x="268.6812095238095" y="37.336485714285686" connect1name="T33" connect2name="T32" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T33" connect1name="A27" type1="1" connect2name="A28" type2="1" mainline="no" hidden="no" dashed="no" arc="yes" circle="yes" flip="no" angle="11.88"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #38 &quot;Peco setrack ST-201&quot; -->
+		<positionablepoint ident="A28" type="1" x="367.4493904761905" y="26.849742857142864" connect1name="T34" connect2name="T33" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T34" connect1name="A28" type1="1" connect2name="A29" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #39 &quot;Peco setrack ST-201&quot; -->
+		<positionablepoint ident="A29" type="1" x="493.0584" y="26.583599999999983" connect1name="T35" connect2name="T34" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T35" connect1name="A29" type1="1" connect2name="A30" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #40 &quot;Peco setrack ST-201&quot; -->
+		<positionablepoint ident="A30" type="1" x="618.6674095238095" y="26.31746666666667" connect1name="T36" connect2name="T35" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<positionablepoint ident="A31" type="1" x="744.2764285714285" y="26.051333333333357" connect1name="T36" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T36" connect1name="A30" type1="1" connect2name="A31" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- Rendering of curved turnout #7 &quot;Peco Curved Left SL-87/187&quot; -->
+		<positionablepoint ident="A32" type="1" x="780.3899428571428" y="292.6146476190476" connect1name="T37" connect2name="T5" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T37" connect1name="A32" type1="1" connect2name="TO5" type2="2" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+		<layoutturnout ident="TO5" type="1" connectaname="T37" connectbname="T6" connectcname="T38" continuing="2" disabled="no" xcen="778.7299939245204" ycen="244.94117428876606" xb="776.4403648305108" yb="221.3142161717647" xc="770.7872324128755" yc="222.57181822249086" class="jmri.jmrit.display.configurexml.LayoutTurnoutXml" />
+		<positionablepoint ident="A33" type="1" x="762.7710095238095" y="199.99557142857145" connect1name="T38" connect2name="T9" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T38" connect1name="TO5" type1="4" connect2name="A33" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- Rendering of three-way turnout #22 -->
+		<layoutturnout ident="TO6" type="2" connectaname="T40" connectbname="T20" connectcname="T41" continuing="2" disabled="no" xcen="219.08478809523808" ycen="53.018904761904786" xb="239.70720952380952" yb="53.018904761904786" xc="239.70720952380952" yc="62.54271428571431" class="jmri.jmrit.display.configurexml.LayoutTurnoutXml" />
+		<positionablepoint ident="A34" type="1" x="239.70720952380952" y="43.49509523809526" connect1name="T39" connect2name="T32" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T39" connect1name="TO3" type1="4" connect2name="A34" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- Padding track between Turnouts/Crossings #22 and #44 -->
+		<tracksegment ident="T40" connect1name="TO3" type1="3" connect2name="TO6" type2="2" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- Padding track between Turnouts/Crossings #23 and #44 -->
+		<tracksegment ident="T41" connect1name="TO4" type1="2" connect2name="TO6" type2="4" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	</LayoutEditor>
+	<!-- Written by XtrkCadReader on Tue Apr 06 15:12:24 CEST 2010 -->
+</layout-config>
+

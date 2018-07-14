@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="http://jmri.sourceforge.net/xml/XSLT/panelfile.xsl" type="text/xsl"?>
+<!DOCTYPE layout-config SYSTEM "layout-config.dtd">
+<layout-config>
+<!--
+
+XtrkCadReader - XtrkCad to JMRI Layout Editor format conversion utility
+Revision 1.5
+
+	Input file: /Users/terdina/User data local/Dev current/XtrkCadReaderDir/XtrkCadReader1v5/Examples/AtlasH0code100.xtc
+
+	Options:
+		Width of output frame:	800
+		Height of output frame:	600
+		Arc rendering disabled
+		Tolerance for end points merging:	2.0
+		Starting ID number for anchor points:	1
+		Starting ID number for track segments:	1
+		Starting ID number for turnouts:	1
+		Starting ID number for crossings:	1
+		Starting ID number for bumpers:	1
+		Starting ID number for turntables:	1
+		Automatic definition of blocks based on XtrCAD block gaps:	disabled
+		Automatic definition of blocks based on turnouts:	disabled
+-->
+<!-- Original layout size: 128.0 x 42.0  Output scale: 6.25  Output size: 800 x 263 -->
+	<LayoutEditor class="jmri.jmrit.display.configurexml.LayoutEditorXml" name="Atlas H0 code 100 example" x="0" y="0" height="328" width="800" editable="yes" positionable="yes" controlling="yes" animating="yes" showhelpbar="yes" mainlinetrackwidth="4" xscale="1.00" yscale="1.00" sidetrackwidth="2" defaulttrackcolor="black">
+	 <!-- #1 &quot;Atlas 9&quot;&quot; Straight 821&quot; -->
+		<tracksegment ident="T1" connect1name="A13" type1="1" connect2name="TO1" type2="2" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #2 &quot;Atlas #6 Mark 3 Right 284&quot; -->
+		<layoutturnout ident="TO1" type="1" connectaname="T1" connectbname="T2" connectcname="T7" continuing="2" disabled="no" xcen="215.2313" ycen="234.867125" xb="252.7313" yb="234.867125" xc="240.2313" yc="241.117125" class="jmri.jmrit.display.configurexml.LayoutTurnoutXml" />
+	 <!-- #3 &quot;Atlas 9&quot;&quot; Straight 821&quot; -->
+		<tracksegment ident="T2" connect1name="TO1" type1="3" connect2name="A1" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #4 &quot;Atlas 9&quot;&quot; Straight 821&quot; -->
+		<positionablepoint ident="A1" type="1" x="308.9813" y="234.867125" connect1name="T3" connect2name="T2" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T3" connect1name="A1" type1="1" connect2name="A2" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #5 &quot;Atlas 9&quot;&quot; Straight 821&quot; -->
+		<positionablepoint ident="A2" type="1" x="365.2313" y="234.867125" connect1name="T4" connect2name="T3" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T4" connect1name="A2" type1="1" connect2name="A3" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #6 &quot;Atlas 9&quot;&quot; Straight 821&quot; -->
+		<positionablepoint ident="A3" type="1" x="421.48130000000003" y="234.867125" connect1name="T5" connect2name="T4" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T5" connect1name="A3" type1="1" connect2name="A4" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #7 &quot;Atlas 9&quot;&quot; Straight 821&quot; -->
+		<positionablepoint ident="A4" type="1" x="477.73130000000003" y="234.867125" connect1name="T6" connect2name="T5" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T6" connect1name="A4" type1="1" connect2name="A6" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #8 &quot;Atlas 6&quot;&quot; Straight 822&quot; -->
+		<tracksegment ident="T7" connect1name="TO1" type1="4" connect2name="A5" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #9 Flexi-track arc segment -->
+		<positionablepoint ident="A5" type="1" x="277.2170125" y="247.30640624999998" connect1name="T8" connect2name="T7" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T8" connect1name="A12" type1="1" connect2name="A5" type2="1" mainline="no" hidden="no" dashed="no" arc="yes" circle="yes" flip="no" angle="9.5"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #10 Flexi-track arc segment -->
+		<positionablepoint ident="A6" type="1" x="533.9813" y="234.867125" connect1name="T9" connect2name="T6" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T9" connect1name="A6" type1="1" connect2name="A7" type2="1" mainline="no" hidden="no" dashed="no" arc="yes" circle="yes" flip="no" angle="9.5"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #11 &quot;Atlas 6&quot;&quot; Straight 822&quot; -->
+		<positionablepoint ident="A7" type="1" x="578.981075" y="238.60643750000003" connect1name="T10" connect2name="T9" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T10" connect1name="A7" type1="1" connect2name="TO2" type2="4" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #12 &quot;Atlas #6 Mark 3 Right 284&quot; -->
+		<layoutturnout ident="TO2" type="1" connectaname="T22" connectbname="T11" connectcname="T10" continuing="2" disabled="no" xcen="640.96676875" ycen="251.04578125" xb="603.46676875" yb="251.04568125000003" xc="615.9667875" yc="244.79571875000002" class="jmri.jmrit.display.configurexml.LayoutTurnoutXml" />
+	 <!-- #13 &quot;Atlas 9&quot;&quot; Straight 821&quot; -->
+		<tracksegment ident="T11" connect1name="TO2" type1="3" connect2name="A8" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #14 &quot;Atlas 9&quot;&quot; Straight 821&quot; -->
+		<positionablepoint ident="A8" type="1" x="547.21676875" y="251.04553125" connect1name="T12" connect2name="T11" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T12" connect1name="A8" type1="1" connect2name="A9" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #15 &quot;Atlas 9&quot;&quot; Straight 821&quot; -->
+		<positionablepoint ident="A9" type="1" x="490.96676874999997" y="251.0453875" connect1name="T13" connect2name="T12" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T13" connect1name="A9" type1="1" connect2name="A10" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #16 &quot;Atlas 9&quot;&quot; Straight 821&quot; -->
+		<positionablepoint ident="A10" type="1" x="434.71676874999997" y="251.04523749999998" connect1name="T14" connect2name="T13" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T14" connect1name="A10" type1="1" connect2name="A11" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #17 &quot;Atlas 9&quot;&quot; Straight 821&quot; -->
+		<positionablepoint ident="A11" type="1" x="378.46676874999997" y="251.04508750000002" connect1name="T15" connect2name="T14" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<positionablepoint ident="A12" type="1" x="322.21676874999997" y="251.04493749999997" connect1name="T15" connect2name="T8" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T15" connect1name="A11" type1="1" connect2name="A12" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #18 &quot;Atlas 18&quot;&quot; 30D Curve 833&quot; -->
+		<positionablepoint ident="A13" type="1" x="121.48129999999999" y="234.867125" connect1name="T16" connect2name="T1" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T16" connect1name="A13" type1="1" connect2name="A14" type2="1" mainline="no" hidden="no" dashed="no" arc="yes" circle="yes" flip="no" angle="30.0"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #19 &quot;Atlas 18&quot;&quot; 30D Curve 833&quot; -->
+		<positionablepoint ident="A14" type="1" x="65.23138125" y="219.79485625" connect1name="T17" connect2name="T16" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T17" connect1name="A14" type1="1" connect2name="A15" type2="1" mainline="no" hidden="no" dashed="no" arc="yes" circle="yes" flip="no" angle="30.0"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #20 &quot;Atlas 18&quot;&quot; 30D Curve 833&quot; -->
+		<positionablepoint ident="A15" type="1" x="24.05364375" y="178.61695" connect1name="T18" connect2name="T17" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T18" connect1name="A15" type1="1" connect2name="A16" type2="1" mainline="no" hidden="no" dashed="no" arc="yes" circle="yes" flip="no" angle="30.0"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #21 &quot;Atlas 18&quot;&quot; 30D Curve 833&quot; -->
+		<positionablepoint ident="A16" type="1" x="8.981599999999998" y="122.366975" connect1name="T19" connect2name="T18" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T19" connect1name="A16" type1="1" connect2name="A17" type2="1" mainline="no" hidden="no" dashed="no" arc="yes" circle="yes" flip="no" angle="30.0"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #22 &quot;Atlas 18&quot;&quot; 30D Curve 833&quot; -->
+		<positionablepoint ident="A17" type="1" x="24.05379375" y="66.1170375" connect1name="T20" connect2name="T19" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T20" connect1name="A17" type1="1" connect2name="A18" type2="1" mainline="no" hidden="no" dashed="no" arc="yes" circle="yes" flip="no" angle="30.0"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #23 &quot;Atlas 18&quot;&quot; 30D Curve 833&quot; -->
+		<positionablepoint ident="A18" type="1" x="65.23165" y="24.939243750000006" connect1name="T21" connect2name="T20" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T21" connect1name="A18" type1="1" connect2name="A21" type2="1" mainline="no" hidden="no" dashed="no" arc="yes" circle="yes" flip="no" angle="30.0"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #24 &quot;Atlas 18&quot;&quot; 30D Curve 833&quot; -->
+		<tracksegment ident="T22" connect1name="A19" type1="1" connect2name="TO2" type2="2" mainline="no" hidden="no" dashed="no" arc="yes" circle="yes" flip="no" angle="30.0"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #25 &quot;Atlas 18&quot;&quot; 30D Curve 833&quot; -->
+		<positionablepoint ident="A19" type="1" x="734.4485875" y="236.00111249999998" connect1name="T23" connect2name="T22" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T23" connect1name="A20" type1="1" connect2name="A19" type2="1" mainline="no" hidden="no" dashed="no" arc="yes" circle="yes" flip="no" angle="30.0"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #26 &quot;Atlas 18&quot;&quot; 30D Curve 833&quot; -->
+		<positionablepoint ident="A20" type="1" x="775.62633125" y="194.8232125" connect1name="T24" connect2name="T23" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T24" connect1name="A33" type1="1" connect2name="A20" type2="1" mainline="no" hidden="no" dashed="no" arc="yes" circle="yes" flip="no" angle="30.0"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #27 &quot;Atlas 9&quot;&quot; Straight 821&quot; -->
+		<positionablepoint ident="A21" type="1" x="121.48160625" y="9.867125000000021" connect1name="T25" connect2name="T21" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T25" connect1name="A22" type1="1" connect2name="A21" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #28 &quot;Atlas 9&quot;&quot; Straight 821&quot; -->
+		<positionablepoint ident="A22" type="1" x="177.73160625" y="9.867274999999998" connect1name="T26" connect2name="T25" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T26" connect1name="A23" type1="1" connect2name="A22" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #29 &quot;Atlas 9&quot;&quot; Straight 821&quot; -->
+		<positionablepoint ident="A23" type="1" x="233.98160625000003" y="9.867425000000019" connect1name="T27" connect2name="T26" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T27" connect1name="A24" type1="1" connect2name="A23" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #30 &quot;Atlas 9&quot;&quot; Straight 821&quot; -->
+		<positionablepoint ident="A24" type="1" x="290.23160625" y="9.867574999999995" connect1name="T28" connect2name="T27" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T28" connect1name="TO3" type1="2" connect2name="A24" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #31 &quot;Atlas Right Snap Switch 851&quot; -->
+		<layoutturnout ident="TO3" type="1" connectaname="T28" connectbname="T30" connectcname="T29" continuing="2" disabled="no" xcen="374.60660625" ycen="9.867725000000016" xb="402.73160624999997" yb="9.867725000000016" xc="384.95887500000003" yc="16.652306250000002" class="jmri.jmrit.display.configurexml.LayoutTurnoutXml" />
+	 <!-- #32 &quot;Atlas 6&quot;&quot; Straight 822&quot; -->
+		<tracksegment ident="T29" connect1name="TO3" type1="4" connect2name="TO4" type2="4" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #33 &quot;Atlas Right Snap Switch 851&quot; -->
+		<layoutturnout ident="TO4" type="1" connectaname="T39" connectbname="T42" connectcname="T29" continuing="2" disabled="no" xcen="430.5496" ycen="36.26265625" xb="402.4246" yb="36.26258125000001" xc="420.19735000000003" yc="29.47804999999999" class="jmri.jmrit.display.configurexml.LayoutTurnoutXml" />
+	 <!-- #34 &quot;Atlas 9&quot;&quot; Straight 821&quot; -->
+		<tracksegment ident="T30" connect1name="TO3" type1="3" connect2name="A25" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #35 &quot;Atlas 9&quot;&quot; Straight 821&quot; -->
+		<positionablepoint ident="A25" type="1" x="459.4654125" y="9.832093750000004" connect1name="T31" connect2name="T30" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T31" connect1name="A25" type1="1" connect2name="A26" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #36 &quot;Atlas 9&quot;&quot; Straight 821&quot; -->
+		<positionablepoint ident="A26" type="1" x="515.95731875" y="9.81428124999999" connect1name="T32" connect2name="T31" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T32" connect1name="A26" type1="1" connect2name="A27" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #37 &quot;Atlas 9&quot;&quot; Straight 821&quot; -->
+		<positionablepoint ident="A27" type="1" x="572.449225" y="9.796462499999992" connect1name="T33" connect2name="T32" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T33" connect1name="A27" type1="1" connect2name="A28" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #38 Flexi-track straight segment -->
+		<positionablepoint ident="A28" type="1" x="628.689875" y="9.792506249999988" connect1name="T34" connect2name="T33" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T34" connect1name="A28" type1="1" connect2name="A29" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #39 &quot;Atlas 18&quot;&quot; 30D Curve 833&quot; -->
+		<positionablepoint ident="A29" type="1" x="678.144375" y="9.774625000000015" connect1name="T35" connect2name="T34" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T35" connect1name="A29" type1="1" connect2name="A30" type2="1" mainline="no" hidden="no" dashed="no" arc="yes" circle="yes" flip="no" angle="30.0"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #40 &quot;Atlas 18&quot;&quot; 30D Curve 833&quot; -->
+		<positionablepoint ident="A30" type="1" x="734.45641875" y="24.820906249999997" connect1name="T36" connect2name="T35" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T36" connect1name="A30" type1="1" connect2name="A31" type2="1" mainline="no" hidden="no" dashed="no" arc="yes" circle="yes" flip="no" angle="30.0"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #41 &quot;Atlas 18&quot;&quot; 30D Curve 833&quot; -->
+		<positionablepoint ident="A31" type="1" x="775.625275" y="65.99659375" connect1name="T37" connect2name="T36" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T37" connect1name="A31" type1="1" connect2name="A32" type2="1" mainline="no" hidden="no" dashed="no" arc="yes" circle="yes" flip="no" angle="30.0"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #42 Flexi-track straight segment -->
+		<positionablepoint ident="A32" type="1" x="790.6770125" y="122.24683125" connect1name="T38" connect2name="T37" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<positionablepoint ident="A33" type="1" x="790.6770125" y="138.5731125" connect1name="T38" connect2name="T24" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T38" connect1name="A32" type1="1" connect2name="A33" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #43 &quot;Atlas 9&quot;&quot; Straight 821&quot; -->
+		<tracksegment ident="T39" connect1name="TO4" type1="2" connect2name="A34" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #44 &quot;Atlas 9&quot;&quot; Straight 821&quot; -->
+		<positionablepoint ident="A34" type="1" x="514.9245999999999" y="36.26273124999999" connect1name="T40" connect2name="T39" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T40" connect1name="A34" type1="1" connect2name="A35" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #45 &quot;Atlas 9&quot;&quot; Straight 821&quot; -->
+		<positionablepoint ident="A35" type="1" x="571.1745999999999" y="36.26273124999999" connect1name="T41" connect2name="T40" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T41" connect1name="A35" type1="1" connect2name="A43" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #46 &quot;Atlas 9&quot;&quot; Straight 821&quot; -->
+		<tracksegment ident="T42" connect1name="TO4" type1="3" connect2name="A36" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #47 &quot;Atlas 15&quot;&quot; 30D Curve 831&quot; -->
+		<positionablepoint ident="A36" type="1" x="346.1746" y="36.26243750000002" connect1name="T43" connect2name="T42" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T43" connect1name="TO5" type1="2" connect2name="A36" type2="1" mainline="no" hidden="no" dashed="no" arc="yes" circle="yes" flip="no" angle="30.0"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #48 &quot;Atlas Mark 3 Wye 280&quot; -->
+		<layoutturnout ident="TO5" type="3" connectaname="T43" connectbname="T44" connectcname="T47" continuing="2" disabled="no" xcen="278.1902953125" ycen="61.010076562500004" xb="254.98719375" yb="69.57114375" xc="259.1747125" yc="76.8241" class="jmri.jmrit.display.configurexml.LayoutTurnoutXml" />
+	 <!-- #49 &quot;Atlas 9&quot;&quot; Straight 821&quot; -->
+		<tracksegment ident="T44" connect1name="TO5" type1="3" connect2name="A37" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #50 &quot;Atlas 9&quot;&quot; Straight 821&quot; -->
+		<positionablepoint ident="A37" type="1" x="202.26513125" y="89.17845" connect1name="T45" connect2name="T44" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T45" connect1name="A37" type1="1" connect2name="A38" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #51 &quot;Atlas 9&quot;&quot; Straight 821&quot; -->
+		<positionablepoint ident="A38" type="1" x="149.5430625" y="108.78575" connect1name="T46" connect2name="T45" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<positionablepoint ident="A39" type="1" x="96.821" y="128.39305000000002" connect1name="T46" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T46" connect1name="A38" type1="1" connect2name="A39" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #52 &quot;Atlas 9&quot;&quot; Straight 821&quot; -->
+		<tracksegment ident="T47" connect1name="TO5" type1="4" connect2name="A40" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #53 &quot;Atlas 9&quot;&quot; Straight 821&quot; -->
+		<positionablepoint ident="A40" type="1" x="215.8334125" y="112.6792875" connect1name="T48" connect2name="T47" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T48" connect1name="A40" type1="1" connect2name="A41" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #54 &quot;Atlas 9&quot;&quot; Straight 821&quot; -->
+		<positionablepoint ident="A41" type="1" x="172.49211875" y="148.53448125" connect1name="T49" connect2name="T48" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<positionablepoint ident="A42" type="1" x="129.150825" y="184.38966875" connect1name="T49" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T49" connect1name="A41" type1="1" connect2name="A42" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #55 &quot;Atlas 6&quot;&quot; Straight 822&quot; -->
+		<positionablepoint ident="A43" type="1" x="627.4245999999999" y="36.26273124999999" connect1name="T50" connect2name="T41" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T50" connect1name="A43" type1="1" connect2name="A44" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #56 &quot;Atlas 15&quot;&quot; 30D Curve 831&quot; -->
+		<positionablepoint ident="A44" type="1" x="664.9245999999999" y="36.26273124999999" connect1name="T51" connect2name="T50" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T51" connect1name="A44" type1="1" connect2name="A45" type2="1" mainline="no" hidden="no" dashed="no" arc="yes" circle="yes" flip="no" angle="30.0"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #57 &quot;Atlas 15&quot;&quot; 30D Curve 831&quot; -->
+		<positionablepoint ident="A45" type="1" x="711.7995625" y="48.82283125" connect1name="T52" connect2name="T51" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T52" connect1name="A45" type1="1" connect2name="A46" type2="1" mainline="no" hidden="no" dashed="no" arc="yes" circle="yes" flip="no" angle="30.0"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #58 &quot;Atlas 15&quot;&quot; 30D Curve 831&quot; -->
+		<positionablepoint ident="A46" type="1" x="746.1144375" y="83.1376625" connect1name="T53" connect2name="T52" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T53" connect1name="A46" type1="1" connect2name="A47" type2="1" mainline="no" hidden="no" dashed="no" arc="yes" circle="yes" flip="no" angle="30.0"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #59 &quot;Atlas 15&quot;&quot; 30D Curve 831&quot; -->
+		<positionablepoint ident="A47" type="1" x="758.67459375" y="130.0126125" connect1name="T54" connect2name="T53" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T54" connect1name="A47" type1="1" connect2name="A48" type2="1" mainline="no" hidden="no" dashed="no" arc="yes" circle="yes" flip="no" angle="30.0"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #60 &quot;Atlas 15&quot;&quot; 30D Curve 831&quot; -->
+		<positionablepoint ident="A48" type="1" x="746.11455625" y="176.88759375" connect1name="T55" connect2name="T54" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T55" connect1name="A48" type1="1" connect2name="A49" type2="1" mainline="no" hidden="no" dashed="no" arc="yes" circle="yes" flip="no" angle="30.0"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #61 &quot;Atlas 15&quot;&quot; 30D Curve 831&quot; -->
+		<positionablepoint ident="A49" type="1" x="711.79976875" y="211.20251249999998" connect1name="T56" connect2name="T55" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T56" connect1name="A49" type1="1" connect2name="A50" type2="1" mainline="no" hidden="no" dashed="no" arc="yes" circle="yes" flip="no" angle="30.0"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #62 &quot;Atlas 15&quot;&quot; 30D Curve 831&quot; -->
+		<positionablepoint ident="A50" type="1" x="664.9248375" y="223.76273125" connect1name="T57" connect2name="T56" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T57" connect1name="A50" type1="1" connect2name="A51" type2="1" mainline="no" hidden="no" dashed="no" arc="yes" circle="yes" flip="no" angle="30.0"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #63 &quot;Atlas 15&quot;&quot; 30D Curve 831&quot; -->
+		<positionablepoint ident="A51" type="1" x="618.0499125" y="211.20250625" connect1name="T58" connect2name="T57" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T58" connect1name="A52" type1="1" connect2name="A51" type2="1" mainline="no" hidden="no" dashed="no" arc="yes" circle="yes" flip="no" angle="30.0"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #64 &quot;Atlas 9&quot;&quot; Straight 821&quot; -->
+		<positionablepoint ident="A52" type="1" x="571.17495" y="198.64240625" connect1name="T59" connect2name="T58" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T59" connect1name="TO6" type1="2" connect2name="A52" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #65 &quot;Atlas #4 Mark 3 Right 282&quot; -->
+		<layoutturnout ident="TO6" type="1" connectaname="T59" connectbname="T60" connectcname="T64" continuing="2" disabled="no" xcen="486.79994999999997" ycen="198.64233124999998" xb="458.67494999999997" yb="198.64225625" xc="464.92496250000005" yc="192.392275" class="jmri.jmrit.display.configurexml.LayoutTurnoutXml" />
+	 <!-- #66 &quot;Atlas 9&quot;&quot; Straight 821&quot; -->
+		<tracksegment ident="T60" connect1name="TO6" type1="3" connect2name="A53" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #67 &quot;Atlas 9&quot;&quot; Straight 821&quot; -->
+		<positionablepoint ident="A53" type="1" x="402.42494999999997" y="198.64210624999998" connect1name="T61" connect2name="T60" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T61" connect1name="A53" type1="1" connect2name="A54" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #68 &quot;Atlas 9&quot;&quot; Straight 821&quot; -->
+		<positionablepoint ident="A54" type="1" x="346.17494999999997" y="198.64195625000002" connect1name="T62" connect2name="T61" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T62" connect1name="A54" type1="1" connect2name="A55" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #69 &quot;Atlas 9&quot;&quot; Straight 821&quot; -->
+		<positionablepoint ident="A55" type="1" x="289.92494999999997" y="198.64180624999997" connect1name="T63" connect2name="T62" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<positionablepoint ident="A56" type="1" x="233.67494999999997" y="198.64165625" connect1name="T63" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T63" connect1name="A55" type1="1" connect2name="A56" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #72 &quot;Atlas 9&quot;&quot; Straight 821&quot; -->
+		<tracksegment ident="T64" connect1name="TO6" type1="4" connect2name="A57" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #73 &quot;Atlas 9&quot;&quot; Straight 821&quot; -->
+		<positionablepoint ident="A57" type="1" x="410.07284375" y="179.9300375" connect1name="T65" connect2name="T64" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T65" connect1name="A57" type1="1" connect2name="A58" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #74 &quot;Atlas 9&quot;&quot; Straight 821&quot; -->
+		<positionablepoint ident="A58" type="1" x="355.220725" y="167.46779375" connect1name="T66" connect2name="T65" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T66" connect1name="A58" type1="1" connect2name="A59" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #75 &quot;Atlas 9&quot;&quot; Straight 821&quot; -->
+		<positionablepoint ident="A59" type="1" x="300.3686" y="155.00555625" connect1name="T67" connect2name="T66" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<positionablepoint ident="A60" type="1" x="245.51648125" y="142.54331875" connect1name="T67" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T67" connect1name="A59" type1="1" connect2name="A60" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	</LayoutEditor>
+	<!-- Written by XtrkCadReader on Tue Apr 06 14:57:53 CEST 2010 -->
+</layout-config>
+

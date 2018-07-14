@@ -1,0 +1,442 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="http://jmri.sourceforge.net/xml/XSLT/panelfile.xsl" type="text/xsl"?>
+<!DOCTYPE layout-config SYSTEM "layout-config.dtd">
+<layout-config>
+<!--
+
+XtrkCadReader - XtrkCad to JMRI Layout Editor format conversion utility
+Revision 2.0
+
+	Input file: /Users/terdina/User data local/Dev current/XtrkCadReaderDir/XtrkCadReader1v5/Examples/ArnoldN.xtc
+
+	Options:
+		Width of output frame:	800
+		Height of output frame:	600
+		Arc rendering disabled
+		Tolerance for end points merging:	2.0
+		Starting ID number for anchor points:	1
+		Starting ID number for track segments:	1
+		Starting ID number for turnouts:	1
+		Starting ID number for crossings:	1
+		Starting ID number for bumpers:	1
+		Starting ID number for turntables:	1
+		Automatic definition of blocks based on XtrCAD block gaps:	disabled
+		Automatic definition of blocks based on turnouts:	disabled
+-->
+<!-- Original layout size: 74.8 x 47.2  Output scale: 10.695187165775401  Output size: 800 x 505 -->
+	<LayoutEditor class="jmri.jmrit.display.configurexml.LayoutEditorXml" name="Arnold N example" x="0" y="0" height="570" width="800" editable="yes" positionable="yes" controlling="yes" animating="yes" showhelpbar="yes" mainlinetrackwidth="4" xscale="1.00" yscale="1.00" sidetrackwidth="2" defaulttrackcolor="black">
+	 <!-- #1 &quot;Arnold Straight 111 1020&quot; -->
+		<tracksegment ident="T1" connect1name="A5" type1="1" connect2name="A3" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #2 &quot;Arnold Straight 222 1010&quot; -->
+		<tracksegment ident="T2" connect1name="A7" type1="1" connect2name="A1" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #3 &quot;Arnold Straight 222 1010&quot; -->
+		<positionablepoint ident="A1" type="1" x="7.81736898395722" y="212.84502673796794" connect1name="T3" connect2name="T2" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T3" connect1name="A1" type1="1" connect2name="A2" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #4 &quot;Arnold Straight 222 1010&quot; -->
+		<positionablepoint ident="A2" type="1" x="7.817486631016043" y="306.32264171123" connect1name="T4" connect2name="T3" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T4" connect1name="A2" type1="1" connect2name="A47" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #5 &quot;Arnold Curved R4 15∫ 1640&quot; -->
+		<positionablepoint ident="A3" type="1" x="148.03358288770053" y="25.89001069518723" connect1name="T5" connect2name="T1" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T5" connect1name="X1" type1="6" connect2name="A3" type2="1" mainline="no" hidden="no" dashed="no" arc="yes" circle="yes" flip="yes" angle="15.0"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #6 &quot;Arnold Double Slipswitch 1720&quot; -->
+		<levelxing ident="X1" connectaname="T5" connectbname="T116" connectcname="T117" connectdname="T12" xcen="218.04404812834224" ycen="39.33395721925136" xa="194.65747593582887" ya="33.067582887700546" xb="194.67464171122995" yb="39.33395721925136" class="jmri.jmrit.display.configurexml.LevelXingXml" />
+	 <!-- #7 &quot;Arnold Turnout Right 1742&quot; -->
+		<layoutturnout ident="TO1" type="1" connectaname="T6" connectbname="T116" connectcname="T118" continuing="2" disabled="no" xcen="171.30523529411767" ycen="39.33395721925136" xb="194.67464171122995" yb="39.33395721925136" xc="194.67464171122995" yc="45.65001069518717" class="jmri.jmrit.display.configurexml.LayoutTurnoutXml" />
+	 <!-- #8 &quot;Arnold Straight 111 1020&quot; -->
+		<tracksegment ident="T6" connect1name="A4" type1="1" connect2name="TO1" type2="2" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #9 &quot;Arnold Curved R1 90∫ 1310&quot; -->
+		<positionablepoint ident="A4" type="1" x="101.19701604278075" y="39.33395721925136" connect1name="T7" connect2name="T6" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T7" connect1name="A4" type1="1" connect2name="TO2" type2="2" mainline="no" hidden="no" dashed="no" arc="yes" circle="yes" flip="yes" angle="90.0"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #10 &quot;Arnold Curved R2 45∫ 1420&quot; -->
+		<positionablepoint ident="A5" type="1" x="101.29477005347594" y="25.89001069518723" connect1name="T8" connect2name="T1" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T8" connect1name="A5" type1="1" connect2name="A6" type2="1" mainline="no" hidden="no" dashed="no" arc="yes" circle="yes" flip="yes" angle="45.0"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #11 &quot;Arnold Curved R2 45∫ 1420&quot; -->
+		<positionablepoint ident="A6" type="1" x="35.19607486631016" y="53.26874866310164" connect1name="T9" connect2name="T8" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<positionablepoint ident="A7" type="1" x="7.81724064171123" y="119.36741176470592" connect1name="T9" connect2name="T2" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T9" connect1name="A6" type1="1" connect2name="A7" type2="1" mainline="no" hidden="no" dashed="no" arc="yes" circle="yes" flip="yes" angle="45.0"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #12 &quot;Arnold Turnout Left 1741&quot; -->
+		<layoutturnout ident="TO2" type="2" connectaname="T7" connectbname="T119" connectcname="T45" continuing="2" disabled="no" xcen="20.351326203208558" ycen="143.54855080213906" xb="20.351358288770054" yb="166.91795721925135" xc="26.667411764705882" yc="166.9179465240642" class="jmri.jmrit.display.configurexml.LayoutTurnoutXml" />
+	 <!-- #13 &quot;Arnold Turnout Left 1741&quot; -->
+		<layoutturnout ident="TO3" type="2" connectaname="T119" connectbname="T10" connectcname="T11" continuing="2" disabled="no" xcen="20.35139037433155" ycen="190.28736363636364" xb="20.351422459893048" yb="213.65677005347595" xc="26.66747593582888" yc="213.6567593582888" class="jmri.jmrit.display.configurexml.LayoutTurnoutXml" />
+	 <!-- #14 &quot;Arnold Straight 222 1010&quot; -->
+		<tracksegment ident="T10" connect1name="TO3" type1="3" connect2name="A52" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #15 &quot;Arnold Curved R3 15∫ 1540&quot; -->
+		<tracksegment ident="T11" connect1name="TO3" type1="4" connect2name="TO7" type2="2" mainline="no" hidden="no" dashed="no" arc="yes" circle="yes" flip="yes" angle="15.0"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #16 &quot;Arnold Turnout Left 1741&quot; -->
+		<layoutturnout ident="TO4" type="2" connectaname="T57" connectbname="T35" connectcname="T47" continuing="2" disabled="no" xcen="180.22480213903745" ycen="354.7640962566845" xb="174.176385026738" yb="332.1909732620321" xc="168.07555080213905" yc="333.82567914438505" class="jmri.jmrit.display.configurexml.LayoutTurnoutXml" />
+	 <!-- #17 &quot;Arnold Straight 111 1020&quot; -->
+		<tracksegment ident="T12" connect1name="X1" type1="9" connect2name="TO5" type2="2" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #18 &quot;Arnold Turnout Left 1741&quot; -->
+		<layoutturnout ident="TO5" type="2" connectaname="T12" connectbname="T17" connectcname="T18" continuing="2" disabled="no" xcen="311.52167379679145" ycen="39.33395721925136" xb="334.89108021390376" yb="39.33395721925136" xc="334.89108021390376" yc="33.01790374331556" class="jmri.jmrit.display.configurexml.LayoutTurnoutXml" />
+	 <!-- #19 &quot;Arnold Double Slipswitch 1720&quot; -->
+		<levelxing ident="X2" connectaname="T117" connectbname="T120" connectcname="T85" connectdname="T13" xcen="264.81718181818184" ycen="51.866705882352996" xa="241.43060962566844" ya="45.60033155080218" xb="241.44777540106952" yb="51.866705882352996" class="jmri.jmrit.display.configurexml.LevelXingXml" />
+	 <!-- #20 &quot;Arnold Turnout Left 1741&quot; -->
+		<layoutturnout ident="TO6" type="2" connectaname="T118" connectbname="T84" connectcname="T120" continuing="2" disabled="no" xcen="217.2477593582888" ycen="51.69844919786098" xb="239.82087700534763" yb="57.74688770053479" xc="241.45559358288773" yc="51.646053475935865" class="jmri.jmrit.display.configurexml.LayoutTurnoutXml" />
+	 <!-- #21 &quot;Arnold Desenganche 111 1260&quot; -->
+		<tracksegment ident="T13" connect1name="X2" type1="9" connect2name="A8" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #22 &quot;Arnold Straight 57.5 mm 1030&quot; -->
+		<positionablepoint ident="A8" type="1" x="334.9254010695187" y="51.866705882352996" connect1name="T14" connect2name="T13" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T14" connect1name="A8" type1="1" connect2name="A9" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #23 &quot;Arnold Straight 57.5 mm 1030&quot; -->
+		<positionablepoint ident="A9" type="1" x="359.13695187165774" y="51.866705882352996" connect1name="T15" connect2name="T14" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T15" connect1name="A9" type1="1" connect2name="A10" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #24 &quot;Arnold Straight 222 1010&quot; -->
+		<positionablepoint ident="A10" type="1" x="383.3485026737968" y="51.866705882352996" connect1name="T16" connect2name="T15" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T16" connect1name="A10" type1="1" connect2name="A20" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #25 &quot;Arnold Straight 222 1010&quot; -->
+		<tracksegment ident="T17" connect1name="TO5" type1="3" connect2name="A15" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #26 &quot;Arnold Curved R4 15∫ 1640&quot; -->
+		<tracksegment ident="T18" connect1name="A11" type1="1" connect2name="TO5" type2="4" mainline="no" hidden="no" dashed="no" arc="yes" circle="yes" flip="yes" angle="15.0"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #27 &quot;Arnold Straight 57.5 mm 1030&quot; -->
+		<positionablepoint ident="A11" type="1" x="381.79652406417114" y="26.943593582887736" connect1name="T19" connect2name="T18" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T19" connect1name="A12" type1="1" connect2name="A11" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #28 &quot;Arnold Straight 57.5 mm 1030&quot; -->
+		<positionablepoint ident="A12" type="1" x="406.05698395721924" y="27.086855614973327" connect1name="T20" connect2name="T19" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T20" connect1name="A13" type1="1" connect2name="A12" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #29 &quot;Arnold Straight 222 1010&quot; -->
+		<positionablepoint ident="A13" type="1" x="430.3074759358289" y="27.164010695187205" connect1name="T21" connect2name="T20" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T21" connect1name="A14" type1="1" connect2name="A13" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #30 &quot;Arnold Straight 222 1010&quot; -->
+		<positionablepoint ident="A14" type="1" x="523.8340000000001" y="27.30746524064175" connect1name="T22" connect2name="T21" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T22" connect1name="A18" type1="1" connect2name="A14" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #31 &quot;Arnold Straight 222 1010&quot; -->
+		<positionablepoint ident="A15" type="1" x="428.36869518716577" y="39.33395721925136" connect1name="T23" connect2name="T17" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T23" connect1name="A17" type1="1" connect2name="A15" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #32 &quot;Arnold Straight 222 1010&quot; -->
+		<positionablepoint ident="A16" type="1" x="615.3239251336898" y="39.33444919786096" connect1name="T24" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<positionablepoint ident="A17" type="1" x="521.8463101604278" y="39.33420320855616" connect1name="T24" connect2name="T23" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T24" connect1name="A16" type1="1" connect2name="A17" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #33 &quot;Arnold Straight 222 1010&quot; -->
+		<positionablepoint ident="A18" type="1" x="617.360513368984" y="27.450909090909153" connect1name="T25" connect2name="T22" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T25" connect1name="A19" type1="1" connect2name="A18" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #34 &quot;Arnold Curved R1 90∫ 1310&quot; -->
+		<positionablepoint ident="A19" type="1" x="710.8772513368983" y="27.51871657754011" connect1name="T26" connect2name="T25" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T26" connect1name="A69" type1="1" connect2name="A19" type2="1" mainline="no" hidden="yes" dashed="no" arc="yes" circle="yes" flip="yes" angle="90.0"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #35 &quot;Arnold Straight 222 1010&quot; -->
+		<positionablepoint ident="A20" type="1" x="476.8261176470588" y="51.866705882352996" connect1name="T27" connect2name="T16" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T27" connect1name="A21" type1="1" connect2name="A20" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #36 &quot;Arnold Straight 222 1010&quot; -->
+		<positionablepoint ident="A21" type="1" x="570.3037326203208" y="51.8669518716578" connect1name="T28" connect2name="T27" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T28" connect1name="A22" type1="1" connect2name="A21" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #37 &quot;Arnold Straight 57.5 mm 1030&quot; -->
+		<positionablepoint ident="A22" type="1" x="663.7813475935828" y="51.8671978609626" connect1name="T29" connect2name="T28" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T29" connect1name="A23" type1="1" connect2name="A22" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #38 &quot;Arnold Curved R1 90∫ 1310&quot; -->
+		<positionablepoint ident="A23" type="1" x="687.9928983957219" y="51.86726203208558" connect1name="T30" connect2name="T29" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T30" connect1name="A24" type1="1" connect2name="A23" type2="1" mainline="no" hidden="no" dashed="no" arc="yes" circle="yes" flip="yes" angle="90.0"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #39 &quot;Arnold Curved R1 90∫ 1310&quot; -->
+		<positionablepoint ident="A24" type="1" x="768.8114759358289" y="132.72537967914442" connect1name="T31" connect2name="T30" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T31" connect1name="A25" type1="1" connect2name="A24" type2="1" mainline="no" hidden="no" dashed="no" arc="yes" circle="yes" flip="yes" angle="90.0"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #40 &quot;Arnold Straight 222 1010&quot; -->
+		<positionablepoint ident="A25" type="1" x="687.9356256684491" y="213.58475935828878" connect1name="T32" connect2name="T31" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T32" connect1name="A34" type1="1" connect2name="A25" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #41 &quot;Arnold Straight 222 1010&quot; -->
+		<tracksegment ident="T33" connect1name="A35" type1="1" connect2name="A26" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #42 &quot;Arnold Straight 57.5 mm 1030&quot; -->
+		<positionablepoint ident="A26" type="1" x="460.34331550802136" y="243.62613903743318" connect1name="T34" connect2name="T33" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T34" connect1name="A26" type1="1" connect2name="A32" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #43 &quot;Arnold Straight 57.5 mm 1030&quot; -->
+		<tracksegment ident="T35" connect1name="TO4" type1="3" connect2name="A27" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #44 &quot;Arnold Curved R1 15∫ 1340&quot; -->
+		<positionablepoint ident="A27" type="1" x="168.0782245989305" y="308.7257540106952" connect1name="T36" connect2name="T35" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T36" connect1name="A28" type1="1" connect2name="A27" type2="1" mainline="no" hidden="no" dashed="no" arc="yes" circle="yes" flip="yes" angle="15.0"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #45 &quot;Arnold Curved R1 90∫ 1310&quot; -->
+		<positionablepoint ident="A28" type="1" x="165.35018181818182" y="287.7889197860963" connect1name="T37" connect2name="T36" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T37" connect1name="A29" type1="1" connect2name="A28" type2="1" mainline="no" hidden="no" dashed="no" arc="yes" circle="yes" flip="yes" angle="90.0"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #46 &quot;Arnold Straight 111 1020&quot; -->
+		<positionablepoint ident="A29" type="1" x="246.22624598930483" y="206.92974331550806" connect1name="T38" connect2name="T37" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T38" connect1name="A30" type1="1" connect2name="A29" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #47 &quot;Arnold Curved R1 15∫ 1340&quot; -->
+		<positionablepoint ident="A30" type="1" x="292.9954010695187" y="206.9158823529412" connect1name="T39" connect2name="T38" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T39" connect1name="A31" type1="1" connect2name="A30" type2="1" mainline="no" hidden="no" dashed="no" arc="yes" circle="yes" flip="yes" angle="15.0"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #48 &quot;Arnold Curved R1 15∫ 1340&quot; -->
+		<positionablepoint ident="A31" type="1" x="313.99986096256686" y="209.63158288770055" connect1name="T40" connect2name="T39" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T40" connect1name="A33" type1="1" connect2name="A31" type2="1" mainline="no" hidden="no" dashed="no" arc="yes" circle="yes" flip="yes" angle="15.0"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #49 &quot;Arnold Curved R1 45∫ 1320&quot; -->
+		<positionablepoint ident="A32" type="1" x="436.85698395721926" y="249.93983957219254" connect1name="T41" connect2name="T34" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T41" connect1name="A36" type1="1" connect2name="A32" type2="1" mainline="no" hidden="no" dashed="no" arc="yes" circle="yes" flip="yes" angle="45.0"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #50 &quot;Arnold Straight 57.5 mm 1030&quot; -->
+		<positionablepoint ident="A33" type="1" x="333.51945454545455" y="217.68656684491984" connect1name="T42" connect2name="T40" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T42" connect1name="A37" type1="1" connect2name="A33" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #51 &quot;Arnold Curved R3 15∫ 1540&quot; -->
+		<positionablepoint ident="A34" type="1" x="594.4276684491979" y="213.59874866310165" connect1name="T43" connect2name="T32" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<positionablepoint ident="A35" type="1" x="550.8352834224598" y="219.33766844919788" connect1name="T43" connect2name="T33" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T43" connect1name="A34" type1="1" connect2name="A35" type2="1" mainline="no" hidden="no" dashed="no" arc="yes" circle="yes" flip="yes" angle="15.0"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #52 &quot;Arnold Straight 57.5 mm 1030&quot; -->
+		<positionablepoint ident="A36" type="1" x="375.4945026737968" y="241.8844171122995" connect1name="T44" connect2name="T41" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<positionablepoint ident="A37" type="1" x="354.5267058823529" y="229.77859893048134" connect1name="T44" connect2name="T42" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T44" connect1name="A36" type1="1" connect2name="A37" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #53 &quot;Arnold Curved R2 15∫ 1440&quot; -->
+		<tracksegment ident="T45" connect1name="TO2" type1="4" connect2name="A38" type2="1" mainline="no" hidden="no" dashed="no" arc="yes" circle="yes" flip="yes" angle="15.0"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #54 &quot;Arnold Curved R2 15∫ 1440&quot; -->
+		<positionablepoint ident="A38" type="1" x="36.06780748663102" y="189.4344705882353" connect1name="T46" connect2name="T45" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T46" connect1name="A38" type1="1" connect2name="A39" type2="1" mainline="no" hidden="no" dashed="no" arc="yes" circle="yes" flip="yes" angle="15.0"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #55 &quot;Arnold Curved R3 15∫ 1540&quot; -->
+		<tracksegment ident="T47" connect1name="TO4" type1="4" connect2name="A40" type2="1" mainline="no" hidden="no" dashed="no" arc="yes" circle="yes" flip="yes" angle="15.0"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #56 Flexi-track straight segment -->
+		<positionablepoint ident="A39" type="1" x="50.975112299465245" y="208.78312299465242" connect1name="T48" connect2name="T46" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<positionablepoint ident="A40" type="1" x="141.1909090909091" y="298.9988021390375" connect1name="T48" connect2name="T47" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T48" connect1name="A39" type1="1" connect2name="A40" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #57 &quot;Arnold Turnout Right 1742&quot; -->
+		<layoutturnout ident="TO7" type="1" connectaname="T11" connectbname="T49" connectcname="T50" continuing="2" disabled="no" xcen="55.17826203208557" ycen="274.5168556149733" xb="66.86298395721926" yb="294.75534759358294" xc="61.3931229946524" yc="297.9133796791444" class="jmri.jmrit.display.configurexml.LayoutTurnoutXml" />
+	 <!-- #58 &quot;Arnold Desenganche 111 1260&quot; -->
+		<tracksegment ident="T49" connect1name="TO7" type1="3" connect2name="A41" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #59 &quot;Arnold Desenganche 111 1260&quot; -->
+		<tracksegment ident="T50" connect1name="TO7" type1="4" connect2name="A42" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #60 &quot;Arnold Straight 111 1020&quot; -->
+		<positionablepoint ident="A41" type="1" x="90.23242780748663" y="335.232320855615" connect1name="T51" connect2name="T49" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T51" connect1name="A41" type1="1" connect2name="A43" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #61 &quot;Arnold Curved R4 15∫ 1640&quot; -->
+		<positionablepoint ident="A42" type="1" x="73.490064171123" y="343.0595935828877" connect1name="T52" connect2name="T50" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T52" connect1name="A42" type1="1" connect2name="A45" type2="1" mainline="no" hidden="no" dashed="no" arc="yes" circle="yes" flip="yes" angle="15.0"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #62 &quot;Arnold Straight 57.5 mm 1030&quot; -->
+		<positionablepoint ident="A43" type="1" x="113.601871657754" y="375.70930481283426" connect1name="T53" connect2name="T51" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<positionablepoint ident="A44" type="1" x="125.70765775401071" y="396.6771122994653" connect1name="T53" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T53" connect1name="A43" type1="1" connect2name="A44" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #63 &quot;Arnold Straight 57.5 mm 1030&quot; -->
+		<positionablepoint ident="A45" type="1" x="91.57809625668449" y="386.7278288770054" connect1name="T54" connect2name="T52" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<positionablepoint ident="A46" type="1" x="103.68388235294117" y="407.6956363636364" connect1name="T54" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T54" connect1name="A45" type1="1" connect2name="A46" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #64 &quot;Arnold Curved R1 90∫ 1310&quot; -->
+		<positionablepoint ident="A47" type="1" x="7.817614973262033" y="399.80025668449207" connect1name="T55" connect2name="T4" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T55" connect1name="A47" type1="1" connect2name="A48" type2="1" mainline="no" hidden="yes" dashed="no" arc="yes" circle="yes" flip="yes" angle="90.0"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #65 &quot;Arnold Curved R1 90∫ 1310&quot; -->
+		<positionablepoint ident="A48" type="1" x="88.6491871657754" y="480.6712834224599" connect1name="T56" connect2name="T55" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T56" connect1name="A48" type1="1" connect2name="A72" type2="1" mainline="no" hidden="yes" dashed="no" arc="yes" circle="yes" flip="yes" angle="90.0"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #66 &quot;Arnold Curved R1 90∫ 1310&quot; -->
+		<tracksegment ident="T57" connect1name="A49" type1="1" connect2name="TO4" type2="2" mainline="no" hidden="no" dashed="no" arc="yes" circle="yes" flip="yes" angle="90.0"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #67 &quot;Arnold Curved R1 90∫ 1310&quot; -->
+		<positionablepoint ident="A49" type="1" x="129.10675935828877" y="476.3522245989305" connect1name="T58" connect2name="T57" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T58" connect1name="A50" type1="1" connect2name="A49" type2="1" mainline="no" hidden="no" dashed="no" arc="yes" circle="yes" flip="yes" angle="90.0"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #68 &quot;Arnold Straight 57.5 mm 1030&quot; -->
+		<positionablepoint ident="A50" type="1" x="30.09167914438503" y="419.1858930481284" connect1name="T59" connect2name="T58" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T59" connect1name="A51" type1="1" connect2name="A50" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #69 &quot;Arnold Curved R1 15∫ 1340&quot; -->
+		<positionablepoint ident="A51" type="1" x="23.825240641711233" y="395.7993368983957" connect1name="T60" connect2name="T59" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T60" connect1name="A53" type1="1" connect2name="A51" type2="1" mainline="no" hidden="no" dashed="no" arc="yes" circle="yes" flip="yes" angle="15.0"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #70 Flexi-track straight segment -->
+		<positionablepoint ident="A52" type="1" x="20.351550802139037" y="307.134385026738" connect1name="T61" connect2name="T10" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<positionablepoint ident="A53" type="1" x="20.35136898395722" y="374.50563636363637" connect1name="T61" connect2name="T60" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T61" connect1name="A52" type1="1" connect2name="A53" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #71 &quot;Arnold Curved R2 45∫ 1420&quot; -->
+		<tracksegment ident="T62" connect1name="A54" type1="1" connect2name="A70" type2="1" mainline="no" hidden="yes" dashed="no" arc="yes" circle="yes" flip="yes" angle="45.0"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #72 &quot;Arnold Curved R2 45∫ 1420&quot; -->
+		<positionablepoint ident="A54" type="1" x="764.4594759358289" y="245.68487700534763" connect1name="T63" connect2name="T62" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T63" connect1name="TO8" type1="2" connect2name="A54" type2="1" mainline="no" hidden="no" dashed="no" arc="yes" circle="yes" flip="yes" angle="45.0"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #73 &quot;Arnold Turnout Right 1742&quot; -->
+		<layoutturnout ident="TO8" type="1" connectaname="T63" connectbname="T65" connectcname="T64" continuing="2" disabled="no" xcen="675.0280588235294" ycen="273.1755187165776" xb="651.6586524064171" yb="273.1754545454546" xc="651.6586737967915" yc="266.85940106951875" class="jmri.jmrit.display.configurexml.LayoutTurnoutXml" />
+	 <!-- #74 &quot;Arnold Desenganche 111 1260&quot; -->
+		<tracksegment ident="T64" connect1name="TO8" type1="4" connect2name="A55" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #75 &quot;Arnold Curved R4 15∫ 1640&quot; -->
+		<tracksegment ident="T65" connect1name="A56" type1="1" connect2name="TO8" type2="3" mainline="no" hidden="no" dashed="no" arc="yes" circle="yes" flip="yes" angle="15.0"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #76 &quot;Arnold Straight 222 1010&quot; -->
+		<positionablepoint ident="A55" type="1" x="606.5124705882354" y="254.76239572192517" connect1name="T66" connect2name="T64" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T66" connect1name="A57" type1="1" connect2name="A55" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #77 &quot;Arnold Straight 222 1010&quot; -->
+		<positionablepoint ident="A56" type="1" x="604.796844919786" y="267.0059786096257" connect1name="T67" connect2name="T65" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T67" connect1name="A59" type1="1" connect2name="A56" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #78 &quot;Arnold Straight 222 1010&quot; -->
+		<positionablepoint ident="A57" type="1" x="516.2200320855616" y="230.56863101604284" connect1name="T68" connect2name="T66" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T68" connect1name="A58" type1="1" connect2name="A57" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #79 &quot;Arnold Desenganche 111 1260&quot; -->
+		<positionablepoint ident="A58" type="1" x="425.92758288770057" y="206.37486631016048" connect1name="T69" connect2name="T68" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T69" connect1name="TO9" type1="4" connect2name="A58" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #80 &quot;Arnold Straight 222 1010&quot; -->
+		<positionablepoint ident="A59" type="1" x="514.5044064171122" y="242.81221390374336" connect1name="T70" connect2name="T67" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T70" connect1name="A60" type1="1" connect2name="A59" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #81 &quot;Arnold Straight 111 1020&quot; -->
+		<positionablepoint ident="A60" type="1" x="424.21195721925136" y="218.618449197861" connect1name="T71" connect2name="T70" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T71" connect1name="A61" type1="1" connect2name="A60" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #82 &quot;Arnold Desenganche 111 1260&quot; -->
+		<positionablepoint ident="A61" type="1" x="379.0657219251337" y="206.52156149732625" connect1name="T72" connect2name="T71" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T72" connect1name="TO10" type1="4" connect2name="A61" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #83 &quot;Arnold Turnout Right 1742&quot; -->
+		<layoutturnout ident="TO9" type="1" connectaname="T121" connectbname="T73" connectcname="T69" continuing="2" disabled="no" xcen="357.4119411764706" ycen="187.96192513368987" xb="380.7813475935829" yb="187.96192513368987" xc="380.7813475935829" yc="194.2779786096257" class="jmri.jmrit.display.configurexml.LayoutTurnoutXml" />
+	 <!-- #84 &quot;Arnold Turnout Right 1742&quot; -->
+		<layoutturnout ident="TO10" type="1" connectaname="T80" connectbname="T121" connectcname="T72" continuing="2" disabled="no" xcen="310.673128342246" ycen="187.96192513368987" xb="334.0425347593583" yb="187.96192513368987" xc="334.0425347593583" yc="194.2779786096257" class="jmri.jmrit.display.configurexml.LayoutTurnoutXml" />
+	 <!-- #85 &quot;Arnold Desenganche 111 1260&quot; -->
+		<tracksegment ident="T73" connect1name="A62" type1="1" connect2name="TO9" type2="3" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #86 &quot;Arnold Straight 222 1010&quot; -->
+		<positionablepoint ident="A62" type="1" x="427.52016042780747" y="187.9620427807487" connect1name="T74" connect2name="T73" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T74" connect1name="A63" type1="1" connect2name="A62" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #87 &quot;Arnold Straight 222 1010&quot; -->
+		<positionablepoint ident="A63" type="1" x="520.9977754010696" y="187.96229946524068" connect1name="T75" connect2name="T74" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T75" connect1name="A65" type1="1" connect2name="A63" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #88 &quot;Arnold Straight 222 1010&quot; -->
+		<positionablepoint ident="A64" type="1" x="707.9530053475936" y="187.9627914438503" connect1name="T76" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<positionablepoint ident="A65" type="1" x="614.4753903743316" y="187.96254545454548" connect1name="T76" connect2name="T75" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T76" connect1name="A64" type1="1" connect2name="A65" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #89 &quot;Arnold Straight 222 1010&quot; -->
+		<tracksegment ident="T77" connect1name="A66" type1="1" connect2name="A73" type2="1" mainline="no" hidden="yes" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #90 &quot;Arnold Curved R2 45∫ 1420&quot; -->
+		<positionablepoint ident="A66" type="1" x="169.6321176470588" y="281.6040748663102" connect1name="T78" connect2name="T77" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T78" connect1name="A67" type1="1" connect2name="A66" type2="1" mainline="no" hidden="yes" dashed="no" arc="yes" circle="yes" flip="yes" angle="45.0"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #91 &quot;Arnold Curved R2 45∫ 1420&quot; -->
+		<positionablepoint ident="A67" type="1" x="197.00086631016043" y="215.35593582887705" connect1name="T79" connect2name="T78" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T79" connect1name="A68" type1="1" connect2name="A67" type2="1" mainline="no" hidden="yes" dashed="no" arc="yes" circle="yes" flip="yes" angle="45.0"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #92 &quot;Arnold Straight 57.5 mm 1030&quot; -->
+		<positionablepoint ident="A68" type="1" x="263.09217112299467" y="187.96192513368987" connect1name="T80" connect2name="T79" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T80" connect1name="A68" type1="1" connect2name="TO10" type2="2" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #93 &quot;Arnold Straight 111 1020&quot; -->
+		<positionablepoint ident="A69" type="1" x="791.760128342246" y="108.47462032085565" connect1name="T81" connect2name="T26" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T81" connect1name="A71" type1="1" connect2name="A69" type2="1" mainline="no" hidden="yes" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #94 &quot;Arnold Straight 57.5 mm 1030&quot; -->
+		<positionablepoint ident="A70" type="1" x="791.7976149732621" y="179.53527272727277" connect1name="T82" connect2name="T62" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<positionablepoint ident="A71" type="1" x="791.7976470588235" y="155.32372192513375" connect1name="T82" connect2name="T81" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T82" connect1name="A70" type1="1" connect2name="A71" type2="1" mainline="no" hidden="yes" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #95 &quot;Arnold Straight 57.5 mm 1030&quot; -->
+		<positionablepoint ident="A72" type="1" x="169.45817112299466" y="400.05055614973264" connect1name="T83" connect2name="T56" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<positionablepoint ident="A73" type="1" x="169.45820320855614" y="375.8390053475936" connect1name="T83" connect2name="T77" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T83" connect1name="A72" type1="1" connect2name="A73" type2="1" mainline="no" hidden="yes" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #96 &quot;Arnold Straight 111 1020&quot; -->
+		<tracksegment ident="T84" connect1name="TO6" type1="3" connect2name="X4" type2="6" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #97 &quot;Arnold Straight 111 1020&quot; -->
+		<tracksegment ident="T85" connect1name="X2" type1="8" connect2name="X3" type2="6" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #98 &quot;Arnold Double Slipswitch 1720&quot; -->
+		<levelxing ident="X3" connectaname="T85" connectbname="T122" connectcname="T88" connectdname="T86" xcen="356.11288770053477" ycen="76.39518181818187" xa="333.3499786096257" ya="70.22995721925136" xb="332.1198181818182" yb="76.29403208556154" class="jmri.jmrit.display.configurexml.LevelXingXml" />
+	 <!-- #99 &quot;Arnold Double Slipswitch 1720&quot; -->
+		<levelxing ident="X4" connectaname="T84" connectbname="T101" connectcname="T91" connectdname="T122" xcen="308.75041176470586" ycen="76.29403208556154" xa="285.36383957219255" ya="70.02765775401072" xb="285.3810053475936" yb="76.29403208556154" class="jmri.jmrit.display.configurexml.LevelXingXml" />
+	 <!-- #100 &quot;Arnold Straight 57.5 mm 1030&quot; -->
+		<tracksegment ident="T86" connect1name="X3" type1="9" connect2name="A74" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #101 &quot;Arnold Curved R4 15∫ 1640&quot; -->
+		<positionablepoint ident="A74" type="1" x="404.3175080213903" y="76.49633155080218" connect1name="T87" connect2name="T86" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T87" connect1name="A78" type1="1" connect2name="A74" type2="1" mainline="no" hidden="no" dashed="no" arc="yes" circle="yes" flip="yes" angle="15.0"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #102 &quot;Arnold Straight 222 1010&quot; -->
+		<tracksegment ident="T88" connect1name="A75" type1="1" connect2name="X3" type2="8" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #103 &quot;Arnold Straight 111 1020&quot; -->
+		<positionablepoint ident="A75" type="1" x="470.4154973262032" y="106.9567165775401" connect1name="T89" connect2name="T88" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T89" connect1name="A76" type1="1" connect2name="A75" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #104 &quot;Arnold Desenganche 111 1260&quot; -->
+		<positionablepoint ident="A76" type="1" x="515.5616898395722" y="119.0537219251337" connect1name="T90" connect2name="T89" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T90" connect1name="TO11" type1="4" connect2name="A76" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #105 &quot;Arnold Straight 222 1010&quot; -->
+		<tracksegment ident="T91" connect1name="A77" type1="1" connect2name="X4" type2="8" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #106 &quot;Arnold Straight 222 1010&quot; -->
+		<positionablepoint ident="A77" type="1" x="422.9277540106952" y="106.97442780748668" connect1name="T92" connect2name="T91" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T92" connect1name="TO12" type1="2" connect2name="A77" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #107 &quot;Arnold Turnout Right 1742&quot; -->
+		<layoutturnout ident="TO11" type="1" connectaname="T95" connectbname="T123" connectcname="T90" continuing="2" disabled="no" xcen="584.0772780748663" ycen="137.46684491978613" xb="560.707871657754" yb="137.4667807486631" xc="560.7078930481284" yc="131.1507272727273" class="jmri.jmrit.display.configurexml.LayoutTurnoutXml" />
+	 <!-- #108 &quot;Arnold Straight 222 1010&quot; -->
+		<positionablepoint ident="A78" type="1" x="451.17929411764703" y="82.66593582887707" connect1name="T93" connect2name="T87" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T93" connect1name="A78" type1="1" connect2name="A79" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #109 &quot;Arnold Straight 111 1020&quot; -->
+		<positionablepoint ident="A79" type="1" x="541.4717433155081" y="106.85970053475937" connect1name="T94" connect2name="T93" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<positionablepoint ident="A80" type="1" x="586.6179786096257" y="118.95658823529413" connect1name="T94" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T94" connect1name="A79" type1="1" connect2name="A80" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #110 &quot;Arnold Straight 222 1010&quot; -->
+		<tracksegment ident="T95" connect1name="TO11" type1="2" connect2name="A81" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #111 &quot;Arnold Straight 111 1020&quot; -->
+		<positionablepoint ident="A81" type="1" x="700.9242994652407" y="137.46690909090916" connect1name="T96" connect2name="T95" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<positionablepoint ident="A82" type="1" x="747.6631122994653" y="137.46690909090916" connect1name="T96" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T96" connect1name="A81" type1="1" connect2name="A82" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #112 &quot;Arnold Turnout Left 1741&quot; -->
+		<layoutturnout ident="TO12" type="2" connectaname="T92" connectbname="T97" connectcname="T123" continuing="2" disabled="no" xcen="536.1477165775401" ycen="137.36936363636363" xb="558.7208342245989" yb="143.41780748663103" xc="560.3555401069518" yc="137.31696256684495" class="jmri.jmrit.display.configurexml.LayoutTurnoutXml" />
+	 <!-- #113 &quot;Arnold Straight 57.5 mm 1030&quot; -->
+		<tracksegment ident="T97" connect1name="TO12" type1="3" connect2name="A83" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #114 &quot;Arnold Straight 111 1020&quot; -->
+		<positionablepoint ident="A83" type="1" x="582.1073903743315" y="149.68421390374334" connect1name="T98" connect2name="T97" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T98" connect1name="A83" type1="1" connect2name="A84" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #115 &quot;Arnold Curved R3 15∫ 1540&quot; -->
+		<positionablepoint ident="A84" type="1" x="627.2536256684492" y="161.78109090909095" connect1name="T99" connect2name="T98" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T99" connect1name="A84" type1="1" connect2name="A85" type2="1" mainline="no" hidden="no" dashed="no" arc="yes" circle="yes" flip="yes" angle="15.0"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #116 &quot;Arnold Straight 111 1020&quot; -->
+		<positionablepoint ident="A85" type="1" x="670.846" y="167.52013903743318" connect1name="T100" connect2name="T99" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<positionablepoint ident="A86" type="1" x="717.5848128342245" y="167.52013903743318" connect1name="T100" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T100" connect1name="A85" type1="1" connect2name="A86" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #117 &quot;Arnold Straight 57.5 mm 1030&quot; -->
+		<tracksegment ident="T101" connect1name="X4" type1="7" connect2name="A87" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #118 &quot;Arnold Curved R1 45∫ 1320&quot; -->
+		<positionablepoint ident="A87" type="1" x="261.1694545454545" y="76.29396791443855" connect1name="T102" connect2name="T101" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T102" connect1name="A87" type1="1" connect2name="A88" type2="1" mainline="no" hidden="no" dashed="no" arc="yes" circle="yes" flip="yes" angle="45.0"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #119 Turntable -->
+		<layoutturntable ident="TUR1" radius="35.790983957219254" xcen="162.31927272727273" ycen="141.65680213903747" class="jmri.jmrit.display.configurexml.LayoutTurntableXml">
+			<raytrack angle="44.999848" connectname="T124" index="0" />
+			<raytrack angle="225.132349" connectname="T125" index="1" />
+			<raytrack angle="264.027589" connectname="T126" index="2" />
+			<raytrack angle="84.573263" connectname="T127" index="3" />
+			<raytrack angle="77.073263" connectname="T128" index="4" />
+			<raytrack angle="69.573263" connectname="T129" index="5" />
+		</layoutturntable>
+	 <!-- #120 Flexi-track straight segment -->
+		<positionablepoint ident="A88" type="1" x="204.00301604278076" y="99.97286631016048" connect1name="T103" connect2name="T102" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T103" connect1name="A102" type1="1" connect2name="A88" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #121 Flexi-track straight segment -->
+		<positionablepoint ident="A89" type="1" x="103.82713368983957" y="199.87911229946525" connect1name="T104" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T104" connect1name="A104" type1="1" connect2name="A89" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #122 Flexi-track straight segment -->
+		<tracksegment ident="T105" connect1name="A106" type1="1" connect2name="A100" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #123 Flexi-track straight segment -->
+		<tracksegment ident="T106" connect1name="A108" type1="1" connect2name="A90" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #124 Flexi-track straight segment -->
+		<tracksegment ident="T107" connect1name="A110" type1="1" connect2name="A92" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #125 Flexi-track straight segment -->
+		<tracksegment ident="T108" connect1name="A112" type1="1" connect2name="A91" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #126 &quot;Arnold Straight 111 1020&quot; -->
+		<positionablepoint ident="A90" type="1" x="221.2144919786096" y="136.06176470588235" connect1name="T109" connect2name="T106" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T109" connect1name="A98" type1="1" connect2name="A90" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #127 &quot;Arnold Straight 111 1020&quot; -->
+		<positionablepoint ident="A91" type="1" x="217.75958288770053" y="121.00921925133693" connect1name="T110" connect2name="T108" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T110" connect1name="A94" type1="1" connect2name="A91" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #128 &quot;Arnold Straight 111 1020&quot; -->
+		<positionablepoint ident="A92" type="1" x="219.98033155080213" y="128.42226737967917" connect1name="T111" connect2name="T107" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T111" connect1name="A92" type1="1" connect2name="A96" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #129 &quot;Arnold Straight 57.5 mm 1030&quot; -->
+		<positionablepoint ident="A93" type="1" x="284.2484064171123" y="96.24654545454553" connect1name="T112" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<positionablepoint ident="A94" type="1" x="261.55934759358286" y="104.69671657754014" connect1name="T112" connect2name="T110" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T112" connect1name="A93" type1="1" connect2name="A94" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #130 &quot;Arnold Straight 57.5 mm 1030&quot; -->
+		<positionablepoint ident="A95" type="1" x="289.1325882352941" y="112.55026737967918" connect1name="T113" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<positionablepoint ident="A96" type="1" x="265.53464171122994" y="117.96656684491978" connect1name="T113" connect2name="T111" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T113" connect1name="A95" type1="1" connect2name="A96" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #131 &quot;Arnold Straight 57.5 mm 1030&quot; -->
+		<positionablepoint ident="A97" type="1" x="291.8468128342246" y="129.35141176470592" connect1name="T114" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<positionablepoint ident="A98" type="1" x="267.74379679144386" y="131.64129411764708" connect1name="T114" connect2name="T109" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T114" connect1name="A97" type1="1" connect2name="A98" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- #132 &quot;Arnold Straight 111 1020&quot; -->
+		<positionablepoint ident="A99" type="1" x="56.99485561497326" y="152.67535828877004" connect1name="T115" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<positionablepoint ident="A100" type="1" x="103.47998930481283" y="147.81233155080216" connect1name="T115" connect2name="T105" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T115" connect1name="A99" type1="1" connect2name="A100" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- Padding track between Turnouts/Crossings #6 and #7 -->
+		<tracksegment ident="T116" connect1name="X1" type1="7" connect2name="TO1" type2="3" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- Padding track between Turnouts/Crossings #6 and #19 -->
+		<tracksegment ident="T117" connect1name="X1" type1="8" connect2name="X2" type2="6" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- Padding track between Turnouts/Crossings #7 and #20 -->
+		<tracksegment ident="T118" connect1name="TO1" type1="4" connect2name="TO6" type2="2" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- Padding track between Turnouts/Crossings #12 and #13 -->
+		<tracksegment ident="T119" connect1name="TO2" type1="3" connect2name="TO3" type2="2" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- Padding track between Turnouts/Crossings #19 and #20 -->
+		<tracksegment ident="T120" connect1name="X2" type1="7" connect2name="TO6" type2="4" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- Padding track between Turnouts/Crossings #83 and #84 -->
+		<tracksegment ident="T121" connect1name="TO9" type1="2" connect2name="TO10" type2="3" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- Padding track between Turnouts/Crossings #98 and #99 -->
+		<tracksegment ident="T122" connect1name="X3" type1="7" connect2name="X4" type2="9" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- Padding track between Turnouts/Crossings #107 and #112 -->
+		<tracksegment ident="T123" connect1name="TO11" type1="3" connect2name="TO12" type2="4" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- Padding track between Turnouts/Crossings #119 and #120 -->
+		<positionablepoint ident="A101" type="1" x="187.62722994652407" y="116.34867379679147" connect1name="T124" connect2name="TUR1" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<positionablepoint ident="A102" type="1" x="187.62722994652407" y="116.34867379679147" connect1name="T124" connect2name="T103" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T124" connect1name="A101" type1="1" connect2name="A102" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- Padding track between Turnouts/Crossings #119 and #121 -->
+		<positionablepoint ident="A103" type="1" x="136.95278074866312" y="166.90627807486632" connect1name="T125" connect2name="TUR1" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<positionablepoint ident="A104" type="1" x="136.95278074866312" y="166.90627807486632" connect1name="T125" connect2name="T104" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T125" connect1name="A103" type1="1" connect2name="A104" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- Padding track between Turnouts/Crossings #119 and #122 -->
+		<positionablepoint ident="A105" type="1" x="126.72255614973263" y="145.3807914438503" connect1name="T126" connect2name="TUR1" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<positionablepoint ident="A106" type="1" x="126.72255614973263" y="145.3807914438503" connect1name="T126" connect2name="T105" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T126" connect1name="A105" type1="1" connect2name="A106" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- Padding track between Turnouts/Crossings #119 and #123 -->
+		<positionablepoint ident="A107" type="1" x="197.94982887700536" y="138.27190374331553" connect1name="T127" connect2name="TUR1" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<positionablepoint ident="A108" type="1" x="197.94982887700536" y="138.27190374331553" connect1name="T127" connect2name="T106" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T127" connect1name="A107" type1="1" connect2name="A108" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- Padding track between Turnouts/Crossings #119 and #124 -->
+		<positionablepoint ident="A109" type="1" x="197.2031871657754" y="133.65014973262038" connect1name="T128" connect2name="TUR1" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<positionablepoint ident="A110" type="1" x="197.2031871657754" y="133.65014973262038" connect1name="T128" connect2name="T107" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T128" connect1name="A109" type1="1" connect2name="A110" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	 <!-- Padding track between Turnouts/Crossings #119 and #125 -->
+		<positionablepoint ident="A111" type="1" x="195.85967914438504" y="129.16537967914445" connect1name="T129" connect2name="TUR1" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<positionablepoint ident="A112" type="1" x="195.85967914438504" y="129.16537967914445" connect1name="T129" connect2name="T108" class="jmri.jmrit.display.configurexml.PositionablePointXml" />
+		<tracksegment ident="T129" connect1name="A111" type1="1" connect2name="A112" type2="1" mainline="no" hidden="no" dashed="no" arc="no"  class="jmri.jmrit.display.configurexml.TrackSegmentXml" />
+	</LayoutEditor>
+	<!-- Written by XtrkCadReader on Sat Apr 10 19:31:18 CEST 2010 -->
+</layout-config>
+
