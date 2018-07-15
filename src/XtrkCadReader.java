@@ -30,7 +30,7 @@ import java.io.*;
 public class XtrkCadReader {
 
     // Some output constants
-    static final String REVISION = "2.2.2";
+    static final String REVISION = "2.2.3-ish";
     static final String EOL = System.getProperty("line.separator");
     static final String XMLHEADER = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>" + EOL
             + "<?xml-stylesheet href=\"http://jmri.sourceforge.net/xml/XSLT/panelfile.xsl\" type=\"text/xsl\"?>" + EOL
