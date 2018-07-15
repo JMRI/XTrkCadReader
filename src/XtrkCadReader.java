@@ -295,7 +295,7 @@ public class XtrkCadReader {
                             line.next();
                             line.next();
                             line.next();
-                            if (line.next().toUpperCase().equals("MAINLINE") || line.next().toUpperCase().equals("MAIN")) { // v5 file format uses Main layer name
+                            if (line.next().toUpperCase().equals("MAINLINE")) { // note that layer 0 is not checked
                                 mainLineLayer = newLayer;
                             }
                         }
@@ -1491,7 +1491,7 @@ public class XtrkCadReader {
                     if (!enableArcRendering) {
                         // Output for JMRI versions supporting arcs
                         if (isCurved) {
-                            arc = " arc=\"yes\" circle=\"yes\" ";
+                            arc = " arc=\"yes\" circle=\"yes\" hideConLines=\"yes\" ";
                             if (arcAngle < 0.0D) {
                                 arc += "flip=\"yes\" angle=\"" + (-(java.lang.Math.round(arcAngle * 100.) / 100.)) + "\" ";
                             } else {
@@ -1669,7 +1669,7 @@ public class XtrkCadReader {
                     if (!enableArcRendering) {
                         // Output for JMRI versions supporting arcs
                         if (isCurved) {
-                            arc = " arc=\"yes\" circle=\"yes\" ";
+                            arc = " arc=\"yes\" circle=\"yes\" hideConLines=\"yes\" ";
                             if (arcAngle < 0.0D) {
                                 arc += "flip=\"yes\" angle=\"" + (-(java.lang.Math.round(arcAngle * 100.) / 100.)) + "\" ";
                             } else {
