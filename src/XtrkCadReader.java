@@ -295,7 +295,7 @@ public class XtrkCadReader {
                             line.next();
                             line.next();
                             line.next();
-                            if (line.next().toUpperCase().equals("MAINLINE")) {
+                            if (line.next().toUpperCase().equals("MAINLINE")) { // note that layer 0 is not checked
                                 mainLineLayer = newLayer;
                             }
                         }
@@ -1224,13 +1224,13 @@ public class XtrkCadReader {
                 line.useLocale(Locale.US);  // Make sure decimal points are properly interpreted
                 if (line.hasNext()) {
                     keyword = line.next();
-                    if (keyword.equals("T")) {
-                        // End point connected with another track
+                    if (keyword.equals("T") || keyword.equals("T4")) { // T4 = XTrackCAD v 5.1.1. storage format
+                        // End point connected to another track
                         anchors.add(new XtrkCadAnchor(originalNumber, true));
-                    } else if (keyword.equals("E") || keyword.equals("E4")) { // also accept XTrackCAD v 5.1.1. storage format
+                    } else if (keyword.equals("E") || keyword.equals("E4")) { // E4 = XTrackCAD v 5.1.1. storage format
                         // End point not connected
                         anchors.add(new XtrkCadAnchor(originalNumber, false));
-                    } else if (keyword.equals("S") || keyword.equals("S4")) { // also accept XTrackCAD v 5.1.1. storage format
+                    } else if (keyword.equals("S")) {
                         // Straight segment - count it
                         iS++;
                         if (iC == 0) { // If a curve was already found, don't care about straight segment
@@ -1491,7 +1491,7 @@ public class XtrkCadReader {
                     if (!enableArcRendering) {
                         // Output for JMRI versions supporting arcs
                         if (isCurved) {
-                            arc = " arc=\"yes\" circle=\"yes\" ";
+                            arc = " arc=\"yes\" circle=\"yes\" hideConLines=\"yes\" ";
                             if (arcAngle < 0.0D) {
                                 arc += "flip=\"yes\" angle=\"" + (-(java.lang.Math.round(arcAngle * 100.) / 100.)) + "\" ";
                             } else {
@@ -1669,7 +1669,7 @@ public class XtrkCadReader {
                     if (!enableArcRendering) {
                         // Output for JMRI versions supporting arcs
                         if (isCurved) {
-                            arc = " arc=\"yes\" circle=\"yes\" ";
+                            arc = " arc=\"yes\" circle=\"yes\" hideConLines=\"yes\" ";
                             if (arcAngle < 0.0D) {
                                 arc += "flip=\"yes\" angle=\"" + (-(java.lang.Math.round(arcAngle * 100.) / 100.)) + "\" ";
                             } else {
