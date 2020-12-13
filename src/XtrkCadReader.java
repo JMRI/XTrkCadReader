@@ -25,13 +25,14 @@ import java.io.*;
  * 2016-Nov-19     MH - 2.2 Code and output clean up
  * 2017-May-6      BJ - 2.2.1 Change output XML to Schema
  * 2018-Jul-14     MH - 2.2.2 Added example files to package, no code changes
- * 2018-Jul-14     EB - 2.2.2 Fixed reading of version 5.1.1 TRACK item format, spelling of app name in output as on xtrkcad.org
- * 2020-Dec-01     EB - 2.2.3 Added reading 5.2 TRACK item format
+ * 2018-Jul-14     EB - 2.2.2 Fixed reading of XtrkCAD version 5.1.1 TRACK item format, spelling of app name in output as on xtrkcad.org
+ * 2020-Dec-01     EB - 2.2.3 Added reading XtrkCAD version 5.2 TRACK item format
+ * 2020-Dec-14     EB - 2.2.4 Added reading Bezier tracks from XtrkCAD version 5.2
  */
 public class XtrkCadReader {
 
     // Some output constants
-    static final String REVISION = "2.2.4-ish";
+    static final String REVISION = "2.2.5-ish";
     static final String EOL = System.getProperty("line.separator");
     static final String XMLHEADER = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>" + EOL
             + "<?xml-stylesheet href=\"http://jmri.sourceforge.net/xml/XSLT/panelfile.xsl\" type=\"text/xsl\"?>" + EOL
@@ -89,6 +90,7 @@ public class XtrkCadReader {
     static final int CROSSING = 4;
     static final int BUMPER = 5;
     static final int TURNTABLE = 6;
+    static final int BEZIER = 7;
 
     // Storage vectors
     static ArrayList<XtrkCadAnchor> anchors = new ArrayList<XtrkCadAnchor>();
@@ -232,7 +234,6 @@ public class XtrkCadReader {
                 out.println("\t\tAutomatic definition of blocks based on turnouts:\tdisabled");
             }
             if (enableBlockGaps || enableBlockTurnouts) {
-
                 if (enableBlockXing) {
                     out.println("\t\tAssign block numbers also to level crossings:\tenabled");
                 }
@@ -306,6 +307,8 @@ public class XtrkCadReader {
                         tracks.add(new XtrkCadElement(STRAIGHT));
                     } else if (keyword.equals("CURVE")) {
                         tracks.add(new XtrkCadElement(CURVE));
+                    } else if (keyword.equals("BEZIER")) { // new 5.2 track types
+                        tracks.add(new XtrkCadElement(BEZIER));
                     } else if (keyword.equals("TURNTABLE")) {
                         tracks.add(new XtrkCadElement(TURNTABLE));
                     } // Ignore other elements
@@ -729,7 +732,6 @@ public class XtrkCadReader {
                         anchorS.y = newY;
                     }   // Version 1.4 
                     nCurves++;
-
                 }
             }
             System.out.println("\t\t\t" + nCurves + " curves rendered, for a total of " + (nCurves + nTracks - nTracks2) + " chords");
@@ -770,11 +772,15 @@ public class XtrkCadReader {
             for (i = 0; i < nTracks; i++) {
                 XtrkCadElement track = tracks.get(i);
                 switch (track.trackType) {
-                    case BUMPER:    // A bumper is compose by a straight track and a bumper end point
+                    case BUMPER:    // A bumper is composed of a straight track and a bumper end point
                     case STRAIGHT:
                     case CURVE:
+                    case BEZIER:
                         track.jmriNumber = trackIdent++;
                         trackIDs++;
+                        //    if (track.trackType == BEZIER) {
+                        //        anchor.type = BEZIER; // should be type ANCHOR, normally "1" but loads fine
+                        //    }
                         break;
                     case TURNOUT:
                         track.jmriNumber = turnoutIdent;
@@ -1142,14 +1148,15 @@ public class XtrkCadReader {
         int blockX = 0;         // Additional block number for crossings
 
         // Reference coordinates
-        // Can assume different meaning, in accorance to trackType
-        double xReference, yReference, angleReference;
+        // Can assume different meaning, in accordance to trackType
+        double xReference, yReference, xReference2, yReference2, angleReference;
         double radius;
         int turnoutType;
         int visible;
 
         // Data for curved tracks (supported since JMRI 2.7.7)
         boolean isCurved = false;
+        boolean isBezier = false;
         double arcAngle = 0.0D;
 
         // Counters of straight and curved segments and paths
@@ -1184,7 +1191,7 @@ public class XtrkCadReader {
             line.next();
             line.next();
             line.next();
-            // Retrieve visibility idicator
+            // Retrieve visibility indicator
             visible = line.nextInt();
             // Retrieve track type specific fields
             if (trackType == CURVE || trackType == TURNTABLE) {
@@ -1213,6 +1220,17 @@ public class XtrkCadReader {
                 description = description.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;").replace("'", "&apos;").replace("\"", "&quot;");
             } else if (trackType == STRAIGHT) {
                 description = "#" + originalNumber + " Flexi-track straight segment";
+            } else if (trackType == BEZIER) {
+                description = "#" + originalNumber + " Bezier segment";
+                // Bezier - extract 2 controlpoints (anchorpoints will be extracted from details, connected or not
+                line.next(); // drop anchor1 x and y
+                line.next();
+                xReference = line.nextDouble() * scale;
+                yReference = (originalHeight - line.nextDouble()) * scale;
+                xReference2 = line.nextDouble() * scale;
+                yReference2 = (originalHeight - line.nextDouble()) * scale;
+//                line.next(); // drop anchor4 x and y
+//                line.next();
             }
             // Take note of the first anchor point
             firstAnchor = nAnchors;
@@ -1249,7 +1267,7 @@ public class XtrkCadReader {
                             xReference += x * c - y * s;
                             yReference += y * c + x * s;
                         }
-                    } else if (keyword.equals("C")) {
+                    } else if (keyword.equals("C") && !(trackType == BEZIER)) {
                         // Curved segment - count it
                         iC++;
                         // Get radius and compute center coordinates (we may need them in case this is curve)
@@ -1268,8 +1286,8 @@ public class XtrkCadReader {
                         // Path - simply count it
                         //We may need to know the number of paths to distinguish crossings from three-way turnouts
                         iP++;
-                    } else if (keyword.equals("END") || keyword.equals("END$SEGS")) {
-                        // End of description lines for this track ("END$SEGS" as of Xtrkcad v 5.2)
+                    } else if (keyword.equals("END") || keyword.equals("END$SEGS")) { // || keyword.equals("SUBSEND")) {
+                        // End of description lines for this track ("END$SEGS" as of Xtrkcad v 5.2, SUBSEND in Cornu - Beziers)
                         break;
                     }
                 }
@@ -1278,9 +1296,9 @@ public class XtrkCadReader {
             lastAnchor = nAnchors;
             // Identify element type
             // Elements marked as TURNOUTS can actually be any item from tracks library
-            // (XtrkCAD apparently uses STRAIGHT and CURVE only for flexi-track)
+            // (XtrkCAD apparently uses STRAIGHT and CURVE only for flexi-track and Bezier)
             if (trackType == TURNOUT) {
-                // Analyze number of end point
+                // Analyze number of end points
                 switch (lastAnchor - firstAnchor) {
                     case 1:
                         trackType = BUMPER;
@@ -1515,6 +1533,9 @@ public class XtrkCadReader {
                             + "\" mainline=\"" + mainLine + "\" " + hidden + arc + " class=\"jmri.jmrit.display.layoutEditor.configurexml.TrackSegmentXml\" />");
                     // Version 1.4 - End
                     break;
+                case BEZIER: // 2 pospoints and 2 controlpoints
+                    out.println("Bezier, for details see Print()");
+                    break;
                 default:
                     out.println("\t\t<!-- UNKNOWN item: ignored -->");
             }
@@ -1693,6 +1714,30 @@ public class XtrkCadReader {
                             + "\" mainline=\"" + mainLine + "\" " + hidden + arc + " class=\"jmri.jmrit.display.layoutEditor.configurexml.TrackSegmentXml\" />");
                     // Version 1.4 - End
                     break;
+                case BEZIER: // 2 anchors and 2 controlpoints
+                    hidden = "hidden=\"no\" dashed=\"no\"";
+                    if (visible == 0 && !hiddenIgnore) {
+                        if (hiddenDash) {
+                            hidden = "hidden=\"no\" dashed=\"yes\"";
+                        } else {
+                            hidden = "hidden=\"yes\" dashed=\"no\"";
+                        }
+                    }
+                    mainLine = "no";
+                    if (layer == mainLineLayer) {
+                        mainLine = "yes";
+                    }
+                    anchor1 = anchors.get(firstAnchor);
+                    anchor2 = anchors.get(firstAnchor + 1);
+                    out.println("\t\t<tracksegment ident=\"T" + jmriNumber + "\"" + blockString + " connect1name=\"" + anchor1.getIdent()
+                            + "\" type1=\"POS_POINT\" connect2name=\"" + anchor2.getIdent()
+                            + "\" type2=\"POS_POINT\""
+                            + " mainline=\"" + mainLine + "\" " + hidden + " bezier=\"yes\" hideConLines=\"yes\" class=\"jmri.jmrit.display.layoutEditor.configurexml.TrackSegmentXml\">");
+                    out.println("\t\t\t<controlpoints>");
+                    out.println("\t\t\t\t<controlpoint  index=\"0\" x=\"" + xReference + "\" y=\"" + yReference + "\" />");
+                    out.println("\t\t\t\t<controlpoint  index=\"1\" x=\"" + xReference2 + "\" y=\"" + yReference2 + "\" />");
+                    out.println("\t\t\t</controlpoints>");
+                    out.println("\t\t</tracksegment>");
                 default:
                     out.println("\t\t<!-- UNKNOWN item: ignored -->");
             }
